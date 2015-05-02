@@ -17,7 +17,7 @@
 
 
 # Function to read GTFS file from local directory and save processed result to a new file.
-# Data time_stamp = Mar 04 of 2015 at 17:47.
+# Data time stamp = 04 Mar. 2015 at 17:47.
 
 def gtfs_to_edge_list():
     rsource = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times.txt"
@@ -51,34 +51,28 @@ def gtfs_to_edge_list():
 
 
 import networkx as nx
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
-# TODO create digraph from edge list
+# TODO create directed Graph from edge list
 source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
 el = open(source, 'rb')
-PTN = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph())
+PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph())
 el.close()
 
-print(nx.degree_centrality(PTN))
-print(nx.betweenness_centrality(PTN))
-print(nx.info(PTN))
+# # TODO create undirected Graph from edge list
+# source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
+# el = open(source, 'rb')
+# PTN_G = nx.read_edgelist(el, delimiter=',', create_using=nx.Graph())
+# el.close()
+
+# TODO plot degree distribution and info
+# print(nx.info(PTN_D))
+# print(nx.degree_histogram(PTN_D))
+# print(nx.info(PTN_G))
+# print(nx.degree_histogram(PTN_G))
+
+# TODO plot metrics
 
 
-
-
-
-# pos = nx.spring_layout(PTN, dim=2,)
-# nx.draw_networkx(PTN, pos,
-#                  with_labels=False,
-#                  node_size=60,
-#                  node_color="r",
-#                  alpha=0.90,
-#                  width=0.75)
-#
-# plt.show()
-
-
-# TODO plot graphs and indicators
-# TODO run calculations script
-# TODO plot distributions and metrics
+# TODO draw graphs
