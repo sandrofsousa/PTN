@@ -1,81 +1,73 @@
-# def read_file():
-#     path = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times copy.txt"
-#     data = open(path, "r")
-#     result = data.readline()
-#     # get trip_id, stop_id and stop_sequence from line in file
-#     for result in data:
-#         search_comma = result.split(',')
-#         trip_id = search_comma[0]
-#         stop_id = search_comma[3]
-#         stop_sequence = search_comma[4]
-#     return trip_id, int(stop_id), int(stop_sequence)
-# print(read_file())
+# Grafos gerados para qualificacão
 
+import networkx as nx
+import matplotlib.pyplot as plt
 
-# path = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times copy.txt"
-# data = open(path, "r")
-# temp = []
-# result = data.readline()
-# for result in data:
-#     search_comma = result.split(',')
-#     trip_id = search_comma[0]
-#     stop_id = search_comma[3]
-#     stop_sequence = search_comma[4]
-#     temp.append([trip_id, int(stop_id), int(stop_sequence)])
-# print(temp)
+# # Random graph
+# G = nx.erdos_renyi_graph(16, 2)
+# nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
 
+# # Small World
+# G = nx.watts_strogatz_graph(16, 4, 0.2)
+# nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
 
-# def read_file():
-#     path = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times copy.txt"
-#     with open(path, "r") as data:
-#         for line in data:
-#             result = data.readline()
-#             search_comma = result.split(',')
-#             trip_id = search_comma[0]
-#             stop_id = search_comma[3]
-#             stop_sequence = search_comma[4]
-#             print(trip_id, int(stop_id), int(stop_sequence))
-#     data.close()
-#     print(trip_id, int(stop_id), int(stop_sequence))
+# # Regular Connected
+# G = nx.connected_watts_strogatz_graph(13, 8, 0)
+# nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
+
+# # Scale free
+# G = nx.barabasi_albert_graph(16, 1, 0.4)
+# nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
+
+# # Scale free
+# G = nx.barabasi_albert_graph(16, 1, 0.4)
+# nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
+
+# Scale free
+# G = nx.Graph()
+# G.add_nodes_from([1,2,3,4,5,6,7,8])
+# G.add_edges_from([(1, 2), (2, 3), (3, 4), (4, 5), (6, 7), (7, 3), (3, 8), (8, 9)])
+# nx.draw(G, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
+
+# B = nx.Graph()
+# B.add_nodes_from([1,2,3,4,5], bipartite=0) # Add the node attribute "bipartite"
+# B.add_nodes_from(['a','b','c','d'], bipartite=1)
+# B.add_edges_from([(1,2), (2,3), (3,4), (4,5), ('a','b'), ('b',3), (3,'c'), ('c','d')])
+# nx.draw(B, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
 #
-# print(read_file())
-
-
-# path = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times copy.txt"
-# tpath = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times copy 2.txt"
-# target = open(tpath, "w")
-# data = open(path, "r")
-# # temp = []
-# result = data.readline()
-# for result in data:
-#     search_comma = result.split(',')
-#     trip_id = str(search_comma[0])
-#     stop_id = str(search_comma[3])
-#     stop_sequence = str(search_comma[4])
-#     target.writelines([trip_id, stop_id, stop_sequence])
-# target.close()
-# target.writelines(temp)
+# from networkx import *
+# import matplotlib.pyplot as plt
 #
-path = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times copy.txt"
-with open(path, "r") as data:
-    result_old = data.readline()
-    search_comma = result_old.split(',')
-    trip_old = search_comma[0]
-    stop_old = int(search_comma[3])
+#
+# z=[1,1,2,3,5,8,13]
+# print(is_valid_degree_sequence(z))
+#
+# print("Configuration model")
+# G=configuration_model(z)  # configuration model
+# degree_sequence=list(degree(G).values()) # degree sequence
+# print("Degree sequence %s" % degree_sequence)
+# print("Degree histogram")
+# hist={}
+# for d in degree_sequence:
+#     if d in hist:
+#         hist[d]+=1
+#     else:
+#         hist[d]=1
+# print("degree #nodes")
+# for d in hist:
+#     print('%d %d' % (d,hist[d]))
+#
+# draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
+# plt.show()
 
-    result_new = data.readline()
-    search_comma = result_new.split(',')
-    trip_new = search_comma[0]
-    stop_new = int(search_comma[3])
-
-    edge_list = []
-
-    for line in data:
-        if trip_old == trip_new:
-            edge_list.append([stop_old, stop_new, trip_old])
-            continue
-
-    print(stop_old, stop_new, trip_old)
-
-    #print(stop_old, stop_new, trip_old, trip_new)
-    print(edge_list)
+# Regular Connected
+G = nx.connected_watts_strogatz_graph(13, 8, 0)
+nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=False)
+plt.show()
