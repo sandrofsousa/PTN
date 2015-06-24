@@ -71,7 +71,7 @@ el.close()
 # print(nx.degree_histogram(PTN_D))
 # print(nx.info(PTN_G))
 # print(nx.degree_histogram(PTN_G))
-print(nx.average_shortest_path_length(PTN_D))
+# print(nx.average_shortest_path_length(PTN_D))
 
 # TODO plot metrics
 
