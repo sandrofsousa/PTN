@@ -67,7 +67,11 @@ import matplotlib.pyplot as plt
 # draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
 # plt.show()
 
-# Regular Connected
-G = nx.connected_watts_strogatz_graph(13, 8, 0)
-nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=False)
-plt.show()
+import networkx as nx
+G=nx.Graph()
+G.add_edges_from([(1,2),(1,3),(2,3),(1,3)])
+
+print(G.edges())
+print(G.degree())
+
+

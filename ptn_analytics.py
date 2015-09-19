@@ -20,8 +20,8 @@
 # Data time stamp = 04 Mar. 2015 at 17:47.
 
 def gtfs_to_edge_list():
-    rsource = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times.txt"
-    wsource = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
+    rsource = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/GTFS/stop_times.txt"
+    wsource = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edge_list.txt"
     with open(rsource, "r") as data, open(wsource, "w") as target:
         # create two equal lists containing file' lines
         file1 = file2 = [line.strip() for line in data]
@@ -54,13 +54,13 @@ import networkx as nx
 # import matplotlib.pyplot as plt
 
 
-# TODO create directed Graph from edge list
+# Create directed Graph from edge list
 source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
 el = open(source, 'rb')
 PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph())
 el.close()
 
-# # TODO create undirected Graph from edge list
+# Create undirected Graph from edge list
 # source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
 # el = open(source, 'rb')
 # PTN_G = nx.read_edgelist(el, delimiter=',', create_using=nx.Graph())
@@ -72,6 +72,7 @@ el.close()
 # print(nx.info(PTN_G))
 # print(nx.degree_histogram(PTN_G))
 # print(nx.average_shortest_path_length(PTN_D))
+
 
 # TODO plot metrics
 
