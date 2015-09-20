@@ -53,12 +53,23 @@ def gtfs_to_edge_list():
 import networkx as nx
 # import matplotlib.pyplot as plt
 
+# TODO join metro networks to bus networks
 
+# TODO
 # Create directed Graph from edge list
 source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
 el = open(source, 'rb')
 PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph())
 el.close()
+
+# print(nx.attracting_components(PTN_D))
+# print(nx.number_weakly_connected_components(PTN_D))
+# print(nx.is_weakly_connected(PTN_D))
+# print(list(nx.connected_components(PTN_D)))
+for g in nx.connected_component_subgraphs(PTN_D):
+    print(nx.average_shortest_path_length(g))
+
+
 
 # Create undirected Graph from edge list
 # source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"

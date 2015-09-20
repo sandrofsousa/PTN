@@ -1,6 +1,13 @@
 __author__ = 'sandrofsousa'
 
-source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edge_list.txt"
-el = open(source, 'rb')
-PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph())
-el.close()
+# TODO Generate weight from travel time
+
+# TODO generate weight from link count
+
+# TODO generate weight from distance between nodes
+
+# TODO generate weight based on system capacity
+
+
+
+
