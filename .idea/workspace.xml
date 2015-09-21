@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="Working code for graph. Need recalculate metrics and add information from qualifying exam.">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/edge_list_sample.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/walker.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/weighted_edge_list_sample.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/weighted_edges.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/weighted_network.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ptn_analytics.py" afterPath="$PROJECT_DIR$/ptn_analytics.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="" />
     <ignored path="PTN.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +24,8 @@
       <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8251748">
-              <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.75524473">
+              <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -484,7 +476,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442710138773</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="new files">
+      <created>1442858028754</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1442858028754</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -536,7 +534,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working code to create edge list. Need to be validated." />
     <MESSAGE value="Working code for graph. Need recalculate metrics and add information from qualifying exam." />
-    <option name="LAST_COMMIT_MESSAGE" value="Working code for graph. Need recalculate metrics and add information from qualifying exam." />
+    <MESSAGE value="new files" />
+    <option name="LAST_COMMIT_MESSAGE" value="new files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -928,8 +927,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8251748">
-          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.75524473">
+          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
           <folding />
         </state>
       </provider>
