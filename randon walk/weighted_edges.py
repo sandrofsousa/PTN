@@ -1,5 +1,5 @@
-file_from = "C:\\Users\\Rolf\\Documents\\GitHub\\ptn_model\\edge_list_sample.txt"
-file_to = "C:\\Users\\Rolf\\Documents\\GitHub\\ptn_model\\weighted_edge_list_sample.txt"
+file_from = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
+file_to = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/weighted_network.txt"
 edges = []
 weights = []
 with open(file_from, "r") as edge_file, open(file_to, "w") as weighted_edge_file:
