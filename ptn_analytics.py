@@ -89,3 +89,5 @@ for g in nx.connected_component_subgraphs(PTN_D):
 
 
 # TODO draw graphs
+
+# Validade lines
