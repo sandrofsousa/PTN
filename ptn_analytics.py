@@ -15,24 +15,27 @@
 ##                                                                                                             ##
 #################################################################################################################
 
+# algoritmos não implementados para grafo dirigido, procurar novo pacote
+# o que fazer com os liks que possuem mais de um valor de tempo, várias linhas nos mesmos pontos
+# como adicionar os links que conectam o metrô a estação de onibus? qual peso, sentido, grau, copiar linhas de onibus?
+# como calcular o peso baseado na distancia? qual tipo de vizinhança considerar? manhattan?
+# no link metrô onibus, considerar somente as linhas com destino à estação ou que apenas passam por ela?
+
 
 import networkx as nx
 # import matplotlib.pyplot as plt
 
 # TODO join metro networks to bus networks
 
-# TODO
-# Create directed Graph from edge list
+# Create Graph from edge list
 source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
 el = open(source, 'rb')
 PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph())
 el.close()
 
-# print(nx.attracting_components(PTN_D))
-# print(nx.number_weakly_connected_components(PTN_D))
-# print(nx.is_weakly_connected(PTN_D))
-# print(list(nx.connected_components(PTN_D)))
-
+print(nx.info(PTN_D))
+# print("centrality", nx.betweenness_centrality(PTN_D))
+print(nx.number_connected_components(PTN_D))
 
 
 # Create undirected Graph from edge list

@@ -38,7 +38,7 @@ import networkx as nx
 def generate_graph_from_file(file_name):
     global PTN_D
     el = open(file_name, 'rb')
-    PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph(), data=(('weight', int),))
+    PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.Graph(), data=(('weight', int),))
     el.close()
 
 generate_graph_from_file(target_file)

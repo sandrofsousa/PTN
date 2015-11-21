@@ -68,3 +68,7 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 
+# Regular Connected
+G = nx.connected_watts_strogatz_graph(40, 39, 100)
+nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True, link_color='red')
+plt.show()
