@@ -6,7 +6,7 @@ from math import sin, cos, sqrt, atan2, radians
 
 # Function to read GTFS file and get latitude and longitude from stops.
 def get_stops_geodata():
-    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/GTFS/stops.txt"
+    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stops_sample.txt" # TODO change to full
 
     # temporary list to store data
     geodata = []
@@ -28,7 +28,6 @@ def get_stops_geodata():
 
         data.close()
     return geodata
-# get_stops_geodata()
 
 
 # Function to calculate distance in meters from two latitude and longitude.
@@ -48,7 +47,6 @@ def calc_stops_distance(lat1, lon1, lat2, lon2):
     distance = R * c
 
     return distance
-# calc_stops_distance(lat1, lon1, lat2, lon2)
 
 
 # Algorithm 1 to process GTFS file and return the list of stops in a proximity based on a rho vector.
@@ -79,5 +77,11 @@ def algorithm_1(rho):
             else:
                 continue
     return stops
+# TODO save results to file
 
 
+############################################################################################
+
+
+# Algorithm 2 to process grouped IDs list from previous algorithm and replace them with a new id for the grouped stops.
+def algorithm_2():

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/georef_processing.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gtfs_processing.py" afterPath="$PROJECT_DIR$/gtfs_processing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -39,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/create_edgelist_from_gtfs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+              <caret line="15" column="36" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -48,12 +47,13 @@
       <file leaf-file-name="gtfs_processing.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gtfs_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49095023">
-              <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.7554348">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
                 <element signature="e#29#51#0" expanded="true" />
-                <element signature="e#203#901#0" expanded="false" />
-                <element signature="e#1056#1520#0" expanded="false" />
+                <element signature="e#203#948#0" expanded="false" />
+                <element signature="e#1080#1544#0" expanded="false" />
+                <element signature="e#1675#2599#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -506,7 +506,19 @@
       <option name="project" value="LOCAL" />
       <updated>1448064389244</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="New function added to calculate the distance from two latitude and longitude.">
+      <created>1448144526852</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1448144526852</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Algorithm 1 finished and working. Code working for a fixed value of rho, define a vector for simulations.">
+      <created>1448227690758</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1448227690758</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -533,8 +545,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20413026" sideWeight="0.48907104" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17553614" sideWeight="0.40710384" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25036603" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30983847" sideWeight="0.49540442" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4185022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30983847" sideWeight="0.49540442" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -584,14 +596,16 @@
     <MESSAGE value="new file for function to create edge list. Link's weight by count script working and finished." />
     <MESSAGE value="Working code for weighted network." />
     <MESSAGE value="New function created to get geo reference data from stops file." />
-    <option name="LAST_COMMIT_MESSAGE" value="New function created to get geo reference data from stops file." />
+    <MESSAGE value="New function added to calculate the distance from two latitude and longitude." />
+    <MESSAGE value="Algorithm 1 finished and working. Code working for a fixed value of rho, define a vector for simulations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Algorithm 1 finished and working. Code working for a fixed value of rho, define a vector for simulations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -972,19 +986,20 @@
     <entry file="file://$PROJECT_DIR$/create_edgelist_from_gtfs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49095023">
-          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.7554348">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#29#51#0" expanded="true" />
-            <element signature="e#203#901#0" expanded="false" />
-            <element signature="e#1056#1520#0" expanded="false" />
+            <element signature="e#203#948#0" expanded="false" />
+            <element signature="e#1080#1544#0" expanded="false" />
+            <element signature="e#1675#2599#0" expanded="false" />
           </folding>
         </state>
       </provider>
