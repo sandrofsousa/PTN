@@ -49,39 +49,80 @@ def calc_stops_distance(lat1, lon1, lat2, lon2):
     return distance
 
 
-# Algorithm 1 to process GTFS file and return the list of stops in a proximity based on a rho vector.
-def algorithm_1(rho):
-    stops = []
-    data = get_stops_geodata()
+# Algorithm 1 to process stops file and return the list of nearby stops based on a rho radius vector.
+def algorithm_1(rho, stops):
+    neighbors = []
 
     # loop reading the lists of stops, ignoring the last stop.
-    for row1 in range(len(data) - 1):
+    for row1 in range(len(stops) - 1):
         # Get values from first row.
-        stop1 = data[row1][0]
-        lat1 = data[row1][1]
-        lon1 = data[row1][2]
+        stop1 = stops[row1][0]
+        lat1 = stops[row1][1]
+        lon1 = stops[row1][2]
 
         # loop reading the lists of stops, skipping the first row.
-        for row2 in range(row1 + 1, len(data)):
+        for row2 in range(row1 + 1, len(stops)):
             # Get values from second row.
-            stop2 = data[row2][0]
-            lat2 = data[row2][1]
-            lon2 = data[row2][2]
+            stop2 = stops[row2][0]
+            lat2 = stops[row2][1]
+            lon2 = stops[row2][2]
 
             # call function to calculate the distance between two stops coordinates.
             distance = calc_stops_distance(lat1, lon1, lat2, lon2)
 
             # If distance <= rho, save two stops - they are close each other. Else, keep searchin on file.
             if distance <= rho:
-                stops.append((stop1, stop2))
+                neighbors.append((stop1, stop2))
             else:
                 continue
-    return stops
-# TODO save results to file
+    return neighbors
 
 
 ############################################################################################
 
 
-# Algorithm 2 to process grouped IDs list from previous algorithm and replace them with a new id for the grouped stops.
-def algorithm_2():
+# Algorithm 2 to process neighbors IDs list from previous algorithm and replace them with a new id for grouped stops.
+def algorithm_2(stops, neighbors):
+    # Pared lists to store stop id on left and new id on right if there's a neighbor.
+    grouped_left = []
+    grouped_right = []
+
+    # Populate left list with all stops, taking first position of tuple. Right list filled with 0 to keep sync.
+    for row in stops:
+        stop = row[0]
+        grouped_left.append(stop)
+        grouped_right.append(0)
+
+    # Get nearby stops from neighbors list.
+    last_id = 0
+    for row in neighbors:
+        stop1 = row[0]
+        stop2 = row[1]
+
+        # Linear search at neighbors list to create index.
+        stop1_index = grouped_left.index(stop1)
+        stop2_index = grouped_left.index(stop2)
+
+        if grouped_right[stop1_index] = 0:
+            grouped_right[stop1_index] = last_id + 1
+            last_id += 1
+        elif:
+
+
+
+
+
+
+
+        if stop in neighbors:
+            grouped.append([stop, 0])
+
+
+
+
+def main():
+    stops = get_stops_geodata()
+    rho = 30        # TODO change rho to a vector
+    neighbors = algorithm_1(rho, stops)
+    new_stops = algorithm_2(stops, neighbors)
+
