@@ -86,6 +86,8 @@ def algorithm_2(stops, neighbors):
     # Pared lists to store stop id on left and new id on right if there's a neighbor.
     grouped_left = []
     grouped_right = []
+    last_id = 0
+
 
     # Populate left list with all stops, taking first position of tuple. Right list filled with 0 to keep sync.
     for row in stops:
@@ -94,30 +96,34 @@ def algorithm_2(stops, neighbors):
         grouped_right.append(0)
 
     # Get nearby stops from neighbors list.
-    last_id = 0
     for row in neighbors:
         stop1 = row[0]
         stop2 = row[1]
 
-        # Linear search at neighbors list to create index.
+        # Linear search at neighbors list to create an index for both stops.
         stop1_index = grouped_left.index(stop1)
         stop2_index = grouped_left.index(stop2)
 
-        if grouped_right[stop1_index] = 0:
-            grouped_right[stop1_index] = last_id + 1
-            last_id += 1
-        elif:
+        # Position in grouped_right list based on first value of neighbors (stop1_index),
+        # If stop1 hasn't a new id - check stop2. if stop2 also hasn't new id - set both with the same new ID.
+        if grouped_right[stop1_index] == 0:
+            if grouped_right[stop2_index] == 0:
+                grouped_right[stop1_index] = last_id + 1
+                grouped_right[stop2_index] = last_id + 1
+                last_id += 1    # update last_id list to keep consistent sequence
+            else:
+                grouped_right[stop1_index] = grouped_right[stop2_index]
 
+        # If stop1 has a new id - check stop2. if stop2 hasn't a new id - set both with the same new ID.
+        else:
+            if grouped_right[stop2_index] == 0:
+                grouped_right[stop2_index] = grouped_right[stop1_index]
+            else:
+                continue
+    for (s1, s2) in zip(grouped_left, grouped_right):
+        print(s1, s2)
 
-
-
-
-
-
-        if stop in neighbors:
-            grouped.append([stop, 0])
-
-
+############################################################################################
 
 
 def main():
@@ -125,4 +131,6 @@ def main():
     rho = 30        # TODO change rho to a vector
     neighbors = algorithm_1(rho, stops)
     new_stops = algorithm_2(stops, neighbors)
+    return new_stops
 
+main()
