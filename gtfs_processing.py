@@ -120,8 +120,10 @@ def algorithm_2(stops, neighbors):
                 grouped_right[stop2_index] = grouped_right[stop1_index]
             else:
                 continue
-    for (s1, s2) in zip(grouped_left, grouped_right):
-        print(s1, s2)
+
+    for (g1, g2) in zip(grouped_left, grouped_right):
+        print(g1, g2)
+
 
 ############################################################################################
 
@@ -132,5 +134,3 @@ def main():
     neighbors = algorithm_1(rho, stops)
     new_stops = algorithm_2(stops, neighbors)
     return new_stops
-
-main()
