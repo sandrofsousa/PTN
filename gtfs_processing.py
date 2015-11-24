@@ -1,12 +1,13 @@
-__author__ = 'sandrofsousa'
 
 from csv import reader
 from math import sin, cos, sqrt, atan2, radians
 
+__author__ = 'sandrofsousa'
+
 
 # Function to read GTFS file and get latitude and longitude from stops.
 def get_stops_geodata():
-    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stops_sample.txt" # TODO change to full
+    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stops_sample.txt"   # TODO change to full
 
     # temporary list to store data
     geodata = []
@@ -33,7 +34,7 @@ def get_stops_geodata():
 # Function to calculate distance in meters from two latitude and longitude.
 def calc_stops_distance(lat1, lon1, lat2, lon2):
     # approximate mean radius of earth in meters
-    R = 6371000.0
+    r = 6371000.0
 
     # convert decimal degrees to radians
     lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
@@ -44,7 +45,7 @@ def calc_stops_distance(lat1, lon1, lat2, lon2):
     # Haversine formula to calculate the great-circle distance between two points
     a = sin(dif_lat / 2)**2 + cos(lat1) * cos(lat2) * sin(dif_lon / 2)**2
     c = 2 * atan2(sqrt(a), sqrt(1 - a))
-    distance = R * c
+    distance = r * c
 
     return distance
 
@@ -88,7 +89,6 @@ def algorithm_2(stops, neighbors):
     grouped_right = []
     last_id = 0
 
-
     # Populate left list with all stops, taking first position of tuple. Right list filled with 0 to keep sync.
     for row in stops:
         stop = row[0]
@@ -104,8 +104,9 @@ def algorithm_2(stops, neighbors):
         stop1_index = grouped_left.index(stop1)
         stop2_index = grouped_left.index(stop2)
 
-        # Position in grouped_right list based on first value of neighbors (stop1_index),
-        # If stop1 hasn't a new id - check stop2. if stop2 also hasn't new id - set both with the same new ID.
+        # Position in grouped_right list based on first value of neighbors based on stop1_index.
+        # For the case when stop1 is empty: check stop2, if it's also empty - set an equal new ID for both.
+        # If stop2 already has a new ID, set the same new ID for stop1.
         if grouped_right[stop1_index] == 0:
             if grouped_right[stop2_index] == 0:
                 grouped_right[stop1_index] = last_id + 1
@@ -114,15 +115,33 @@ def algorithm_2(stops, neighbors):
             else:
                 grouped_right[stop1_index] = grouped_right[stop2_index]
 
-        # If stop1 has a new id - check stop2. if stop2 hasn't a new id - set both with the same new ID.
+        # For the case when stop1 has already a new ID: check stop2.
+        # If stop2 also empty - set the same new ID from stop1. Otherwise, continue.
         else:
             if grouped_right[stop2_index] == 0:
                 grouped_right[stop2_index] = grouped_right[stop1_index]
             else:
                 continue
 
-    for (g1, g2) in zip(grouped_left, grouped_right):
-        print(g1, g2)
+    # Update stops not in neighbors list, replacing zero values in grouped_right with the original stop ID.
+    for line in stops:
+        stop = line[0]
+        stop_index = grouped_left.index(stop)
+
+        # If stop from index equals zero, update grouped_right with index value. Otherwise, continue.
+        if grouped_right[stop_index] == 0:
+            grouped_right[stop_index] = grouped_left[stop_index]
+        else:
+            continue
+
+    # Join the two list in only one and split the lines
+    return list(zip(grouped_left, grouped_right))
+
+
+############################################################################################
+
+
+# def algorithm_3():
 
 
 ############################################################################################
@@ -130,7 +149,8 @@ def algorithm_2(stops, neighbors):
 
 def main():
     stops = get_stops_geodata()
-    rho = 30        # TODO change rho to a vector
+    rho = 30         # TODO change rho to a vector.
     neighbors = algorithm_1(rho, stops)
     new_stops = algorithm_2(stops, neighbors)
-    return new_stops
+    return neighbors, new_stops
+
