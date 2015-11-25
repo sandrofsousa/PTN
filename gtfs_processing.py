@@ -6,8 +6,8 @@ __author__ = 'sandrofsousa'
 
 
 # Function to read GTFS file and get latitude and longitude from stops.
-def get_stops_geodata():
-    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stops_sample.txt"   # TODO change to full
+def get_stops_geodata():        # TODO change to full file
+    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stops_sample.txt"
 
     # temporary list to store data
     geodata = []
@@ -76,6 +76,7 @@ def algorithm_1(rho, stops):
                 neighbors.append((stop1, stop2))
             else:
                 continue
+
     return neighbors
 
 
@@ -141,7 +142,42 @@ def algorithm_2(stops, neighbors):
 ############################################################################################
 
 
-# def algorithm_3():
+# Read stop times and replace the current stop on sequence with new id when it exist.
+def update_stop_times(grouped):
+    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/GTFS/stop_times.txt"
+    trip_times = []
+    stop_times = []
+    new_stop_times = []
+
+    with open(file1, "r", newline='') as times:
+        # parse data using csv based on ',' position.
+        searcher = reader(times, delimiter=',', quotechar='"')
+        # skip header (first line).
+        next(searcher)
+        for line in searcher:
+            # select the respective column of line based on ',' position and update trip/stop lists.
+            trip_id = str(line[0])
+            stop_id = int(line[3])
+            trip_times.append(trip_id)
+            stop_times.append(stop_id)
+
+        times.close()
+    # Loop at grouped list
+    for row in grouped:
+        # select the respective column of line based on ',' position.
+        stop1 = row[0]
+        stop2 = row[1]
+        index = stop_times.index(stop1)
+
+        # If stop1 equals stop2 in grouped list (no new id was given) append trip from index and stop2 IDs.
+        if stop1 == stop2:
+            new_stop_times.append((trip_times[index], stop2))
+
+        # Otherwise, append trip from index position and stop2 IDs to new_stop_times list.
+        else:
+            new_stop_times.append((trip_times[index], stop2))
+
+    return new_stop_times
 
 
 ############################################################################################
@@ -151,6 +187,7 @@ def main():
     stops = get_stops_geodata()
     rho = 30         # TODO change rho to a vector.
     neighbors = algorithm_1(rho, stops)
-    new_stops = algorithm_2(stops, neighbors)
-    return neighbors, new_stops
+    grouped = algorithm_2(stops, neighbors)
+    edge_list = update_stop_times(grouped)
 
+    return neighbors, grouped, edge_list
