@@ -6,19 +6,16 @@ from math import sin, cos, sqrt, atan2, radians
 
 
 # Function to read GTFS file and get latitude and longitude from stops.
-def get_stops_geodata():        # PASSED
+def get_stops_geodata():  # PASSED
     file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stops.txt"
-
-    # temporary list to store data
     geodata = []
-    with open(file, "r", newline='') as data:
 
+    with open(file, "r", newline='') as data:
         # parse data using csv based on ',' position.
         searcher = reader(data, delimiter=',', quotechar='"')
         # skip header (first line).
         next(searcher)
         for line in searcher:
-
             # select the respective column of line based on ',' position.
             stop_id = int(line[0])
             stop_lat = float(line[3])
@@ -28,12 +25,11 @@ def get_stops_geodata():        # PASSED
             geodata.append((stop_id, stop_lat, stop_lon))
 
         data.close()
-
     return geodata
 
 
 # Function to calculate distance in meters from two latitude and longitude.
-def calc_stops_distance(lat1, lon1, lat2, lon2):    # PASSED
+def calc_stops_distance(lat1, lon1, lat2, lon2):  # PASSED
     # approximate mean radius of earth in meters
     r = 6371000.0
 
@@ -44,7 +40,7 @@ def calc_stops_distance(lat1, lon1, lat2, lon2):    # PASSED
     dif_lon = lon2 - lon1
 
     # Haversine formula to calculate the great-circle distance between two points
-    a = sin(dif_lat / 2)**2 + cos(lat1) * cos(lat2) * sin(dif_lon / 2)**2
+    a = sin(dif_lat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dif_lon / 2) ** 2
     c = 2 * atan2(sqrt(a), sqrt(1 - a))
     distance = r * c
 
@@ -52,7 +48,7 @@ def calc_stops_distance(lat1, lon1, lat2, lon2):    # PASSED
 
 
 # Algorithm 1 to process stops file and return the list of nearby stops based on a rho radius vector.
-def algorithm_1(rho, stops):    #PASSED
+def algorithm_1(rho, stops):  # PASSED
     neighbors = []
 
     # loop reading the lists of stops, ignoring the last stop.
@@ -74,14 +70,10 @@ def algorithm_1(rho, stops):    #PASSED
 
             # If distance <= rho, save two stops - they are close each other. Else, keep searchin on file.
             if distance <= rho:
-                neighbors.append((stop1, stop2))
+                neighbors.append((stop1, stop2, distance))
             else:
                 continue
-
     return neighbors
-
-
-############################################################################################
 
 
 # Algorithm 2 to process neighbors IDs list from previous algorithm and replace them with a new id for grouped stops.
@@ -113,7 +105,7 @@ def algorithm_2(stops, neighbors):
             if grouped_right[stop2_index] == 0:
                 grouped_right[stop1_index] = last_id + 1
                 grouped_right[stop2_index] = last_id + 1
-                last_id += 1    # update last_id list to keep consistent sequence
+                last_id += 1  # update last_id list to keep consistent sequence
             else:
                 grouped_right[stop1_index] = grouped_right[stop2_index]
 
@@ -140,15 +132,13 @@ def algorithm_2(stops, neighbors):
     return list(zip(grouped_left, grouped_right))
 
 
-############################################################################################
-
-
 # Read stop times and replace the current stop on route sequence with new id when it exist from grouped list.
 def update_stop_times(grouped):
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
     file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
-    dictionary = dict(grouped)  # dictionary with stops groups for replace
+    dictionary = dict(grouped)  # dictionary with stops grouped for lookup
     # new_stop_times = []
+
     with open(file1, "r", newline='') as times, open(file2, "w", newline='') as result:
         # parse data using csv based on ',' position.
         searcher = reader(times, delimiter=',', quotechar='"')
@@ -158,69 +148,39 @@ def update_stop_times(grouped):
             # select the respective column of line based on ',' position.
             trip_id = str(line[0])
             stop_id = int(line[3])
-            # trip_times.append(trip_id)
-            # stop_times.append(stop_id)
-            # if stop_id in dictionary:
-            # new_stop_times.append((trip_id, dictionary[stop_id]))
+            # new_stop_times.append((trip_id, str(dictionary[stop_id])))
             result.writelines([trip_id + "," + str(dictionary[stop_id]) + "\n"])
 
+        # close files
         times.close()
         result.close()
-    # return new_stop_times
+        # return new_stop_times
 
-
-############################################################################################
 
 # Main function to call sub function and populate variables.
 def main():
-    stops = get_stops_geodata()
-    rho = 30         # TODO change rho to a vector.
-    neighbors = algorithm_1(rho, stops)
-    grouped = algorithm_2(stops, neighbors)
+    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
+    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors.txt"
+    file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped.txt"
+
+    rho = 30  # TODO change rho to a vector.
+
+    geodata = get_stops_geodata()
+    with open(file1, "w", newline='') as data1:
+        for line1 in geodata:
+            data1.write("%s\n" % str(line1))
+
+    neighbors = algorithm_1(rho, geodata)
+    with open(file2, "w", newline='') as data2:
+        for line2 in neighbors:
+            data2.write("%s\n" % str(line2))
+
+    grouped = algorithm_2(geodata, neighbors)
+    with open(file3, "w", newline='') as data3:
+        for line3 in grouped:
+            data3.write("%s\n" % str(line3))
+
     update_stop_times(grouped)
 
+
 main()
-
-
-# # Read stop times and replace the current stop on sequence with new id when it exist.
-# def update_stop_times(grouped):
-#     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/GTFS/stop_times.txt"
-#     trip_times = []
-#     stop_times = []
-#     new_stop_times = []
-#
-#     with open(file1, "r", newline='') as times:
-#         # parse data using csv based on ',' position.
-#         searcher = reader(times, delimiter=',', quotechar='"')
-#         # skip header (first line).
-#         next(searcher)
-#         for line in searcher:
-#             # select the respective column of line based on ',' position and update trip/stop lists.
-#             trip_id = str(line[0])
-#             stop_id = int(line[3])
-#             trip_times.append(trip_id)
-#             stop_times.append(stop_id)
-#
-#         times.close()
-#     # Loop at grouped list
-#     for row in grouped:
-#         # select the respective column of line based on ',' position.
-#         stop1 = row[0]
-#         stop2 = row[1]
-#         index = stop_times.index(stop1)
-#
-#         # If stop1 equals stop2 in grouped list (no new id was given) append trip from index and stop2 IDs.
-#         if stop1 == stop2:
-#             new_stop_times.append((trip_times[index], stop2))
-#
-#         # Otherwise, append trip from index position and stop2 IDs to new_stop_times list.
-#         else:
-#             new_stop_times.append((trip_times[index], stop2))
-#
-#     return new_stop_times
-
-# path = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
-#     with open(path, "w") as data:
-#         list1 = list(zip(grouped_left, grouped_right))
-#         for line in list1:
-#             data.writelines("%s\n" % str(line))
