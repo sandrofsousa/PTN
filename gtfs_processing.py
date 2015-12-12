@@ -135,11 +135,10 @@ def algorithm_2(stops, neighbors):
 # Read stop times and replace the current stop on route sequence with new id when it exist from grouped list.
 def update_stop_times(grouped):
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
-    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
     dictionary = dict(grouped)  # dictionary with stops grouped for lookup
-    # new_stop_times = []
+    new_stop_times = []
 
-    with open(file1, "r", newline='') as times, open(file2, "w", newline='') as result:
+    with open(file1, "r", newline='') as times:
         # parse data using csv based on ',' position.
         searcher = reader(times, delimiter=',', quotechar='"')
         # skip header (first line).
@@ -148,13 +147,12 @@ def update_stop_times(grouped):
             # select the respective column of line based on ',' position.
             trip_id = str(line[0])
             stop_id = int(line[3])
-            # new_stop_times.append((trip_id, str(dictionary[stop_id])))
-            result.writelines([trip_id + "," + str(dictionary[stop_id]) + "\n"])
+            new_stop_times.append((trip_id, str(dictionary[stop_id])))
 
         # close files
         times.close()
-        result.close()
-        # return new_stop_times
+
+    return new_stop_times
 
 
 # Main function to call sub function and populate variables.
@@ -162,6 +160,7 @@ def main():
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
     file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors.txt"
     file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped.txt"
+    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
 
     rho = 30  # TODO change rho to a vector.
 
@@ -181,6 +180,8 @@ def main():
             data3.write("%s\n" % str(line3))
 
     update_stop_times(grouped)
-
+    with open(file4, "w", newline='') as data4:
+        for line4 in grouped:
+            data4.write("%s\n" % str(line4))
 
 main()
