@@ -144,7 +144,7 @@ def update_stop_times(grouped):
         # skip header (first line).
         next(searcher)
         for line in searcher:
-            # select the respective column of line based on ',' position.
+            # select the respective column of line based on ',' position and update list serially.
             trip_id = str(line[0])
             stop_id = int(line[3])
             new_stop_times.append((trip_id, str(dictionary[stop_id])))
@@ -155,8 +155,50 @@ def update_stop_times(grouped):
     return new_stop_times
 
 
-# Main function to call sub function and populate variables.
+# Create edge list from stops updated at previous script
+def algorithm_3(times):
+    edge_list = []
+
+    # start index at 0 and finish at last line from list
+    for row in range(0, len(times) - 1):
+        trip1 = times[row][0]
+        stop1 = times[row][1]
+        trip2 = times[row + 1][0]   # get trip_id from next line
+        stop2 = times[row + 1][1]   # get stop_id from next line
+
+        # Update edge list only if in the same route
+        if trip1 == trip2:
+            edge_list.append((stop1, stop2))
+
+    return edge_list
+
+
+# TODO create graph
+
+
+# TODO process metrics
+
+
+# TODO draw graph?
+
+
 def main():
+    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+
+    rho = 30  # TODO change rho to a vector.
+    geodata = get_stops_geodata()
+    neighbors = algorithm_1(rho, geodata)
+    grouped = algorithm_2(geodata, neighbors)
+    times = update_stop_times(grouped)
+    edges = algorithm_3(times)
+    with open(file, "w", newline='') as data:
+        for line in edges:
+            data.write("%s\n" % line)
+
+main()
+
+# Main function to call sub function and populate variables.
+def main_file():
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
     file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors.txt"
     file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped.txt"
@@ -183,5 +225,3 @@ def main():
     with open(file4, "w", newline='') as data4:
         for line4 in grouped:
             data4.write("%s\n" % str(line4))
-
-main()
