@@ -3,7 +3,7 @@ __author__ = 'sandrofsousa'
 # Imports
 from csv import reader
 from math import sin, cos, sqrt, atan2, radians
-
+from igraph import *
 
 # Function to read GTFS file and get latitude and longitude from stops.
 def get_stops_geodata():  # PASSED
@@ -174,26 +174,6 @@ def algorithm_3(times):
 
 
 # Main Functions to process gtfs sub-functions and return an edge list grouped according to a rho value.
-def main():
-
-    rho = 30  # TODO change rho to a vector.
-    geodata = get_stops_geodata()
-    neighbors = algorithm_1(rho, geodata)
-    grouped = algorithm_2(geodata, neighbors)
-    times = update_stop_times(grouped)
-    edges = algorithm_3(times)
-
-    # TODO create graph
-    # ptn = igraph.Graph.Read_Edgelist(data, directed=True)
-    # igraph.summary(ptn)
-
-    # TODO process metrics
-    # TODO draw graph?
-
-main()
-
-
-# Main function to call sub function and populate variables.
 def main_file():
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
     file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors.txt"
@@ -221,3 +201,35 @@ def main_file():
     with open(file4, "w", newline='') as data4:
         for line4 in grouped:
             data4.write("%s\n" % str(line4))
+
+
+def main():
+
+    rho = 30  # TODO change rho to a vector.
+    geodata = get_stops_geodata()
+    neighbors = algorithm_1(rho, geodata)
+    grouped = algorithm_2(geodata, neighbors)
+    times = update_stop_times(grouped)
+    edges = algorithm_3(times)
+
+    # Create graph from list of tuples processed by algorithm_3.
+    ptn = Graph.TupleList(edges, directed=True)
+    print(summary(ptn))
+
+# main()
+
+# test script for calculations
+file_source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+temp = open(file_source, 'r', newline='\n')
+# temp = []
+# with open(file_source, 'r', newline='\n') as datasource:
+#     for lines in datasource:
+#         temp.append(lines)
+
+g = Graph.Read(temp)
+print(summary(g))
+# print(temp)
+
+
+# TODO process metrics
+# TODO draw graph?
