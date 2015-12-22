@@ -166,24 +166,15 @@ def algorithm_3(times):
         trip2 = times[row + 1][0]   # get trip_id from next line
         stop2 = times[row + 1][1]   # get stop_id from next line
 
-        # Update edge list only if in the same route
+        # Update edge list only if they are in the same route
         if trip1 == trip2:
             edge_list.append((stop1, stop2))
 
     return edge_list
 
 
-# TODO create graph
-
-
-# TODO process metrics
-
-
-# TODO draw graph?
-
-
+# Main Functions to process gtfs sub-functions and return an edge list grouped according to a rho value.
 def main():
-    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
 
     rho = 30  # TODO change rho to a vector.
     geodata = get_stops_geodata()
@@ -191,11 +182,16 @@ def main():
     grouped = algorithm_2(geodata, neighbors)
     times = update_stop_times(grouped)
     edges = algorithm_3(times)
-    with open(file, "w", newline='') as data:
-        for line in edges:
-            data.write("%s\n" % line)
+
+    # TODO create graph
+    # ptn = igraph.Graph.Read_Edgelist(data, directed=True)
+    # igraph.summary(ptn)
+
+    # TODO process metrics
+    # TODO draw graph?
 
 main()
+
 
 # Main function to call sub function and populate variables.
 def main_file():
