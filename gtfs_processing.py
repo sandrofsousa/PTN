@@ -174,6 +174,7 @@ def create_edge_list(times):
     return edge_list
 
 
+# Main function to process gtfs sub-functions, returns a new edge list and process graph statistics.
 def main():
     rho = 30  # TODO change rho to a vector.
 
@@ -183,7 +184,7 @@ def main():
     times = update_stop_times(grouped)
     edges = create_edge_list(times)
 
-    # Create graph from list of tuples.
+    # Create graph from list of tuples processed by algorithm_3.
     ptn = Graph.TupleList(edges, directed=True)
     print(summary(ptn))
 
@@ -226,7 +227,6 @@ def main_write_file():
             data5.write("%s\n" % str(line5))
 
 
-from tqdm import tqdm
 # test script for calculations
 file_source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
 # temp = open(file_source, 'r', newline='\n')
