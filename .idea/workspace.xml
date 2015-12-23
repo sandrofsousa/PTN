@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_edgelist_from_gtfs.py" afterPath="$PROJECT_DIR$/create_edgelist_from_gtfs.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gtfs_processing.py" afterPath="$PROJECT_DIR$/gtfs_processing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/create_edgelist_from_gtfs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
+              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="38" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -51,18 +50,15 @@
       <file leaf-file-name="gtfs_processing.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gtfs_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.79545456">
-              <caret line="230" column="13" selection-start-line="230" selection-start-column="13" selection-end-line="230" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.71391076">
+              <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
               <folding>
                 <element signature="e#39#61#0" expanded="true" />
-                <element signature="e#243#927#0" expanded="false" />
-                <element signature="e#1069#1537#0" expanded="false" />
+                <element signature="e#244#928#0" expanded="false" />
+                <element signature="e#1070#1538#0" expanded="false" />
                 <element signature="e#1685#2608#0" expanded="false" />
-                <element signature="e#2768#4964#0" expanded="false" />
-                <element signature="e#5113#5875#0" expanded="false" />
-                <element signature="e#5963#6423#0" expanded="false" />
-                <element signature="e#6552#7617#0" expanded="false" />
-                <element signature="e#7637#8007#0" expanded="false" />
+                <element signature="e#2765#4961#0" expanded="false" />
+                <element signature="e#5110#5872#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -576,7 +572,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450787973586</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Graph created using igraph directly from internal list, dosn' work right reading local file. Graph-tool keep crashing for plot during import of cairo lib.">
+      <created>1450804434446</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1450804434446</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -592,15 +594,16 @@
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32503662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32503662" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20492454" sideWeight="0.40409955" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20492454" sideWeight="0.40381792" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18189038" sideWeight="0.38799414" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38619676" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39970717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31478772" sideWeight="0.49540442" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20492454" sideWeight="0.5959004" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36857563" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39941263" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31571218" sideWeight="0.49540442" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20492454" sideWeight="0.5961821" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37885463" sideWeight="0.5045956" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38179147" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="100" y="123" width="1080" height="573" />
@@ -609,7 +612,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39941263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -668,7 +670,8 @@
     <MESSAGE value="Code for writing result on file added to main function. All results now saved on internal list. Code slow, check for improvement. TO-DO review algorithm 2, not work correctly." />
     <MESSAGE value="Algorithm 3 for processing of new stop sequence and create an edge list based on new IDs. Implemented and tested for sample data." />
     <MESSAGE value="No important changes in code. Graph-tool finally working." />
-    <option name="LAST_COMMIT_MESSAGE" value="No important changes in code. Graph-tool finally working." />
+    <MESSAGE value="Graph created using igraph directly from internal list, dosn' work right reading local file. Graph-tool keep crashing for plot during import of cairo lib." />
+    <option name="LAST_COMMIT_MESSAGE" value="Graph created using igraph directly from internal list, dosn' work right reading local file. Graph-tool keep crashing for plot during import of cairo lib." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1030,6 +1033,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/create_edgelist_from_gtfs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/weighted_network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1038,28 +1049,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_edgelist_from_gtfs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79545456">
-          <caret line="230" column="13" selection-start-line="230" selection-start-column="13" selection-end-line="230" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.71391076">
+          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
           <folding>
             <element signature="e#39#61#0" expanded="true" />
-            <element signature="e#243#927#0" expanded="false" />
-            <element signature="e#1069#1537#0" expanded="false" />
+            <element signature="e#244#928#0" expanded="false" />
+            <element signature="e#1070#1538#0" expanded="false" />
             <element signature="e#1685#2608#0" expanded="false" />
-            <element signature="e#2768#4964#0" expanded="false" />
-            <element signature="e#5113#5875#0" expanded="false" />
-            <element signature="e#5963#6423#0" expanded="false" />
-            <element signature="e#6552#7617#0" expanded="false" />
-            <element signature="e#7637#8007#0" expanded="false" />
+            <element signature="e#2765#4961#0" expanded="false" />
+            <element signature="e#5110#5872#0" expanded="false" />
           </folding>
         </state>
       </provider>

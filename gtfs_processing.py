@@ -5,6 +5,7 @@ from csv import reader
 from math import sin, cos, sqrt, atan2, radians
 from igraph import *
 
+
 # Function to read GTFS file and get latitude and longitude from stops.
 def get_stops_geodata():  # PASSED
     file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stops.txt"
@@ -47,8 +48,8 @@ def calc_stops_distance(lat1, lon1, lat2, lon2):  # PASSED
     return distance
 
 
-# Algorithm 1 to process stops file and return the list of nearby stops based on a rho radius vector.
-def algorithm_1(rho, stops):  # PASSED
+# Function to process stops file and return the list of nearby stops based on a rho radius vector.
+def get_neighbors(rho, stops):  # PASSED
     neighbors = []
 
     # loop reading the lists of stops, ignoring the last stop.
@@ -76,8 +77,8 @@ def algorithm_1(rho, stops):  # PASSED
     return neighbors
 
 
-# Algorithm 2 to process neighbors IDs list from previous algorithm and replace them with a new id for grouped stops.
-def algorithm_2(stops, neighbors):
+# Function to process neighbors IDs list from previous algorithm and replace them with a new id for grouped stops.
+def group_stops(stops, neighbors):
     # Pared lists to store stop id on left and new id on right if there's a neighbor.
     grouped_left = []
     grouped_right = []
@@ -155,8 +156,8 @@ def update_stop_times(grouped):
     return new_stop_times
 
 
-# Create edge list from stops updated at previous script
-def algorithm_3(times):
+# Function to create edge list from stops updated at previous script
+def create_edge_list(times):
     edge_list = []
 
     # start index at 0 and finish at last line from list
@@ -168,17 +169,40 @@ def algorithm_3(times):
 
         # Update edge list only if they are in the same route
         if trip1 == trip2:
-            edge_list.append((stop1, stop2))
+            edge_list.append((int(stop1), int(stop2)))
 
     return edge_list
 
 
-# Main Functions to process gtfs sub-functions and return an edge list grouped according to a rho value.
-def main_file():
+def main():
+    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+
+    rho = 30  # TODO change rho to a vector.
+    geodata = get_stops_geodata()
+    neighbors = get_neighbors(rho, geodata)
+    grouped = group_stops(geodata, neighbors)
+    times = update_stop_times(grouped)
+    edges = create_edge_list(times)
+
+    with open(result, "w", newline='') as data:
+        for line in edges:
+            data.writelines("%s\n" % str(line))
+
+
+    # Create graph from list of tuples processed by algorithm_3.
+    # ptn = Graph.TupleList(edges, directed=True)
+    # print(summary(ptn))
+
+
+# main()
+
+# Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
+def main_write_file():
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
     file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors.txt"
     file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped.txt"
-    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/times.txt"
+    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
 
     rho = 30  # TODO change rho to a vector.
 
@@ -187,48 +211,41 @@ def main_file():
         for line1 in geodata:
             data1.write("%s\n" % str(line1))
 
-    neighbors = algorithm_1(rho, geodata)
+    neighbors = get_neighbors(rho, geodata)
     with open(file2, "w", newline='') as data2:
         for line2 in neighbors:
             data2.write("%s\n" % str(line2))
 
-    grouped = algorithm_2(geodata, neighbors)
+    grouped = group_stops(geodata, neighbors)
     with open(file3, "w", newline='') as data3:
         for line3 in grouped:
             data3.write("%s\n" % str(line3))
 
-    update_stop_times(grouped)
+    times = update_stop_times(grouped)
     with open(file4, "w", newline='') as data4:
-        for line4 in grouped:
+        for line4 in times:
             data4.write("%s\n" % str(line4))
 
+    create_edge_list(times)
+    with open(file5, "w", newline='') as data5:
+        for line5 in grouped:
+            data5.write("%s\n" % str(line5))
 
-def main():
 
-    rho = 30  # TODO change rho to a vector.
-    geodata = get_stops_geodata()
-    neighbors = algorithm_1(rho, geodata)
-    grouped = algorithm_2(geodata, neighbors)
-    times = update_stop_times(grouped)
-    edges = algorithm_3(times)
-
-    # Create graph from list of tuples processed by algorithm_3.
-    ptn = Graph.TupleList(edges, directed=True)
-    print(summary(ptn))
-
-# main()
-
-# test script for calculations
-file_source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
-temp = open(file_source, 'r', newline='\n')
+# from tqdm import tqdm
+# # test script for calculations
+# file_source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+# # temp = open(file_source, 'r', newline='\n')
 # temp = []
 # with open(file_source, 'r', newline='\n') as datasource:
-#     for lines in datasource:
-#         temp.append(lines)
-
-g = Graph.Read(temp)
-print(summary(g))
-# print(temp)
+#     for lines in tqdm(datasource):
+#         col1 = lines[0]
+#         col2 = lines[1]
+#         temp.append(col1, col2)
+#
+# g = Graph.Read(temp, format="edges")
+# print(summary(g))
+# # print(temp)
 
 
 # TODO process metrics
