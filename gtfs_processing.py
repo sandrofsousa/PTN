@@ -184,63 +184,65 @@ def main():
     times = update_stop_times(grouped)
     edges = create_edge_list(times)
 
+    # file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+    # with open(file1, "w", newline='') as data1:
+    #     data1.write('\n'.join('{},{}'.format(x[0], x[1]) for x in edges))
+    #     # data1.write('\n'.join('%s + "," + %s' % x for x in edges))
+
     # Create graph from list of tuples processed by algorithm_3.
     ptn = Graph.TupleList(edges, directed=True)
+    ptn["name"] = "PTN Sao Paulo"
     print(summary(ptn))
 
+main()
 
-# main()
 
 # Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
 def main_write_file():
-    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
-    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors.txt"
-    file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped.txt"
-    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/times.txt"
-    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
 
     rho = 30  # TODO change rho to a vector.
 
+    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
     geodata = get_stops_geodata()
     with open(file1, "w", newline='') as data1:
         for line1 in geodata:
             data1.write("%s\n" % str(line1))
 
+    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors.txt"
     neighbors = get_neighbors(rho, geodata)
     with open(file2, "w", newline='') as data2:
         for line2 in neighbors:
             data2.write("%s\n" % str(line2))
 
+    file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped.txt"
     grouped = group_stops(geodata, neighbors)
     with open(file3, "w", newline='') as data3:
         for line3 in grouped:
             data3.write("%s\n" % str(line3))
 
+    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/times.txt"
     times = update_stop_times(grouped)
     with open(file4, "w", newline='') as data4:
         for line4 in times:
             data4.write("%s\n" % str(line4))
 
-    create_edge_list(times)
+    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+    edges = create_edge_list(times)
     with open(file5, "w", newline='') as data5:
-        for line5 in grouped:
-            data5.write("%s\n" % str(line5))
+        data5.write('\n'.join('{},{}'.format(x[0], x[1]) for x in edges))
 
 
 # test script for calculations
-file_source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
-# temp = open(file_source, 'r', newline='\n')
-temp = []
-with open(file_source, 'r', newline='\n') as datasource:
-    for lines in tqdm(datasource):
-        col1 = lines[0]
-        col2 = lines[1]
-        temp.append(col1, col2)
-
-g = Graph.Read(temp, format="edges")
-print(summary(g))
-# print(temp)
-
+# source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+# # temp = open(source, 'r', newline='\n')
+# temp = []
+# with open(source, 'r') as datas:
+#     for lines in datas:
+#         temp.append(lines)
+#
+# g = Graph(directed=True)
+# g.add_edges([temp])
+# summary(g)
 
 # TODO process metrics
 # TODO draw graph?
