@@ -71,7 +71,7 @@ def get_neighbors(rho, stops):  # PASSED
 
             # If distance <= rho, save two stops - they are close each other. Else, keep searchin on file.
             if distance <= rho:
-                neighbors.append((stop1, stop2, distance))
+                neighbors.append((stop1, stop2))
             else:
                 continue
     return neighbors
@@ -169,7 +169,7 @@ def create_edge_list(times):
 
         # Update edge list only if they are in the same route
         if trip1 == trip2:
-            edge_list.append((int(stop1), int(stop2)))
+            edge_list.append((int(stop1), int(stop2), trip1))
 
     return edge_list
 
@@ -186,20 +186,20 @@ def main():
 
     # file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
     # with open(file1, "w", newline='') as data1:
-    #     data1.write('\n'.join('{},{}'.format(x[0], x[1]) for x in edges))
-    #     # data1.write('\n'.join('%s + "," + %s' % x for x in edges))
+    #     data1.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
     # Create graph from list of tuples processed by algorithm_3.
     ptn = Graph.TupleList(edges, directed=True)
-    ptn["name"] = "PTN Sao Paulo"
+    ptn["name"] = "PTN Sao Paulo" + "," + " " + rho
     print(summary(ptn))
 
-main()
+    # TODO validate network, why there as disconnected components?
+
+# main()
 
 
 # Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
 def main_write_file():
-
     rho = 30  # TODO change rho to a vector.
 
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/geodata.txt"
@@ -226,23 +226,11 @@ def main_write_file():
         for line4 in times:
             data4.write("%s\n" % str(line4))
 
-    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
+    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges.txt"
     edges = create_edge_list(times)
     with open(file5, "w", newline='') as data5:
-        data5.write('\n'.join('{},{}'.format(x[0], x[1]) for x in edges))
+        data5.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
-
-# test script for calculations
-# source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
-# # temp = open(source, 'r', newline='\n')
-# temp = []
-# with open(source, 'r') as datas:
-#     for lines in datas:
-#         temp.append(lines)
-#
-# g = Graph(directed=True)
-# g.add_edges([temp])
-# summary(g)
 
 # TODO process metrics
 # TODO draw graph?
