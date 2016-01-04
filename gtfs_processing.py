@@ -169,7 +169,7 @@ def create_edge_list(times):
 
         # Update edge list only if they are in the same route
         if trip1 == trip2:
-            edge_list.append((int(stop1), int(stop2), trip1))
+            edge_list.append((int(stop1), int(stop2), str(trip1)))
 
     return edge_list
 
@@ -184,19 +184,19 @@ def main():
     times = update_stop_times(grouped)
     edges = create_edge_list(times)
 
-    # file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/result.txt"
-    # with open(file1, "w", newline='') as data1:
-    #     data1.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
+    # file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges.txt"
+    # with open(file, "w", newline='') as data:
+    #     data.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
     # Create graph from list of tuples processed by algorithm_3.
-    ptn = Graph.TupleList(edges, directed=True)
-    ptn["name"] = "PTN Sao Paulo" + "," + " " + rho
-    print(summary(ptn))
+    ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
+    ptn["name"] = "PTN Sao Paulo" + "," + " rho: " + str(rho)
+    print(Graph.summary(ptn, verbosity=0))
+    target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "w")
+    Graph.write_graphml(ptn, target)
 
     # TODO validate network, why there as disconnected components?
-
-# main()
-
+    # TODO create loop for different rho values ans save result to file
 
 # Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
 def main_write_file():
@@ -231,6 +231,7 @@ def main_write_file():
     with open(file5, "w", newline='') as data5:
         data5.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
+main()
 
 # TODO process metrics
 # TODO draw graph?

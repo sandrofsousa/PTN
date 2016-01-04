@@ -1,7 +1,7 @@
 # Grafos gerados para qualificacão
 
-import networkx as nx
-import matplotlib.pyplot as plt
+# import networkx as nx
+# import matplotlib.pyplot as plt
 
 # # Random graph
 # G = nx.erdos_renyi_graph(16, 2)
@@ -67,8 +67,21 @@ import matplotlib.pyplot as plt
 # draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
 # plt.show()
 
+from igraph import *
 
-# Regular Connected
-G = nx.connected_watts_strogatz_graph(40, 39, 100)
-nx.draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True, link_color='red')
-plt.show()
+target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "r")
+g = Graph.Read_GraphML(target)
+print(Graph.summary(g, verbosity=0))
+
+# TODO search vertes by name of stops
+# TODO Select metrics to process
+# TODO Text metrics
+
+# g = Graph([(0,1), (0,2), (2,3), (3,4), (4,2), (2,5), (5,0), (6,3), (5,6)])
+# g.vs["name"] = ["Alice", "Bob", "Claire", "Dennis", "Esther", "Frank", "George"]
+# g.vs["age"] = [25, 31, 18, 47, 22, 23, 50]
+# g.vs["gender"] = ["f", "m", "f", "m", "f", "m", "m"]
+# g.es["is_formal"] = [False, False, True, True, True, False, True, False, False]
+# print(g.vs[0].attributes(), g.degree())
+# target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "w")
+# Graph.write_graphml(g, target)
