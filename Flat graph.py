@@ -41,41 +41,22 @@
 # B.add_edges_from([(1,2), (2,3), (3,4), (4,5), ('a','b'), ('b',3), (3,'c'), ('c','d')])
 # nx.draw(B, node_color='lightgrey', node_size=800, with_labels=True)
 # plt.show()
-#
-# from networkx import *
-# import matplotlib.pyplot as plt
-#
-#
-# z=[1,1,2,3,5,8,13]
-# print(is_valid_degree_sequence(z))
-#
-# print("Configuration model")
-# G=configuration_model(z)  # configuration model
-# degree_sequence=list(degree(G).values()) # degree sequence
-# print("Degree sequence %s" % degree_sequence)
-# print("Degree histogram")
-# hist={}
-# for d in degree_sequence:
-#     if d in hist:
-#         hist[d]+=1
-#     else:
-#         hist[d]=1
-# print("degree #nodes")
-# for d in hist:
-#     print('%d %d' % (d,hist[d]))
-#
-# draw_circular(G, node_color='lightgrey', node_size=800, with_labels=True)
-# plt.show()
+
 
 from igraph import *
 
-target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "r")
-g = Graph.Read_GraphML(target)
-print(Graph.summary(g, verbosity=0))
+# target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "r")
+# g = Graph.Read_GraphML(target)
+# print(Graph.summary(g, verbosity=0))
+# print(g.vs['name'])
+# # trip = g.es.find(trip="1016-10-0")
+# # print(trip)
+# # print("type:", type(trip), "trip:", trip.index)
 
-# TODO search vertes by name of stops
+
+# TODO search vertex by name of stops
 # TODO Select metrics to process
-# TODO Text metrics
+# TODO Test metrics
 
 # g = Graph([(0,1), (0,2), (2,3), (3,4), (4,2), (2,5), (5,0), (6,3), (5,6)])
 # g.vs["name"] = ["Alice", "Bob", "Claire", "Dennis", "Esther", "Frank", "George"]

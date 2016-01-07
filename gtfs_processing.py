@@ -169,7 +169,7 @@ def create_edge_list(times):
 
         # Update edge list only if they are in the same route
         if trip1 == trip2:
-            edge_list.append((int(stop1), int(stop2), str(trip1)))
+            edge_list.append((str(stop1), str(stop2), str(trip1)))
 
     return edge_list
 
@@ -191,12 +191,13 @@ def main():
     # Create graph from list of tuples processed by algorithm_3.
     ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
     ptn["name"] = "PTN Sao Paulo" + "," + " rho: " + str(rho)
-    print(Graph.summary(ptn, verbosity=0))
-    target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "w")
-    Graph.write_graphml(ptn, target)
+    # print(Graph.summary(ptn, verbosity=0))
+    # target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "w")
+    # Graph.write_graphml(ptn, target)
 
     # TODO validate network, why there as disconnected components?
     # TODO create loop for different rho values ans save result to file
+
 
 # Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
 def main_write_file():
