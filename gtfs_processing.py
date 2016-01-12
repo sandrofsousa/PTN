@@ -176,27 +176,32 @@ def create_edge_list(times):
 
 # Main function to process gtfs sub-functions, returns a new edge list and process graph statistics.
 def main():
-    rho = 30  # TODO change rho to a vector.
-
     geodata = get_stops_geodata()
-    neighbors = get_neighbors(rho, geodata)
-    grouped = group_stops(geodata, neighbors)
-    times = update_stop_times(grouped)
-    edges = create_edge_list(times)
+    radius = [0, 10, 20]  # TODO change rho to a vector.
+    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation.txt"
 
-    # file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges.txt"
-    # with open(file, "w", newline='') as data:
-    #     data.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
+    with open(result, "w") as target:
+        for rho in radius:
+            neighbors = get_neighbors(rho, geodata)
+            grouped = group_stops(geodata, neighbors)
+            times = update_stop_times(grouped)
+            edges = create_edge_list(times)
 
-    # Create graph from list of tuples processed by algorithm_3.
-    ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
-    ptn["name"] = "PTN Sao Paulo" + "," + " rho: " + str(rho)
-    # print(Graph.summary(ptn, verbosity=0))
-    # target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "w")
-    # Graph.write_graphml(ptn, target)
+            # file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges.txt"
+            # with open(file, "w", newline='') as data:
+            #     data.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
+
+            # Create graph from list of tuples.
+            ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
+            ptn["name"] = "PTN Sao Paulo, " + "rho: " + str(rho)
+            info = Graph.summary(ptn, verbosity=0)
+
+            target.write(info + "\n")
 
     # TODO validate network, why there as disconnected components?
     # TODO create loop for different rho values ans save result to file
+
+main()
 
 
 # Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
@@ -232,7 +237,6 @@ def main_write_file():
     with open(file5, "w", newline='') as data5:
         data5.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
-main()
 
 # TODO process metrics
 # TODO draw graph?

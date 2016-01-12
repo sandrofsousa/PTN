@@ -45,13 +45,18 @@
 
 from igraph import *
 
-# target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "r")
-# g = Graph.Read_GraphML(target)
-# print(Graph.summary(g, verbosity=0))
-# print(g.vs['name'])
-# # trip = g.es.find(trip="1016-10-0")
-# # print(trip)
-# # print("type:", type(trip), "trip:", trip.index)
+target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "r")
+g = Graph.Read_GraphML(target)
+info = Graph.summary(g, verbosity=0)
+
+values = [0, 10, 20]
+result = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation.txt", "w")
+
+for rho in values:
+    result.write(info + str(rho) + "\n")
+# trip = g.es.find(trip="1016-10-0")
+# print(trip)
+# print("type:", type(trip), "trip:", trip.index)
 
 
 # TODO search vertex by name of stops
