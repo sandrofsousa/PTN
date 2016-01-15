@@ -177,7 +177,8 @@ def create_edge_list(times):
 # Main function to process gtfs sub-functions, returns a new edge list and process graph statistics.
 def main():
     geodata = get_stops_geodata()
-    radius = [0, 10, 20]  # TODO change rho to a vector.
+    radius = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    # radius = [10, 20]
     result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation.txt"
 
     with open(result, "w") as target:
@@ -187,19 +188,18 @@ def main():
             times = update_stop_times(grouped)
             edges = create_edge_list(times)
 
-            # file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges.txt"
-            # with open(file, "w", newline='') as data:
-            #     data.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
-
             # Create graph from list of tuples.
             ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
             ptn["name"] = "PTN Sao Paulo, " + "rho: " + str(rho)
-            info = Graph.summary(ptn, verbosity=0)
 
-            target.write(info + "\n")
-
-    # TODO validate network, why there as disconnected components?
-    # TODO create loop for different rho values ans save result to file
+            # Perform respective graph calculation and save to file
+            target.write(str(rho) + ", " +
+                         str(ptn.vcount()) + ", " +
+                         str(ptn.ecount()) + ", " +
+                         str(ptn.diameter(directed=True)) + ", " +
+                         str(ptn.average_path_length(directed=True)) + ", " +
+                         str(ptn.maxdegree(vertices=None, mode=ALL, loops=True)) + ", " +
+                         str(ptn.assortativity_degree(directed=True)) + "\n")
 
 main()
 
@@ -237,6 +237,9 @@ def main_write_file():
     with open(file5, "w", newline='') as data5:
         data5.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
+    # file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges.txt"
+    # with open(file, "w", newline='') as data:
+    #     data.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
 # TODO process metrics
 # TODO draw graph?
