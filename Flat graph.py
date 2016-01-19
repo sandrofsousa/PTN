@@ -43,17 +43,17 @@
 # plt.show()
 
 
-from igraph import *
-
-target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "r")
-g = Graph.Read_GraphML(target)
-info = Graph.summary(g, verbosity=0)
-
-values = [0, 10, 20]
-result = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation.txt", "w")
-
-for rho in values:
-    result.write(info + str(rho) + "\n")
+# from igraph import *
+#
+# target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "r")
+# g = Graph.Read_GraphML(target)
+# info = Graph.summary(g, verbosity=0)
+#
+# values = [0, 10, 20]
+# result = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation.txt", "w")
+#
+# for rho in values:
+#     result.write(info + str(rho) + "\n")
 # trip = g.es.find(trip="1016-10-0")
 # print(trip)
 # print("type:", type(trip), "trip:", trip.index)
@@ -71,3 +71,19 @@ for rho in values:
 # print(g.vs[0].attributes(), g.degree())
 # target = open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/ptn_graph.graphml", "w")
 # Graph.write_graphml(g, target)
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import plotly as pl
+
+data = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation.txt"
+df = pd.read_csv(data, index_col=0,
+                 names=['vertex', 'links', 'diameter', 'path_lenght', 'maxdegree', 'assortativity'])
+
+print(df)
+
+ax = plt.subplot(111)
+ax.set_yscale('log')
+df.plot()
+plt.savefig('rho2')

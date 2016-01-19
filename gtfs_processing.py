@@ -177,9 +177,8 @@ def create_edge_list(times):
 # Main function to process gtfs sub-functions, returns a new edge list and process graph statistics.
 def main():
     geodata = get_stops_geodata()
-    radius = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    # radius = [10, 20]
-    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation.txt"
+    radius = list(range(0, 205, 5))
+    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation2.txt"
 
     with open(result, "w") as target:
         for rho in radius:
@@ -194,11 +193,11 @@ def main():
 
             # Perform respective graph calculation and save to file
             target.write(str(rho) + ", " +
-                         str(ptn.vcount()) + ", " +
-                         str(ptn.ecount()) + ", " +
-                         str(ptn.diameter(directed=True)) + ", " +
-                         str(ptn.average_path_length(directed=True)) + ", " +
-                         str(ptn.maxdegree(vertices=None, mode=ALL, loops=True)) + ", " +
+                         str(ptn.vcount()) + "," +
+                         str(ptn.ecount()) + "," +
+                         str(ptn.diameter(directed=True)) + "," +
+                         str(ptn.average_path_length(directed=True)) + "," +
+                         str(ptn.maxdegree(vertices=None, mode=ALL, loops=True)) + "," +
                          str(ptn.assortativity_degree(directed=True)) + "\n")
 
 main()
