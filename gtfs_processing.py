@@ -104,8 +104,8 @@ def group_stops(stops, neighbors):
         # If stop2 already has a new ID, set the same new ID for stop1.
         if grouped_right[stop1_index] == 0:
             if grouped_right[stop2_index] == 0:
-                grouped_right[stop1_index] = last_id + 1
-                grouped_right[stop2_index] = last_id + 1
+                grouped_right[stop1_index] = "v" + str(last_id + 1)
+                grouped_right[stop2_index] = "v" + str(last_id + 1)
                 last_id += 1  # update last_id list to keep consistent sequence
             else:
                 grouped_right[stop1_index] = grouped_right[stop2_index]
@@ -178,7 +178,7 @@ def create_edge_list(times):
 def main():
     geodata = get_stops_geodata()
     radius = list(range(0, 205, 5))
-    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation2.txt"
+    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/rho_variation200.txt"
 
     with open(result, "w") as target:
         for rho in radius:
