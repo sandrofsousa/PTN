@@ -26,7 +26,7 @@ def get_stops_geodata():  # PASSED
             stop_lon = float(line[4])
 
             # append result to the list
-            geodata.append((stop_id, stop_lat, stop_lon))
+            geodata.append((stop_id, [stop_lat, stop_lon]))
 
         data.close()
     return geodata
@@ -206,8 +206,6 @@ def main():
                          str(ptn.assortativity_degree(directed=True)) + "," +
                          str(ptn.transitivity_undirected()) + "," +
                          str(ptn.density()) + "\n")
-
-main()
 
 seconds = time.time() - start
 print(seconds)
