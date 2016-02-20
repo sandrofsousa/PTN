@@ -105,6 +105,8 @@ def group_stops(neighbors_dict):
 
     # For any item in dict, fill series list with stop to be analysed and aux list with it' neighbors.
     for item in neighbors_dict:
+        if item in grouped: continue
+
         series = [item]
         aux_list = neighbors_dict[item]
 
@@ -117,14 +119,6 @@ def group_stops(neighbors_dict):
             grouped[stop] = "v" + str(last_id + 1)
         last_id += 1  # update last_id list to keep consistent sequence
 
-    # # Update stops not in neighbors list, replacing zero values in grouped_right with the original stop ID.
-    # for entry in grouped:
-    #     if grouped[entry] == []:
-    #         grouped[entry] = entry
-    #     else:
-    #         continue
-    #
-    # # Join the two list in only one and split the lines
     return grouped
 
 
