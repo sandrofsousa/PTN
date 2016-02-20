@@ -103,7 +103,7 @@ def group_stops(neighbors_dict):
     series = []
     aux_list = []
 
-    # For any item in dict, fill series list with stop to be analysed and aux list with it' neighbors.
+    # For any item in dict, fill series list with stop to be analysed and aux list with it' neighbors
     for item in neighbors_dict:
         if item in grouped: continue
 
