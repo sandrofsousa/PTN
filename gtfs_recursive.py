@@ -101,7 +101,7 @@ def recursive_search(series, aux_list, neighbors):
     return series
 
 
-# Function to process neighbors IDs list from previous algorithm and replace them with a new id for grouped stops.
+# Function to process neighbors IDs(list) from previous algorithm and replace them with a new id for grouped stops.
 def group_stops(neighbors_dict):
     grouped = {}
     last_id = 0
@@ -127,47 +127,49 @@ def group_stops(neighbors_dict):
     return grouped
 
 
-# Read stop times and replace the current stop on route sequence with new id when it exist from grouped list.
+# Read stop_times file and replace the current stop on route sequence with new id when it exist on grouped dictionary.
 def update_stop_times(grouped_dict):
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
     new_stop_times = []
 
     with open(file1, "r", newline='') as times:
-        # parse data using csv based on ',' position.
+        # Parse data using csv based on ',' position.
         searcher = reader(times, delimiter=',', quotechar='"')
-        # skip header (first line).
+        # Skip header (first line).
         next(searcher)
         for line in searcher:
-            # select the respective column of line based on ',' position and update list serially.
+            # Select the respective column of line based on ',' position and update list serially.
             trip_id = str(line[0])
             stop_id = int(line[3])
             new_stop_times.append((trip_id, str(grouped_dict[stop_id])))
 
-        # close files
+        # Close file
         times.close()
 
     return new_stop_times
 
 
-# Function to create edge list from stops updated at previous script
+# Function to create edge list from stop_times file previously updated with new IDs.
 def create_edge_list(times_list):
     edge_list = []
 
-    # start index at 0 and finish at last line from list
+    # Start index at 0 and finish at last line from list
     for row in range(0, len(times_list) - 1):
         trip1 = times_list[row][0]
         stop1 = times_list[row][1]
-        trip2 = times_list[row + 1][0]   # get trip_id from next line
-        stop2 = times_list[row + 1][1]   # get stop_id from next line
+        trip2 = times_list[row + 1][0]   # Get trip_id from next line
+        stop2 = times_list[row + 1][1]   # Get stop_id from next line
 
-        # Create link only if stops are in the same line sequence
+        # Create a link only if the stops are in the same line sequence
         if trip1 == trip2:
             edge_list.append((str(stop1), str(stop2), str(trip1)))
 
     return edge_list
 
 
-# Main function to process gtfs sub-functions, returns a new edge list and process graph statistics.
+# Main function to process gtfs sub-functions given a vector of radius values.
+# For any value of radius, save the grouped dictionary and edge list used to create the graph.
+# Returns a file with histograms for any radius and network statistics.
 def main():
     geodata = get_stops_coordinates()
     radius = list(range(0, 205, 5))
