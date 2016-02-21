@@ -78,20 +78,20 @@ def get_neighbors(radius, stops_list):  # PASSED
             else:
                 continue
     return neighbors
-# 1,15: [16]
+
 
 # Recursive function to get neighbors of neighbors and group stops linearly
 def recursive_search(series, aux_list, neighbors):
     rec_stop = []
+
     for stop in aux_list:
         if stop not in series:
-            aux_list.remove(stop)
             series.append(stop)
             rec_stop = neighbors[stop]
             aux_list += rec_stop
-            recursive_search(series, aux_list, neighbors)
+            return recursive_search(series, aux_list, neighbors)
         else:
-            aux_list.remove(stop)
+            continue
     return series
 
 
@@ -110,9 +110,7 @@ def group_stops(neighbors_dict):
         series = [item]
         aux_list = neighbors_dict[item]
 
-        # if len(aux_list) == 0:
-        #     continue
-        # else:
+        # doc
         cluster = recursive_search(series, aux_list, neighbors)
 
         for stop in cluster:
@@ -122,27 +120,32 @@ def group_stops(neighbors_dict):
     return grouped
 
 
-# radius = 30
-# stops = get_stops_coordinates()
-# neighbors = get_neighbors(radius, stops)
-
-neighbors = {1:[15,16],
-             2:[],
-             3:[8,12],
-             4:[9,11,12],
-             5:[11],
-             6:[17],
-             7:[],
-             8:[3],
-             9:[4,12],
-             10:[11],
-             11:[4,5,10],
-             12:[3,4,9,13],
-             13:[12],
-             14:[15],
-             15:[1,14],
-             16:[1,17],
-             17:[6,16]}
-
+radius = 30
+stops = get_stops_coordinates()
+neighbors = get_neighbors(radius, stops)
 grouped = group_stops(neighbors)
 print(grouped)
+
+# neighbors = {1:[15,16],
+#              2:[],
+#              3:[8,12],
+#              4:[9,11,12],
+#              5:[11],
+#              6:[17],
+#              7:[],
+#              8:[3],
+#              9:[4,12],
+#              10:[11],
+#              11:[4,5,10],
+#              12:[3,4,9,13],
+#              13:[12],
+#              14:[15],
+#              15:[1,14],
+#              16:[1,17],
+#              17:[6,16],
+#              18:[],
+#              19:[],
+#              20:[19]}
+
+grouped = group_stops(neighbors)
+print(grouped.items())
