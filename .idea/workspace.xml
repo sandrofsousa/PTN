@@ -28,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gtfs_processing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gtfs_processing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gtfs_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0168453">
-              <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
               <folding>
                 <element signature="e#39#61#0" expanded="true" />
                 <element signature="e#277#963#0" expanded="false" />
@@ -60,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="173" column="46" selection-start-line="173" selection-start-column="46" selection-end-line="173" selection-end-column="46" />
+            <state vertical-scroll-proportion="-0.045941807">
+              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
               <folding>
                 <element signature="e#39#61#0" expanded="true" />
                 <element signature="e#248#932#0" expanded="false" />
@@ -126,8 +126,8 @@
         <option value="$PROJECT_DIR$/create_edgelist_from_gtfs.py" />
         <option value="$PROJECT_DIR$/Flat graph.py" />
         <option value="$PROJECT_DIR$/ptn_numpy_processing.py" />
-        <option value="$PROJECT_DIR$/gtfs_recursive.py" />
         <option value="$PROJECT_DIR$/gtfs_processing.py" />
+        <option value="$PROJECT_DIR$/gtfs_recursive.py" />
       </list>
     </option>
   </component>
@@ -744,7 +744,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456078292936</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Recursive function working and validated. Need to check files for final validation.">
+      <created>1456088186762</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1456088186762</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1201,10 +1207,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
+    <entry file="file://$PROJECT_DIR$/gtfs_processing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="46" selection-start-line="173" selection-start-column="46" selection-end-line="173" selection-end-column="46" />
+          <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+          <folding>
+            <element signature="e#39#61#0" expanded="true" />
+            <element signature="e#277#963#0" expanded="false" />
+            <element signature="e#1105#1573#0" expanded="false" />
+            <element signature="e#1720#2633#0" expanded="false" />
+            <element signature="e#2790#5008#0" expanded="false" />
+            <element signature="e#5157#5919#0" expanded="false" />
+            <element signature="e#6024#6506#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.045941807">
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="e#39#61#0" expanded="true" />
             <element signature="e#248#932#0" expanded="false" />
@@ -1214,22 +1236,6 @@
             <element signature="e#3340#3977#0" expanded="false" />
             <element signature="e#4131#4820#0" expanded="false" />
             <element signature="e#4930#5441#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gtfs_processing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0168453">
-          <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
-          <folding>
-            <element signature="e#39#61#0" expanded="true" />
-            <element signature="e#277#963#0" expanded="false" />
-            <element signature="e#1105#1573#0" expanded="false" />
-            <element signature="e#1720#2633#0" expanded="false" />
-            <element signature="e#2790#5008#0" expanded="false" />
-            <element signature="e#5157#5919#0" expanded="false" />
-            <element signature="e#6024#6506#0" expanded="false" />
           </folding>
         </state>
       </provider>
