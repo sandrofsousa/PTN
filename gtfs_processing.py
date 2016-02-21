@@ -190,9 +190,19 @@ def main():
             times = update_stop_times(grouped)
             edges = create_edge_list(times)
 
+            # Save grouped dictionary to file for further verification. File name with rho variable.
+            with open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped/radius%s.txt" %str(rho),
+                      "w", newline='') as data1:
+                data1.write('\n'.join('{},{}'.format(x[0], x[1]) for x in grouped.items()))
+
+            # Save edge lists to file for further verification
+            with open("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/radius%s.txt" %str(rho),
+                      "w", newline='') as data2:
+                data2.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
+
             # Create graph from list of tuples.
             ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
-            ptn["name"] = "PTN Sao Paulo, " + "rho: " + str(rho)
+            ptn["name"] = "PTN Sao Paulo, rho: %s" %str(rho)
 
             # Perform respective graph calculation and save to file
             target.write(str(rho) + ", " +
@@ -206,9 +216,6 @@ def main():
                          str(ptn.assortativity_degree(directed=True)) + "," +
                          str(ptn.transitivity_undirected()) + "," +
                          str(ptn.density()) + "\n")
-
-seconds = time.time() - start
-print(seconds)
 
 
 # Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.

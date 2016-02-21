@@ -3,6 +3,7 @@ __author__ = 'sandrofsousa'
 # Imports
 from csv import reader
 from math import sin, cos, sqrt, atan2, radians
+from igraph import *
 
 
 # Function to read GTFS file and get latitude and longitude from stops.
@@ -120,11 +121,76 @@ def group_stops(neighbors_dict):
     return grouped
 
 
-radius = 30
-stops = get_stops_coordinates()
-neighbors = get_neighbors(radius, stops)
-grouped = group_stops(neighbors)
-print(grouped)
+# Read stop times and replace the current stop on route sequence with new id when it exist from grouped list.
+def update_stop_times(grouped_dict):
+    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
+    new_stop_times = []
+
+    with open(file1, "r", newline='') as times:
+        # parse data using csv based on ',' position.
+        searcher = reader(times, delimiter=',', quotechar='"')
+        # skip header (first line).
+        next(searcher)
+        for line in searcher:
+            # select the respective column of line based on ',' position and update list serially.
+            trip_id = str(line[0])
+            stop_id = int(line[3])
+            new_stop_times.append((trip_id, str(grouped_dict[stop_id])))
+
+        # close files
+        times.close()
+
+    return new_stop_times
+
+
+# Function to create edge list from stops updated at previous script
+def create_edge_list(times_list):
+    edge_list = []
+
+    # start index at 0 and finish at last line from list
+    for row in range(0, len(times_list) - 1):
+        trip1 = times_list[row][0]
+        stop1 = times_list[row][1]
+        trip2 = times_list[row + 1][0]   # get trip_id from next line
+        stop2 = times_list[row + 1][1]   # get stop_id from next line
+
+        # Create link only if stops are in the same line sequence
+        if trip1 == trip2:
+            edge_list.append((str(stop1), str(stop2), str(trip1)))
+
+    return edge_list
+
+
+# Main function to process gtfs sub-functions, returns a new edge list and process graph statistics.
+def main():
+    geodata = get_stops_coordinates()
+    radius = list(range(0, 205, 5))
+    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_variation200.txt"
+
+    with open(result, "w") as target:
+        for rho in radius:
+            neighbors = get_neighbors(rho, geodata)
+            grouped = group_stops(neighbors)
+            times = update_stop_times(grouped)
+            edges = create_edge_list(times)
+
+            # Create graph from list of tuples.
+            ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
+            ptn["name"] = "PTN Sao Paulo, " + "rho: " + str(rho)
+
+            # Perform respective graph calculation and save to file
+            target.write(str(rho) + ", " +
+                         str(ptn.vcount()) + "," +
+                         str(ptn.ecount()) + "," +
+                         str(ptn.maxdegree(vertices=None, mode=ALL, loops=True)) + "," +
+                         str(ptn.diameter(directed=True)) + "," +
+                         str(mean(ptn.degree(mode=ALL, loops=True))) + "," +
+                         str(ptn.average_path_length(directed=True)) + "," +
+                         str(len(ptn.clusters(mode=WEAK))) + "," +
+                         str(ptn.assortativity_degree(directed=True)) + "," +
+                         str(ptn.transitivity_undirected()) + "," +
+                         str(ptn.density()) + "\n")
+
 
 # neighbors = {1:[15,16],
 #              2:[],
@@ -146,6 +212,3 @@ print(grouped)
 #              18:[],
 #              19:[],
 #              20:[19]}
-
-grouped = group_stops(neighbors)
-print(grouped.items())
