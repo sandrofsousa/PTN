@@ -6,37 +6,38 @@ from math import sin, cos, sqrt, atan2, radians
 from igraph import *
 
 
-# Function to read GTFS file and get latitude and longitude from stops.
+# Function to read GTFS file and get latitude and longitude from stops using a simple parsing.
 def get_stops_coordinates():  # PASSED
     file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stops.txt"
     geodata = []
 
     with open(file, "r", newline='') as data:
-        # parse data using csv based on ',' position.
+        # Parse data using csv based on ',' position.
         searcher = reader(data, delimiter=',', quotechar='"')
-        # skip header (first line).
+        # Skip header (first line).
         next(searcher)
         for line in searcher:
-            # select the respective column of line based on ',' position.
+            # Select the respective column of line based on ',' position.
             stop_id = int(line[0])
             stop_lat = float(line[3])
             stop_lon = float(line[4])
 
-            # append result to the list
+            # Append fields from line to geodata list
             geodata.append((stop_id, stop_lat, stop_lon))
 
         data.close()
     return geodata
 
 
-# Function to calculate distance in meters from two latitude and longitude.
+# Function to calculate distance on sphere in meters from two latitude and longitude pars.
 def distance_on_sphere(lat1, lon1, lat2, lon2):  # PASSED
-    # approximate mean radius of earth in meters
+    # Approximate mean radius of earth in meters
     r = 6371007.176
 
-    # convert decimal degrees to radians
+    # Convert decimal degrees to radians
     lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
 
+    # Compute difference from variables
     dif_lat = lat2 - lat1
     dif_lon = lon2 - lon1
 
@@ -48,32 +49,34 @@ def distance_on_sphere(lat1, lon1, lat2, lon2):  # PASSED
     return distance
 
 
-# Function to process stops file and return the list of nearby stops based on a rho radius vector.
+# Function to search stops near each other (neighbors). A radius value and a list of stops with coordinates
+# are passed. A stop is classified as neighbor if the distance is lower than the radius.
 def get_neighbors(radius, stops_list):  # PASSED
     neighbors = dict()
 
+    # Populate dictionary with keys and empty values for content.
     for row in range(len(stops_list)):
         stop = stops_list[row][0]
         neighbors[stop] = []
 
-    # loop reading the lists of stops, ignoring the last stop.
+    # Loop reading the list of stops, positioning in the first line of file.
     for row1 in range(len(stops_list) - 1):
         # Get values from first row.
         stop1 = stops_list[row1][0]
         lat1 = stops_list[row1][1]
         lon1 = stops_list[row1][2]
 
-        # loop reading the lists of stops, skipping the first row.
+        # Loop reading the next value of stops list, getting the next row after row1.
         for row2 in range(row1 + 1, len(stops_list)):
             # Get values from second row.
             stop2 = stops_list[row2][0]
             lat2 = stops_list[row2][1]
             lon2 = stops_list[row2][2]
 
-            # call function to calculate the distance between two stops coordinates.
+            # Call function to calculate the distance between two stops.
             distance = distance_on_sphere(lat1, lon1, lat2, lon2)
 
-            # If distance <= rho, save two stops - they are close each other. Else, keep searchin on file.
+            # If distance <= rho, update dictionary value for the respective key (stop2 is neighbor of stop1).
             if distance <= radius:
                 neighbors[stop1].append(stop2)
             else:
@@ -81,16 +84,18 @@ def get_neighbors(radius, stops_list):  # PASSED
     return neighbors
 
 
-# Recursive function to get neighbors of neighbors and group stops linearly
+# Recursive function to get neighbors of respective stop and search for neighbors of each element of the list.
+# It return a list with the cluster of neighbors joined linearly.
 def recursive_search(series, aux_list, neighbors):
     rec_stop = []
 
+    # For element in the list of neighbors, search for it' own neighbors and increment aux_list.
     for stop in aux_list:
         if stop not in series:
             series.append(stop)
             rec_stop = neighbors[stop]
             aux_list += rec_stop
-            return recursive_search(series, aux_list, neighbors)
+            return recursive_search(series, aux_list, neighbors)    # Call the function again for each neighbor.
         else:
             continue
     return series
@@ -98,25 +103,26 @@ def recursive_search(series, aux_list, neighbors):
 
 # Function to process neighbors IDs list from previous algorithm and replace them with a new id for grouped stops.
 def group_stops(neighbors_dict):
-    # Pared lists to store stop id on left and new id on right if there's a neighbor.
     grouped = {}
     last_id = 0
     series = []
     aux_list = []
 
-    # For any item in dict, fill series list with stop to be analysed and aux list with it' neighbors
+    # For each item in neighbors_dict, fill series list with stop to be analysed and aux list with it's neighbors.
     for item in neighbors_dict:
-        if item in grouped: continue
+        if item in grouped:                 # Id already parsed, ignore.
+            continue
 
-        series = [item]
-        aux_list = neighbors_dict[item]
+        series = [item]                     # Initialize list with stop to be searched.
+        aux_list = neighbors_dict[item]     # Populate list with neighbors of stops
 
-        # doc
+        # Call recursive function to search for neighbors of elements of aux_list
         cluster = recursive_search(series, aux_list, neighbors)
 
+        # Set the same new ID for all elements of the cluster
         for stop in cluster:
             grouped[stop] = "v" + str(last_id + 1)
-        last_id += 1  # update last_id list to keep consistent sequence
+        last_id += 1    # update last_id list to keep consistent sequence
 
     return grouped
 
