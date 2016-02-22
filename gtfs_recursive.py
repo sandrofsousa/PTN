@@ -86,16 +86,15 @@ def get_neighbors(radius, stops_list):  # PASSED
 
 # Recursive function to get neighbors of respective stop and search for neighbors of each element of the list.
 # It return a list with the cluster of neighbors joined linearly.
-def recursive_search(series, aux_list, neighbors):
-    rec_stop = []
+def recursive_search(series, aux_list, neighbors_dict):
 
     # For element in the list of neighbors, search for it' own neighbors and increment aux_list.
     for stop in aux_list:
         if stop not in series:
             series.append(stop)
-            rec_stop = neighbors[stop]
+            rec_stop = neighbors_dict[stop]
             aux_list += rec_stop
-            return recursive_search(series, aux_list, neighbors)    # Call the function again for each neighbor.
+            return recursive_search(series, aux_list, neighbors_dict)    # Call the function again for each neighbor.
         else:
             continue
     return series
@@ -105,8 +104,6 @@ def recursive_search(series, aux_list, neighbors):
 def group_stops(neighbors_dict):
     grouped = {}
     last_id = 0
-    series = []
-    aux_list = []
 
     # For each item in neighbors_dict, fill series list with stop to be analysed and aux list with it's neighbors.
     for item in neighbors_dict:
@@ -117,7 +114,7 @@ def group_stops(neighbors_dict):
         aux_list = neighbors_dict[item]     # Populate list with neighbors of stops
 
         # Call recursive function to search for neighbors of elements of aux_list
-        cluster = recursive_search(series, aux_list, neighbors)
+        cluster = recursive_search(series, aux_list, neighbors_dict)
 
         # Set the same new ID for all elements of the cluster
         for stop in cluster:
@@ -183,18 +180,18 @@ def main():
             edges = create_edge_list(times)
 
             # Save grouped dictionary to file for further verification. File's name with text variable for current rho.
-            file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped/groups%s.txt" %str(rho)
+            file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped/groups%s.txt" % str(rho)
             with open(file1, "w", newline='') as data1:
                 data1.write('\n'.join('{},{}'.format(x[0], x[1]) for x in grouped.items()))
 
             # Save edge lists to file for further verification. File's name with text variable for current rho.
-            file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/edges%s.txt" %str(rho)
+            file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/edges%s.txt" % str(rho)
             with open(file2, "w", newline='') as data2:
                 data2.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
 
             # Create graph from list of tuples.
             ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
-            ptn["name"] = "PTN Sao Paulo, rho: %s" %str(rho)
+            ptn["name"] = "PTN Sao Paulo, rho: %s" % str(rho)
             hist = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
 
             # Perform respective graph calculation and save to file
@@ -211,28 +208,8 @@ def main():
                          str(ptn.density()) + "\n")
 
             # Save histograms to file for further analysis. File's name with text variable for current rho.
-            file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histograms/hist%s.txt" %str(rho)
+            file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histograms/hist%s.txt" % str(rho)
             with open(file3, "w", newline='') as data3:
                 data3.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in hist))
 
-
-# neighbors = {1:[15,16],
-#              2:[],
-#              3:[8,12],
-#              4:[9,11,12],
-#              5:[11],
-#              6:[17],
-#              7:[],
-#              8:[3],
-#              9:[4,12],
-#              10:[11],
-#              11:[4,5,10],
-#              12:[3,4,9,13],
-#              13:[12],
-#              14:[15],
-#              15:[1,14],
-#              16:[1,17],
-#              17:[6,16],
-#              18:[],
-#              19:[],
-#              20:[19]}
+main()

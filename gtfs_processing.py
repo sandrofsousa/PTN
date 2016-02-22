@@ -243,3 +243,24 @@ def main():
 #     # file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges.txt"
 #     # with open(file, "w", newline='') as data:
 #     #     data.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
+
+# neighbors = {1:[15,16],
+#              2:[],
+#              3:[8,12],
+#              4:[9,11,12],
+#              5:[11],
+#              6:[17],
+#              7:[],
+#              8:[3],
+#              9:[4,12],
+#              10:[11],
+#              11:[4,5,10],
+#              12:[3,4,9,13],
+#              13:[12],
+#              14:[15],
+#              15:[1,14],
+#              16:[1,17],
+#              17:[6,16],
+#              18:[],
+#              19:[],
+#              20:[19]}
