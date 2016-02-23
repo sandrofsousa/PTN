@@ -4,6 +4,9 @@ __author__ = 'sandrofsousa'
 from csv import reader
 from math import sin, cos, sqrt, atan2, radians
 from igraph import *
+import time
+
+start = time.time()
 
 
 # Function to read GTFS file and get latitude and longitude from stops using a simple parsing.
@@ -126,10 +129,10 @@ def group_stops(neighbors_dict):
 
 # Read stop_times file and replace the current stop on route sequence with new id when it exist on grouped dictionary.
 def update_stop_times(grouped_dict):
-    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
+    stop_times = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
     new_stop_times = []
 
-    with open(file1, "r", newline='') as times:
+    with open(stop_times, "r", newline='') as times:
         # Parse data using csv based on ',' position.
         searcher = reader(times, delimiter=',', quotechar='"')
         # Skip header (first line).
@@ -174,16 +177,22 @@ def main():
 
     with open(result, "w") as target:
         for rho in radius:
-            neighbors = get_neighbors(rho, geodata)
-            grouped = group_stops(neighbors)
-            times = update_stop_times(grouped)
-            edges = create_edge_list(times)
 
+            neighbors = get_neighbors(rho, geodata)
+            # Save neighbors dict to file for further verification. File's name with text variable for current rho.
+            file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors/neighbors%s.txt" % str(rho)
+            with open(file1, "w", newline='') as data1:
+                data1.write("%s\n" % str(line) for line in neighbors)
+
+            grouped = group_stops(neighbors)
             # Save grouped dictionary to file for further verification. File's name with text variable for current rho.
             file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped/groups%s.txt" % str(rho)
             with open(file1, "w", newline='') as data1:
                 data1.write('\n'.join('{},{}'.format(x[0], x[1]) for x in grouped.items()))
 
+            times = update_stop_times(grouped)
+
+            edges = create_edge_list(times)
             # Save edge lists to file for further verification. File's name with text variable for current rho.
             file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/edges%s.txt" % str(rho)
             with open(file2, "w", newline='') as data2:
@@ -192,7 +201,6 @@ def main():
             # Create graph from list of tuples.
             ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
             ptn["name"] = "PTN Sao Paulo, rho: %s" % str(rho)
-            hist = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
 
             # Perform respective graph calculation and save to file
             target.write(str(rho) + ", " +
@@ -207,9 +215,49 @@ def main():
                          str(ptn.transitivity_undirected()) + "," +
                          str(ptn.density()) + "\n")
 
+            hist = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
             # Save histograms to file for further analysis. File's name with text variable for current rho.
             file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histograms/hist%s.txt" % str(rho)
             with open(file3, "w", newline='') as data3:
                 data3.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in hist))
 
-main()
+
+# Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
+def write_file():
+
+    rho = 30
+
+    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/geodata.txt"
+    geodata = get_stops_coordinates()
+    with open(file1, "w", newline='') as data1:
+        for line1 in geodata:
+            data1.write("%s\n" % str(line1))
+
+    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/neighbors.txt"
+    neighbors = get_neighbors(rho, geodata)
+    with open(file2, "w", newline='') as data2:
+        for line2 in neighbors.items():
+            data2.write("%s\n" % str(line2))
+
+    file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/grouped.txt"
+    grouped = group_stops(neighbors)
+    with open(file3, "w", newline='') as data3:
+        for line3 in grouped.items():
+            data3.write("%s\n" % str(line3))
+
+    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/times.txt"
+    times = update_stop_times(grouped)
+    with open(file4, "w", newline='') as data4:
+        for line4 in times:
+            data4.write("%s\n" % str(line4))
+
+    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/edges.txt"
+    edges = create_edge_list(times)
+    with open(file5, "w", newline='') as data5:
+        for line5 in edges:
+            data5.write("%s\n" % str(line5))
+
+
+end = time.time()
+elapsed = (end - start) / 60
+print(elapsed)
