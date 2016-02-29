@@ -30,8 +30,8 @@
       <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38496584">
-              <caret line="186" column="52" selection-start-line="186" selection-start-column="52" selection-end-line="186" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.44874716">
+              <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
               <folding>
                 <element signature="e#39#61#0" expanded="true" />
                 <element signature="e#304#1002#0" expanded="false" />
@@ -41,6 +41,8 @@
                 <element signature="e#3945#4777#0" expanded="false" />
                 <element signature="e#4940#5638#0" expanded="false" />
                 <element signature="e#5764#6281#0" expanded="false" />
+                <element signature="e#6582#9665#0" expanded="false" />
+                <element signature="e#9803#11147#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -425,12 +427,6 @@
       <option name="number" value="Default" />
       <updated>1411665936642</updated>
     </task>
-    <task id="LOCAL-00008" summary="Working code for graph. Need recalculate metrics and add information from qualifying exam.">
-      <created>1442710138773</created>
-      <option name="number" value="00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1442710138773</updated>
-    </task>
     <task id="LOCAL-00009" summary="new files">
       <created>1442858028754</created>
       <option name="number" value="00009" />
@@ -719,7 +715,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456711018973</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Few corrections in main funtion.">
+      <created>1456712350267</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1456712350267</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -1168,8 +1170,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38496584">
-          <caret line="186" column="52" selection-start-line="186" selection-start-column="52" selection-end-line="186" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.44874716">
+          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
           <folding>
             <element signature="e#39#61#0" expanded="true" />
             <element signature="e#304#1002#0" expanded="false" />
@@ -1179,6 +1181,8 @@
             <element signature="e#3945#4777#0" expanded="false" />
             <element signature="e#4940#5638#0" expanded="false" />
             <element signature="e#5764#6281#0" expanded="false" />
+            <element signature="e#6582#9665#0" expanded="false" />
+            <element signature="e#9803#11147#0" expanded="false" />
           </folding>
         </state>
       </provider>

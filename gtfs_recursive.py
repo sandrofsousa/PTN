@@ -170,7 +170,7 @@ def create_edge_list(times_list):
 
 # Main function to process gtfs sub-functions given a vector of radius values.
 # For any value of radius, save the grouped dictionary and edge list used to create the graph.
-# Returns a file with histograms for any radius and network statistics.
+# Returns a file with histograms for any radius and network statistics. run time 270.9850565989812 (4.51hs)
 def main():
     geodata = get_stops_coordinates()
     radius = list(range(0, 205, 5))
