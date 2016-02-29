@@ -183,21 +183,21 @@ def main():
             # Save neighbors dict to file for further verification. File's name with text variable for current rho.
             file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors/neighbors%s.txt" % str(rho)
             with open(file1, "w", newline='') as data1:
-                data1.write("%s\n" % str(line) for line in neighbors)
+                data1.write("%s\n" % str(line1) for line1 in neighbors)
 
             grouped = group_stops(neighbors)
             # Save grouped dictionary to file for further verification. File's name with text variable for current rho.
-            file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/grouped/groups%s.txt" % str(rho)
-            with open(file1, "w", newline='') as data1:
-                data1.write('\n'.join('{},{}'.format(x[0], x[1]) for x in grouped.items()))
+            file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/groups/grouped%s.txt" % str(rho)
+            with open(file2, "w", newline='') as data2:
+                data2.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in grouped.items()))
 
             times = update_stop_times(grouped)
 
             edges = create_edge_list(times)
             # Save edge lists to file for further verification. File's name with text variable for current rho.
-            file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/edges%s.txt" % str(rho)
-            with open(file2, "w", newline='') as data2:
-                data2.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in edges))
+            file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/edges%s.txt" % str(rho)
+            with open(file3, "w", newline='') as data3:
+                data3.write('\n'.join('{},{},{}'.format(x2[0], x2[1], x2[2]) for x2 in edges))
 
             # Create graph from list of tuples.
             ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
@@ -216,11 +216,11 @@ def main():
                          str(ptn.transitivity_undirected()) + "," +
                          str(ptn.density()) + "\n")
 
-            hist = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
+            histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
             # Save histograms to file for further analysis. File's name with text variable for current rho.
-            file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histograms/hist%s.txt" % str(rho)
-            with open(file3, "w", newline='') as data3:
-                data3.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in hist))
+            file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/hist%s.txt" % str(rho)
+            with open(file4, "w", newline='') as data4:
+                data4.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in histogram))
 
 
 # Auxiliary function to write results on files for validation with a fixed radius. #run time 6.456102518240611 min
