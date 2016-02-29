@@ -181,9 +181,10 @@ def main():
 
             neighbors = get_neighbors(rho, geodata)
             # Save neighbors dict to file for further verification. File's name with text variable for current rho.
-            file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors/neighbors%s.txt" % str(rho)
+            file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors/neighbor%s.txt" % str(rho)
             with open(file1, "w", newline='') as data1:
-                data1.write("%s\n" % str(line1) for line1 in neighbors.items())
+                for line1 in neighbors.items():
+                    data1.write("%s\n" % str(line1))
 
             grouped = group_stops(neighbors)
             # Save grouped dictionary to file for further verification. File's name with text variable for current rho.
