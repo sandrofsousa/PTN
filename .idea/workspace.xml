@@ -30,18 +30,16 @@
       <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70294785">
-              <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2946565">
+              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
               <folding>
                 <element signature="e#39#61#0" expanded="true" />
                 <element signature="e#304#1002#0" expanded="false" />
                 <element signature="e#1158#1668#0" expanded="false" />
-                <element signature="e#1921#3119#0" expanded="false" />
                 <element signature="e#3360#3789#0" expanded="false" />
                 <element signature="e#3945#4777#0" expanded="false" />
                 <element signature="e#4940#5638#0" expanded="false" />
                 <element signature="e#5764#6281#0" expanded="false" />
-                <element signature="e#6546#9579#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -139,7 +137,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -161,6 +158,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,18 +423,6 @@
       <created>1411665936642</created>
       <option name="number" value="Default" />
       <updated>1411665936642</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Working code to create edge list. Need to be validated.">
-      <created>1435104741979</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1435104741979</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Working code for graph. Need recalculate metrics and add information from qualifying exam.">
-      <created>1435105158663</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1435105158663</updated>
     </task>
     <task id="LOCAL-00007" summary="Working code for graph. Need recalculate metrics and add information from qualifying exam.">
       <created>1442692330835</created>
@@ -720,7 +706,19 @@
       <option name="project" value="LOCAL" />
       <updated>1456269845071</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Correction on neighbors function that wasn't setting the neighborhood reciprocal for both stops compared. Now, if stop1 has a neighbour stop2, both has this relationship updated on dict. Grouping working as expected.">
+      <created>1456708018037</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1456708018039</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Few corrections in main funtion.">
+      <created>1456710227491</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1456710227491</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -737,11 +735,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32452276" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17712471" sideWeight="0.37774524" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.30746704" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34801763" sideWeight="0.49029127" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.30307466" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29868227" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3133236" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.69253296" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.69692534" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34801763" sideWeight="0.50970876" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38179147" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="100" y="123" width="1080" height="573" />
@@ -750,8 +746,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34801763" sideWeight="0.49029127" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31424376" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39941263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
     </layout>
@@ -770,8 +768,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
-    <MESSAGE value="Function to replace old IDs from stop_times for new from grouped list finished. Must be tested and validated with the previous functions. Need to finish algorithm_3 to create new edge_list." />
-    <MESSAGE value="Function update_stop_times created to read stop_times file and replace the current stop on route sequence with new id when it exist from grouped list. Code working and validated. GTFS file updated to check the problem of coordinates too close for a sequence of stops." />
     <MESSAGE value="Function update_stop_times tested. Problems at algorithm 2 with stops that has a new ID in the same line, the assumption of these scenario never happening is incorrect, beside the script is using a time crescent flow, some stops times are not being updated with the correct value. Rethink the script, check the scenarios and update script." />
     <MESSAGE value="Code for writing result on file added to main function. All results now saved on internal list. Code slow, check for improvement. TO-DO review algorithm 2, not work correctly." />
     <MESSAGE value="Algorithm 3 for processing of new stop sequence and create an edge list based on new IDs. Implemented and tested for sample data." />
@@ -795,7 +791,9 @@
     <MESSAGE value="Recursive function working and tested. A validation with all files is required. New coments implemented and corrected." />
     <MESSAGE value="Few function references corrected for main processing." />
     <MESSAGE value="Few correction. Validation steel ongoing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Few correction. Validation steel ongoing." />
+    <MESSAGE value="Correction on neighbors function that wasn't setting the neighborhood reciprocal for both stops compared. Now, if stop1 has a neighbour stop2, both has this relationship updated on dict. Grouping working as expected." />
+    <MESSAGE value="Few corrections in main funtion." />
+    <option name="LAST_COMMIT_MESSAGE" value="Few corrections in main funtion." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -809,7 +807,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="146" />
+      <option name="time" value="147" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1169,18 +1167,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70294785">
-          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2946565">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding>
             <element signature="e#39#61#0" expanded="true" />
             <element signature="e#304#1002#0" expanded="false" />
             <element signature="e#1158#1668#0" expanded="false" />
-            <element signature="e#1921#3119#0" expanded="false" />
             <element signature="e#3360#3789#0" expanded="false" />
             <element signature="e#3945#4777#0" expanded="false" />
             <element signature="e#4940#5638#0" expanded="false" />
             <element signature="e#5764#6281#0" expanded="false" />
-            <element signature="e#6546#9579#0" expanded="false" />
           </folding>
         </state>
       </provider>
