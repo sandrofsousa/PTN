@@ -30,19 +30,18 @@
       <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22900763">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.70294785">
+              <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
               <folding>
                 <element signature="e#39#61#0" expanded="true" />
                 <element signature="e#304#1002#0" expanded="false" />
                 <element signature="e#1158#1668#0" expanded="false" />
-                <element signature="e#1921#3072#0" expanded="false" />
-                <element signature="e#3313#3742#0" expanded="false" />
-                <element signature="e#3898#4730#0" expanded="false" />
-                <element signature="e#4893#5591#0" expanded="false" />
-                <element signature="e#5717#6234#0" expanded="false" />
-                <element signature="e#6499#9532#0" expanded="false" />
-                <element signature="e#9670#11014#0" expanded="false" />
+                <element signature="e#1921#3119#0" expanded="false" />
+                <element signature="e#3360#3789#0" expanded="false" />
+                <element signature="e#3945#4777#0" expanded="false" />
+                <element signature="e#4940#5638#0" expanded="false" />
+                <element signature="e#5764#6281#0" expanded="false" />
+                <element signature="e#6546#9579#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -140,6 +139,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -160,8 +161,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -426,12 +425,6 @@
       <created>1411665936642</created>
       <option name="number" value="Default" />
       <updated>1411665936642</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Working code to create edge list. Need to be validated.">
-      <created>1430595260854</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1430595260855</updated>
     </task>
     <task id="LOCAL-00005" summary="Working code to create edge list. Need to be validated.">
       <created>1435104741979</created>
@@ -721,7 +714,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456148039697</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Few correction. Validation steel ongoing.">
+      <created>1456269845070</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1456269845071</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -738,23 +737,23 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32452276" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17712471" sideWeight="0.37774524" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.3103953" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.30746704" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34801763" sideWeight="0.49029127" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29868227" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3133236" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.6896047" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3133236" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18189038" sideWeight="0.69253296" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34801763" sideWeight="0.50970876" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38179147" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="100" y="123" width="1080" height="573" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39941263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -771,7 +770,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
-    <MESSAGE value="Algorithm 2 implemented and tested. Need to check more values and validate. Implement algorithm 3 to finish." />
     <MESSAGE value="Function to replace old IDs from stop_times for new from grouped list finished. Must be tested and validated with the previous functions. Need to finish algorithm_3 to create new edge_list." />
     <MESSAGE value="Function update_stop_times created to read stop_times file and replace the current stop on route sequence with new id when it exist from grouped list. Code working and validated. GTFS file updated to check the problem of coordinates too close for a sequence of stops." />
     <MESSAGE value="Function update_stop_times tested. Problems at algorithm 2 with stops that has a new ID in the same line, the assumption of these scenario never happening is incorrect, beside the script is using a time crescent flow, some stops times are not being updated with the correct value. Rethink the script, check the scenarios and update script." />
@@ -796,7 +794,8 @@
     <MESSAGE value="Recursive function working and validated. Need to check files for final validation." />
     <MESSAGE value="Recursive function working and tested. A validation with all files is required. New coments implemented and corrected." />
     <MESSAGE value="Few function references corrected for main processing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Few function references corrected for main processing." />
+    <MESSAGE value="Few correction. Validation steel ongoing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Few correction. Validation steel ongoing." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1075,13 +1074,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11980831">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/randon walk/weighted_edges.py">
@@ -1165,33 +1164,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3435115">
           <caret line="228" column="25" selection-start-line="228" selection-start-column="25" selection-end-line="228" selection-end-column="25" />
-          <folding>
-            <element signature="e#39#61#0" expanded="true" />
-            <element signature="e#277#963#0" expanded="false" />
-            <element signature="e#1105#1573#0" expanded="false" />
-            <element signature="e#1720#2633#0" expanded="false" />
-            <element signature="e#2790#5008#0" expanded="false" />
-            <element signature="e#5157#5919#0" expanded="false" />
-            <element signature="e#6024#6506#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22900763">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.70294785">
+          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
           <folding>
             <element signature="e#39#61#0" expanded="true" />
             <element signature="e#304#1002#0" expanded="false" />
             <element signature="e#1158#1668#0" expanded="false" />
-            <element signature="e#1921#3072#0" expanded="false" />
-            <element signature="e#3313#3742#0" expanded="false" />
-            <element signature="e#3898#4730#0" expanded="false" />
-            <element signature="e#4893#5591#0" expanded="false" />
-            <element signature="e#5717#6234#0" expanded="false" />
-            <element signature="e#6499#9532#0" expanded="false" />
-            <element signature="e#9670#11014#0" expanded="false" />
+            <element signature="e#1921#3119#0" expanded="false" />
+            <element signature="e#3360#3789#0" expanded="false" />
+            <element signature="e#3945#4777#0" expanded="false" />
+            <element signature="e#4940#5638#0" expanded="false" />
+            <element signature="e#5764#6281#0" expanded="false" />
+            <element signature="e#6546#9579#0" expanded="false" />
           </folding>
         </state>
       </provider>

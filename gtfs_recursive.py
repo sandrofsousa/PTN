@@ -82,6 +82,7 @@ def get_neighbors(radius, stops_list):  # PASSED
             # If distance <= rho, update dictionary value for the respective key (stop2 is neighbor of stop1).
             if distance <= radius:
                 neighbors[stop1].append(stop2)
+                neighbors[stop2].append(stop1)
             else:
                 continue
     return neighbors
@@ -222,7 +223,7 @@ def main():
                 data3.write('\n'.join('{},{},{}'.format(x[0], x[1], x[2]) for x in hist))
 
 
-# Auxiliary function to process gtfs sub-functions and write files with results from each one - validation only -.
+# Auxiliary function to write results on files for validation with a fixed radius. #run time 6.456102518240611 min
 def write_file():
 
     rho = 30
@@ -257,6 +258,8 @@ def write_file():
         for line5 in edges:
             data5.write("%s\n" % str(line5))
 
+
+main()
 
 end = time.time()
 elapsed = (end - start) / 60
