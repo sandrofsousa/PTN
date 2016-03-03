@@ -223,6 +223,13 @@ def main():
             with open(file4, "w", newline='') as data4:
                 data4.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in histogram))
 
+            # pathhist = list(ptn.path_length_hist(directed=True).bins())
+            # file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/paths/path%s.txt" % str(rho)
+            # with open(file5, "w", newline='') as data5:
+            #     data5.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in pathhist))
+
+
+
 
 # Auxiliary function to write results on files for validation with a fixed radius. #run time 6.456102518240611 min
 def write_file():
