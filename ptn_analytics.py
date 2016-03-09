@@ -1,60 +1,112 @@
-#################################################################################################################
-##                                                                                                             ##
-## ------------------------------ Public Transport Complex Network of São Paulo ------------------------------ ##
-##                                                                                                             ##
-## Empirical Analysis of GTFS data of São Paulo Public transport network (Bus, subway adn train systems)       ##
-## from SPTrans. The bus stops and subway stations are set as vertex (nodes) and lines/routes as edges (links) ##
-## of the network. Statistical analysis of the Network using graph theory,calculating degree distribution,     ##
-## centrality, hubs, clusters and other network metrics.                                                       ##
-##                                                                                                             ##
-##  Sousa, Sandro                                                                                              ##
-##  Complex Systems Modeling                                                                                   ##
-##  University of São Paulo                                                                                    ##
-##  sandrofsousa@gmail.com                                                                                     ##
-##  sandrofs@usp.br                                                                                            ##
-##                                                                                                             ##
-#################################################################################################################
-
-# algoritmos não implementados para grafo dirigido, procurar novo pacote
-# o que fazer com os liks que possuem mais de um valor de tempo, várias linhas nos mesmos pontos
-# como adicionar os links que conectam o metrô a estação de onibus? qual peso, sentido, grau, copiar linhas de onibus?
-# como calcular o peso baseado na distancia? qual tipo de vizinhança considerar? manhattan?
-# no link metrô onibus, considerar somente as linhas com destino à estação ou que apenas passam por ela?
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from csv import reader
+import math
+import os
 
 
-import networkx as nx
-# import matplotlib.pyplot as plt
+def plot_rho():
+    data2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_0to200.txt"
+    df2 = pd.read_csv(data2,
+                      index_col=0,
+                      names=['Nós totais',
+                             'Links totais',
+                             'Grau máximo',
+                             'Diâmetro da rede',
+                             'Grau médio',
+                             'Caminho médio',
+                             'Componentes',
+                             'Assortatividade',
+                             'Coef. de Clusterização',
+                             'Densidade'])
 
-# TODO join metro networks to bus networks
+    sns.set_style("darkgrid", {"axes.facecolor": ".91", 'text.color': '.15'})
+    sns.set_context("talk")
 
-# Create Graph from edge list
-source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
-el = open(source, 'rb')
-PTN_D = nx.read_edgelist(el, delimiter=',', create_using=nx.DiGraph())
-el.close()
+    plt.figure(facecolor="white", figsize=(14, 16))
 
-print(nx.info(PTN_D))
-# print("centrality", nx.betweenness_centrality(PTN_D))
-print(nx.number_connected_components(PTN_D))
+    # geting separated data from pandas framworks
+    plt.subplot(521)
+    plt.plot(df2.iloc[:,0:1])
+    plt.title('Nós totais')
+
+    plt.subplot(522)
+    plt.plot(df2.iloc[:,1:2])
+    plt.title('Links totais')
+
+    plt.subplot(523)
+    plt.plot(df2.iloc[:,2:3])
+    plt.title('Grau máximo')
+
+    plt.subplot(524)
+    plt.plot(df2.iloc[:,3:4])
+    plt.title('Diâmetro da rede')
+
+    plt.subplot(525)
+    plt.plot(df2.iloc[:,4:5])
+    plt.title('Grau médio')
+
+    plt.subplot(526)
+    plt.plot(df2.iloc[:,5:6])
+    plt.title('Caminho médio')
+
+    plt.subplot(527)
+    plt.plot(df2.iloc[:,6:7])
+    plt.title('Componentes')
+
+    plt.subplot(528)
+    plt.plot(df2.iloc[:,7:8])
+    plt.title('Assortatividade')
+
+    plt.subplot(529)
+    plt.plot(df2.iloc[:,8:9])
+    plt.title('Coef. de Clusterização')
+    plt.xlabel('Raio')
+
+    plt.subplot(5,2,10)
+    plt.plot(df2.iloc[:,9:10])
+    plt.title('Densidade')
+    plt.xlabel('Raio')
+
+    plt.subplots_adjust(wspace=0.2, hspace=0.3)
+
+    plt.savefig("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/plot/plot_rho0to200", dpi=200)
 
 
-# Create undirected Graph from edge list
-# source = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/stop_times target.txt"
-# el = open(source, 'rb')
-# PTN_G = nx.read_edgelist(el, delimiter=',', create_using=nx.Graph())
-# el.close()
+def his_plot():
+    global df3
+    filenames = []
+    concat_list = []
+    # Your path will be different, please modify the path below.
+    os.chdir(r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram")
+    # Find any file that ends with ".xlsx"
+    for files in os.listdir("."):
+        if files.endswith(".txt"):
+            filenames.append(files)
 
-# TODO plot degree distribution and info
-print(nx.info(PTN_D))
-# print(nx.degree_histogram(PTN_D))
-# print(nx.info(PTN_G))
-# print(nx.degree_histogram(PTN_G))
-# print(nx.average_shortest_path_length(PTN_D))
+    def readfile(path):
+        with open(path) as data:
+            rho = int(path[path.rfind("hist")+4:len(path)-4])
+            searcher = reader(data, delimiter=',', quotechar='"')
+            for line in searcher:
+                bin_in = math.log10(float(line[0]))
+                freq = int(line[2])
+                concat_list.append((bin_in,rho,freq))
 
+    for fname in filenames:
+        location = r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/" + fname
 
-# TODO plot metrics
+        readfile(location)
 
+    df3 = pd.DataFrame(concat_list, columns=["bin", "rho", "freq"])
 
-# TODO draw graphs
+    # g = sns.FacetGrid(df3, col='rho', col_wrap=5, size=2, sharex=True, xlim=(0, 4))
+    # g = g.map(sns.pointplot, 'freq', 'bin', scale=.7)
+    # plt.show()
 
-# Validade lines
+    g = sns.FacetGrid(df3, col='rho', col_wrap=5, sharex=True, xlim=(0, 7000), ylim=(0, 4))
+    g.map(sns.pointplot, 'bin', 'freq')
+    plt.show()
+
+his_plot()

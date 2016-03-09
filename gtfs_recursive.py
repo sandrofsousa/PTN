@@ -1,6 +1,5 @@
 __author__ = 'sandrofsousa'
 
-# Imports
 from csv import reader
 from math import sin, cos, sqrt, atan2, radians
 from igraph import *
@@ -227,8 +226,6 @@ def main():
             # file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/paths/path%s.txt" % str(rho)
             # with open(file5, "w", newline='') as data5:
             #     data5.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in pathhist))
-
-
 
 
 # Auxiliary function to write results on files for validation with a fixed radius. #run time 6.456102518240611 min
