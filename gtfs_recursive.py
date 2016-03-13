@@ -182,8 +182,7 @@ def main():
             # Save neighbors dict to file for further verification. File's name with text variable for current rho.
             file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors/neighbor%s.txt" % str(rho)
             with open(file1, "w", newline='') as data1:
-                for line1 in neighbors.items():
-                    data1.write("%s\n" % str(line1))
+                data1.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in neighbors.items()))
 
             grouped = group_stops(neighbors)
             # Save grouped dictionary to file for further verification. File's name with text variable for current rho.
@@ -229,43 +228,36 @@ def main():
 
 
 # Auxiliary function to write results on local files for validation with a fixed radius.
-# run time 6.456102518240611 min
+# run time 6.991623584429423 min
 def write_file():
 
-    rho = 30
+    rho = 0
 
-    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/geodata.txt"
+    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/geodata%s.txt" % str(rho)
     geodata = get_stops_coordinates()
     with open(file1, "w", newline='') as data1:
-        for line1 in geodata:
-            data1.write("%s\n" % str(line1))
+        data1.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in geodata))
 
-    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/neighbors.txt"
+    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/neighbors%s.txt" % str(rho)
     neighbors = get_neighbors(rho, geodata)
     with open(file2, "w", newline='') as data2:
-        for line2 in neighbors.items():
-            data2.write("%s\n" % str(line2))
+        data2.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in neighbors.items()))
 
-    file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/grouped.txt"
+    file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/grouped%s.txt" % str(rho)
     grouped = group_stops(neighbors)
     with open(file3, "w", newline='') as data3:
-        for line3 in grouped.items():
-            data3.write("%s\n" % str(line3))
+        data3.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in grouped.items()))
 
-    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/times.txt"
+    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/times%s.txt" % str(rho)
     times = update_stop_times(grouped)
     with open(file4, "w", newline='') as data4:
-        for line4 in times:
-            data4.write("%s\n" % str(line4))
+        data4.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in times))
 
-    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/edges.txt"
+    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/edges%s.txt" % str(rho)
     edges = create_edge_list(times)
     with open(file5, "w", newline='') as data5:
-        for line5 in edges:
-            data5.write("%s\n" % str(line5))
+        data5.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in edges))
 
-
-write_file()
 
 end = time.time()
 elapsed = (end - start) / 60
