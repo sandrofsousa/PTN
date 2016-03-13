@@ -31,7 +31,7 @@ def get_stops_coordinates():  # PASSED
     return geodata
 
 
-# Function to calculate distance on sphere in meters from two latitude and longitude pars.
+# Auxiliary function to calculate distance on sphere in meters from two latitude and longitude pars.
 def distance_on_sphere(lat1, lon1, lat2, lon2):  # PASSED
     # Approximate mean radius of earth in meters
     r = 6371007.176
@@ -68,17 +68,17 @@ def get_neighbors(radius, stops_list):  # PASSED
         lat1 = stops_list[row1][1]
         lon1 = stops_list[row1][2]
 
-        # Loop reading the next value of stops list, getting the next row after row1.
+        # Loop reading the next value of stops list, getting the position from row1.
         for row2 in range(row1 + 1, len(stops_list)):
             # Get values from second row.
             stop2 = stops_list[row2][0]
             lat2 = stops_list[row2][1]
             lon2 = stops_list[row2][2]
 
-            # Call function to calculate the distance between two stops.
+            # Call function to calculate the distance between the two stops.
             distance = distance_on_sphere(lat1, lon1, lat2, lon2)
 
-            # If distance <= rho, update dictionary value for the respective key (stop2 is neighbor of stop1).
+            # If distance <= rho, update dictionary for respective keys (stop2 is neighbor of stop1, reciprocal).
             if distance <= radius:
                 neighbors[stop1].append(stop2)
                 neighbors[stop2].append(stop1)
@@ -87,8 +87,8 @@ def get_neighbors(radius, stops_list):  # PASSED
     return neighbors
 
 
-# Recursive function to get neighbors of respective stop and search for neighbors of each element of the list.
-# It return a list with the cluster of neighbors joined linearly.
+# Auxiliary recursive function to get neighbors of respective stop and search for neighbors of each element
+# of the list. It return a list with the cluster of neighbors joined linearly.
 def recursive_search(series, aux_list, neighbors_dict):
 
     # For element in the list of neighbors, search for it' own neighbors and increment aux_list.
@@ -97,7 +97,7 @@ def recursive_search(series, aux_list, neighbors_dict):
             series.append(stop)
             rec_stop = neighbors_dict[stop]
             aux_list += rec_stop
-            return recursive_search(series, aux_list, neighbors_dict)    # Call the function again for each neighbor.
+            return recursive_search(series, aux_list, neighbors_dict)    # Call function again for each neighbor found.
         else:
             continue
     return series
@@ -228,7 +228,8 @@ def main():
             #     data5.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in pathhist))
 
 
-# Auxiliary function to write results on files for validation with a fixed radius. #run time 6.456102518240611 min
+# Auxiliary function to write results on local files for validation with a fixed radius.
+# run time 6.456102518240611 min
 def write_file():
 
     rho = 30
@@ -264,7 +265,7 @@ def write_file():
             data5.write("%s\n" % str(line5))
 
 
-main()
+write_file()
 
 end = time.time()
 elapsed = (end - start) / 60
