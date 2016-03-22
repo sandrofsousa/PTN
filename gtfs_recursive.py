@@ -169,7 +169,7 @@ def create_edge_list(times_list):
 
 # Main function to process gtfs sub-functions given a vector of radius values.
 # For any value of radius, save the grouped dictionary and edge list used to create the graph.
-# Returns a file with histograms for any radius and network statistics. run time 270.9850565989812 (4.51hs)
+# Returns a file with histograms for any radius and network statistics. run time 288.6663824836413 (4.8hs)
 def main():
     geodata = get_stops_coordinates()
     radius = list(range(0, 205, 5))
@@ -181,50 +181,59 @@ def main():
             neighbors = get_neighbors(rho, geodata)
             # Save neighbors dict to file for further verification. File's name with text variable for current rho.
             file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors/neighbor%s.txt" % str(rho)
-            with open(file1, "w", newline='') as data1:
+            with open(file1, "w") as data1:
                 data1.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in neighbors.items()))
 
             grouped = group_stops(neighbors)
             # Save grouped dictionary to file for further verification. File's name with text variable for current rho.
             file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/groups/grouped%s.txt" % str(rho)
-            with open(file2, "w", newline='') as data2:
-                data2.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in grouped.items()))
+            with open(file2, "w") as data2:
+                data2.write('\n'.join('{},{}'.format(x2[0], x2[1]) for x2 in grouped.items()))
 
             times = update_stop_times(grouped)
 
             edges = create_edge_list(times)
             # Save edge lists to file for further verification. File's name with text variable for current rho.
             file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/edges%s.txt" % str(rho)
-            with open(file3, "w", newline='') as data3:
-                data3.write('\n'.join('{},{},{}'.format(x2[0], x2[1], x2[2]) for x2 in edges))
+            with open(file3, "w") as data3:
+                data3.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in edges))
 
             # Create graph from list of tuples.
             ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
             ptn["name"] = "PTN Sao Paulo, rho: %s" % str(rho)
 
             # Perform respective graph calculation and save to file
-            target.write(str(rho) + ", " +
-                         str(ptn.vcount()) + "," +
-                         str(ptn.ecount()) + "," +
-                         str(ptn.maxdegree(vertices=None, mode=ALL, loops=True)) + "," +
-                         str(ptn.diameter(directed=True)) + "," +
-                         str(mean(ptn.degree(mode=ALL, loops=True))) + "," +
-                         str(ptn.average_path_length(directed=True)) + "," +
-                         str(len(ptn.clusters(mode=WEAK))) + "," +
-                         str(ptn.assortativity_degree(directed=True)) + "," +
-                         str(ptn.transitivity_undirected()) + "," +
-                         str(ptn.density()) + "\n")
+            target.write(
+                str(rho) + ", " +                                                  # Rho value
+                str(ptn.vcount()) + "," +                                          # Total nodes
+                str(ptn.ecount()) + "," +                                          # Total links
+                str(ptn.maxdegree(vertices=None, mode=ALL, loops=True)) + "," +    # Max degree
+                str(ptn.diameter(directed=True, unconn=True)) + "," +              # Network diameter
+                str(mean(ptn.degree(mode=ALL, loops=True))) + "," +                # Mean degree
+                str(ptn.average_path_length(directed=True, unconn=True)) + "," +   # Avg path length
+                str(len(ptn.clusters(mode=WEAK))) + "," +                          # Number of clusters
+                str(ptn.assortativity_degree(directed=True)) + "," +               # Assortativity
+                str(ptn.transitivity_undirected()) + "," +                         # Clustering coefficient
+                str(ptn.density()) + "\n")                                         # Density
 
+            # Write histograms and degrees to file for further analysis. File's name with text variable for current rho.
             histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
-            # Save histograms to file for further analysis. File's name with text variable for current rho.
+            degreeseq = list(ptn.degree())
             file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/hist%s.txt" % str(rho)
-            with open(file4, "w", newline='') as data4:
-                data4.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in histogram))
+            file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/deg%s.txt" % str(rho)
+            with open(file4, "w") as data4, open(file5, "w") as data5:
+                data4.write('\n'.join('{},{},{}'.format(x4[0], x4[1], x4[2]) for x4 in histogram))
+                data5.write('\n'.join('{}'.format(x5) for x5 in degreeseq))
 
-            # pathhist = list(ptn.path_length_hist(directed=True).bins())
-            # file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/paths/path%s.txt" % str(rho)
-            # with open(file5, "w", newline='') as data5:
-            #     data5.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in pathhist))
+            #  Write path length histogram do file for further analysis.
+            path_hist = list(ptn.path_length_hist(directed=True).bins())
+            file6 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/paths/path%s.txt" % str(rho)
+            with open(file6, "w") as data6:
+                data6.write('\n'.join('{},{},{}'.format(x6[0], x6[1], x6[2]) for x6 in path_hist))
+
+            # Write graphml file for network recreation.
+            file7 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % str(rho)
+            ptn.write_graphml(file7)
 
 
 # Auxiliary function to write results on local files for validation with a fixed radius.
@@ -258,6 +267,7 @@ def write_file():
     with open(file5, "w", newline='') as data5:
         data5.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in edges))
 
+main()
 
 end = time.time()
 elapsed = (end - start) / 60
