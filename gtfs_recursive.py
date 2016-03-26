@@ -4,6 +4,8 @@ from csv import reader
 from math import sin, cos, sqrt, atan2, radians
 from igraph import *
 import time
+import statistics as sts
+from tqdm import tqdm
 
 start = time.time()
 
@@ -133,12 +135,12 @@ def create_edge_list(times_list):
 def main():
     """ Main function to process gtfs sub-functions given a vector of radius values.
     For any value of radius, save the grouped dictionary and edge list used to create the graph.
-    Returns a file with histograms for any radius and network statistics. run time 288.6663824836413 (4.8hs)"""
+    Returns a file with histograms for any radius and network statistics. Run time 303.97410554885863 (5.6hs)"""
     geodata = get_stops_coordinates()
-    radius = list(range(0, 205, 5))
-    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_0to200.txt"
+    radius = list(range(5, 205, 5))
+    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_5to205.txt"
     with open(result, "w") as target:
-        for rho in radius:
+        for rho in tqdm(radius):
 
             neighbors = get_neighbors(rho, geodata)
             # Save neighbors dict to file for further verification. File's name with text variable for current rho.
@@ -165,27 +167,35 @@ def main():
             ptn["name"] = "PTN Sao Paulo, rho: %s" % str(rho)
 
             # Perform respective graph calculation and save to file
-            target.write(
-                str(rho) + ", " +                                                  # Rho value
-                str(ptn.vcount()) + "," +                                          # Total nodes
-                str(ptn.ecount()) + "," +                                          # Total links
-                str(ptn.maxdegree(vertices=None, mode=ALL, loops=True)) + "," +    # Max degree
-                str(ptn.diameter(directed=True, unconn=True)) + "," +              # Network diameter
-                str(mean(ptn.degree(mode=ALL, loops=True))) + "," +                # Mean degree
-                str(ptn.average_path_length(directed=True, unconn=True)) + "," +   # Avg path length
-                str(len(ptn.clusters(mode=WEAK))) + "," +                          # Number of clusters
-                str(ptn.assortativity_degree(directed=True)) + "," +               # Assortativity
-                str(ptn.transitivity_undirected()) + "," +                         # Clustering coefficient
-                str(ptn.density()) + "\n")                                         # Density
+            target.write(str([
+                rho,                                                  # Rho value
+                ptn.vcount(),                                         # Total nodes
+                ptn.ecount(),                                         # Total links
+                ptn.maxdegree(vertices=None, mode=ALL, loops=True),   # Max degree
+                ptn.diameter(directed=True, unconn=True),             # Network diameter
+                sts.mean(ptn.degree(mode=ALL, loops=True)),           # Mean degree ALL
+                sts.mean(ptn.degree(mode=IN, loops=True)),            # Mean degree IN
+                sts.mean(ptn.degree(mode=OUT, loops=True)),           # Mean degree OUT
+                sts.median(ptn.degree(mode=ALL, loops=True)),         # Median degree ALL
+                sts.median(ptn.degree(mode=IN, loops=True)),          # Median degree IN
+                sts.median(ptn.degree(mode=OUT, loops=True)),         # Median degree OUT
+                sts.pvariance(ptn.degree(mode=ALL, loops=True)),      # Variance deviation ALL
+                sts.pstdev(ptn.degree(mode=ALL, loops=True)),         # Standard deviation ALL
+                ptn.average_path_length(directed=True, unconn=True),  # Avg path length
+                len(ptn.clusters(mode=WEAK)),                         # Number of clusters WEAK
+                len(ptn.clusters(mode=STRONG)),                       # Number of clusters STRONG
+                ptn.assortativity_degree(directed=True),              # Assortativity
+                ptn.transitivity_undirected(),                        # Clustering coefficient
+                ptn.density()]) + "\n")                               # Density
 
-            # Write histograms and degrees to file for further analysis. File's name with text variable for current rho.
+            # Write histograms and degrees to file for further analysis.
             histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
-            degreeseq = list(ptn.degree())
+            degree_seq = list(ptn.degree(mode=ALL, loops=True))
             file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/hist%s.txt" % str(rho)
             file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/deg%s.txt" % str(rho)
             with open(file4, "w") as data4, open(file5, "w") as data5:
                 data4.write('\n'.join('{},{},{}'.format(x4[0], x4[1], x4[2]) for x4 in histogram))
-                data5.write('\n'.join('{}'.format(x5) for x5 in degreeseq))
+                data5.write('\n'.join('{}'.format(x5) for x5 in degree_seq))
 
             #  Write path length histogram do file for further analysis.
             path_hist = list(ptn.path_length_hist(directed=True).bins())

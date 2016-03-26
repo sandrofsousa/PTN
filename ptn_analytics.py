@@ -110,3 +110,34 @@ def his_plot():
     plt.show()
 
 his_plot()
+
+
+# Function to create edge list from stop_times file previously updated with new IDs.
+def create_edge_list(times_list):
+    edge_list = []
+    edges = []
+    weights = []
+    weighted_list = []
+    # Start index at 0 and finish at last line from list
+    for row in range(0, len(times_list) - 1):
+        trip1 = times_list[row][0]
+        stop1 = times_list[row][1]
+        trip2 = times_list[row + 1][0]   # Get trip_id from next line
+        stop2 = times_list[row + 1][1]   # Get stop_id from next line
+
+        # Create a link only if the stops are in the same line sequence
+        if trip1 == trip2:
+            edge_list.append((str(stop1), str(stop2), str(trip1)))
+
+    for link in edge_list:
+        # stop1 = edge_list[row][0]
+        # stop2 = edge_list[row][1]
+        # trip = edge_list[row][2]
+        if link in edges:
+            weights[edges.index(link)] += 1
+        else:
+            edges.append(link)
+            weights.append(1)
+    weighted_list.append([edges[i][:-1] + "," + str(weights[i]) + "\n" for i in range(len(edges))])
+
+    return weighted_list
