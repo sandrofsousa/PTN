@@ -52,23 +52,26 @@ def get_neighbors(radius, stops_list):
         stop = stops_list[row][0]
         neighbors[stop] = []
 
-    for row1 in range(len(stops_list) - 1):  # Loop reading the list of stops, positioning in the first line of file
-        stop1 = stops_list[row1][0]  # Get values from first row.
-        lat1 = stops_list[row1][1]
-        lon1 = stops_list[row1][2]
+    if radius == 0:
+        return neighbors
+    else:
+        for row1 in range(len(stops_list) - 1):  # Loop reading the list of stops, positioning in the first line of file
+            stop1 = stops_list[row1][0]  # Get values from first row.
+            lat1 = stops_list[row1][1]
+            lon1 = stops_list[row1][2]
 
-        for row2 in range(row1 + 1, len(stops_list)):  # Read value of stops list, getting the position from row1.
-            stop2 = stops_list[row2][0]  # Get values from second row.
-            lat2 = stops_list[row2][1]
-            lon2 = stops_list[row2][2]
-            distance = distance_on_sphere(lat1, lon1, lat2, lon2) # Calculate the distance between stops.
-            # If distance <= rho, update dictionary for respective keys (stop2 is neighbor of stop1, reciprocal).
-            if distance <= radius:
-                neighbors[stop1].append(stop2)
-                neighbors[stop2].append(stop1)
-            else:
-                continue
-    return neighbors
+            for row2 in range(row1 + 1, len(stops_list)):  # Read value of stops list, getting the position from row1.
+                stop2 = stops_list[row2][0]  # Get values from second row.
+                lat2 = stops_list[row2][1]
+                lon2 = stops_list[row2][2]
+                distance = distance_on_sphere(lat1, lon1, lat2, lon2) # Calculate the distance between stops.
+                # If distance <= rho, update dictionary for respective keys (stop2 is neighbor of stop1, reciprocal).
+                if distance <= radius:
+                    neighbors[stop1].append(stop2)
+                    neighbors[stop2].append(stop1)
+                else:
+                    continue
+        return neighbors
 
 
 def recursive_search(series, aux_list, neighbors_dict):
@@ -137,8 +140,8 @@ def main():
     For any value of radius, save the grouped dictionary and edge list used to create the graph.
     Returns a file with histograms for any radius and network statistics. Run time 303.97410554885863 (5.6hs)"""
     geodata = get_stops_coordinates()
-    radius = list(range(5, 205, 5))
-    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_5to205.txt"
+    radius = list(range(0, 205, 5))
+    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_0to200.txt"
     with open(result, "w") as target:
         for rho in tqdm(radius):
 
@@ -236,6 +239,7 @@ def write_file():
     edges = create_edge_list(times)
     with open(file5, "w", newline='') as data5:
         data5.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in edges))
+
 
 main()
 
