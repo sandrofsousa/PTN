@@ -11,8 +11,10 @@ start = time.time()
 
 
 def get_stops_coordinates():
-    """Function to read GTFS file as input and get latitude and longitude from stops using a simple parsing,
-    output a list with all stops and its respective coordinates."""
+    """
+    Function to read GTFS file as input and get latitude and longitude from stops using a simple parsing,
+    output a list with all stops and its respective coordinates.
+    """
     file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stops.txt"
     geodata = []
     with open(file, "r", newline='') as data:
@@ -28,8 +30,10 @@ def get_stops_coordinates():
 
 
 def distance_on_sphere(lat1, lon1, lat2, lon2):
-    """Auxiliary function to calculate distance on sphere in meters from two latitude and longitude pars,
-    output the distance in meters of two given coordinates. based on John D. Cock algorithm"""
+    """
+    Auxiliary function to calculate distance on sphere in meters from two latitude and longitude pars,
+    output the distance in meters of two given coordinates. based on John D. Cock algorithm.
+    """
     r = 6371007.176   # Approximate mean radius of earth in meters
     lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])  # Convert decimal degrees to radians
     # Compute difference from variables
@@ -44,9 +48,11 @@ def distance_on_sphere(lat1, lon1, lat2, lon2):
 
 
 def get_neighbors(radius, stops_list):
-    """Function to search stops near each other (neighbors). A radius value and a list of stops with coordinates
+    """
+    Function to search stops near each other (neighbors). A radius value and a list of stops with coordinates
     are passed as input. A stop is classified as neighbor if the distance is lower than the radius, outputing
-    a dictionary with stop as key and IDs of its neighbors."""
+    a dictionary with stop as key and IDs of its neighbors.
+    """
     neighbors = dict()
     for row in range(len(stops_list)):  # Populate dictionary with keys and empty values for content
         stop = stops_list[row][0]
@@ -75,8 +81,10 @@ def get_neighbors(radius, stops_list):
 
 
 def recursive_search(series, aux_list, neighbors_dict):
-    """Auxiliary recursive function to get neighbors of respective stop and search for neighbors of each element
-    of the list. It return a list with the cluster of neighbors grouped linearly."""
+    """
+    Auxiliary recursive function to get neighbors of respective stop and search for neighbors of each element
+    of the list. It return a list with the cluster of neighbors grouped linearly.
+    """
     for stop in aux_list:  # For element in the list of neighbors, search for it' own neighbors and increment aux_list.
         if stop not in series:
             series.append(stop)
@@ -89,8 +97,10 @@ def recursive_search(series, aux_list, neighbors_dict):
 
 
 def group_stops(neighbors_dict):
-    """ Function to process neighbors IDs(dictionary) and replace them with a new id for stops that are
-     close each other based on radius value."""
+    """
+    Function to process neighbors IDs(dictionary) and replace them with a new id for stops that are
+    close each other based on radius value.
+    """
     grouped = {}
     last_id = 0
     # For each item in neighbors_dict, fill series list with stop to be analysed and aux list with it's neighbors.
@@ -108,7 +118,9 @@ def group_stops(neighbors_dict):
 
 
 def update_stop_times(grouped_dict):
-    """ Read stop_times file and replace the current stop_id on route sequence with new id from grouped dictionary."""
+    """
+    Read stop_times file and replace the current stop_id on route sequence with new id from grouped dictionary.
+    """
     stop_times = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
     new_stop_times = []
     with open(stop_times, "r", newline='') as times:
@@ -122,8 +134,10 @@ def update_stop_times(grouped_dict):
 
 
 def create_edge_list(times_list):
-    """ Function to create edge list from stop_times file with new IDs, taking the first stop of sequence
-    and saving the next stop as its successor for any line where the trip is the same."""
+    """
+    Function to create edge list from stop_times file with new IDs, taking the first stop of sequence
+    and saving the next stop as its successor for any line where the trip is the same.
+    """
     edge_list = []
     for row in range(0, len(times_list) - 1):  # Start index at 0 and finish at last line from list
         trip1 = times_list[row][0]
@@ -136,9 +150,11 @@ def create_edge_list(times_list):
 
 
 def main():
-    """ Main function to process gtfs sub-functions given a vector of radius values.
+    """
+    Main function to process gtfs sub-functions given a vector of radius values.
     For any value of radius, save the grouped dictionary and edge list used to create the graph.
-    Returns a file with histograms for any radius and network statistics. Run time 303.97410554885863 (5.6hs)"""
+    Returns a file with histograms for any radius and network statistics. Run time 303.97410554885863 (5.6hs)
+    """
     geodata = get_stops_coordinates()
     radius = list(range(0, 205, 5))
     result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_0to200.txt"
@@ -212,8 +228,10 @@ def main():
 
 
 def write_file():
-    """ Auxiliary function to write results on local files for validation with a fixed radius.
-    run time 6.991623584429423 min """
+    """
+    Auxiliary function to write results on local files for validation with a fixed radius.
+    run time 6.991623584429423 min
+    """
     rho = 0
     file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/geodata%s.txt" % str(rho)
     geodata = get_stops_coordinates()
