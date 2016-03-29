@@ -3,11 +3,11 @@ __author__ = 'sandrofsousa'
 from csv import reader
 from math import sin, cos, sqrt, atan2, radians
 from igraph import *
-import time
+from time import time
 import statistics as sts
 from tqdm import tqdm
 
-start = time.time()
+start = time()
 
 
 def get_stops_coordinates():
@@ -261,6 +261,6 @@ def write_file():
 
 main()
 
-end = time.time()
-elapsed = (end - start) / 60
-print(elapsed)
+end = time()
+elapsed = ((end - start) / 60) / 60
+print("Run time: " + elapsed)
