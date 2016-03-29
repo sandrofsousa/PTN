@@ -18,8 +18,8 @@ def attack_node_targeted(file_input, rho, interactions):
     ptn = Graph.Read_GraphML(file_input)
     counter = 0         # update every time a node is deleted
     with open(file_output, "w") as data_out:
-        while True:                                                   # stop if counter reach interactions limit
-            targeted_list = ptn.vs(_degree=ptn.maxdegree())['name']   # get node id with max degree
+        while counter <= interactions:                                # stop if counter reach interactions limit
+            targeted_list = ptn.vs(_degree=ptn.maxdegree(vertices=None, mode=ALL, loops=True))['name']
             for targeted_node in targeted_list:                       # loop at nodes if more than one has same degree
                 data_out.write(str([
                     counter,
@@ -35,9 +35,7 @@ def attack_node_targeted(file_input, rho, interactions):
                     ptn.density(),
                     targeted_node]) + "\n")
                 ptn.delete_vertices(ptn.vs.find(name=targeted_node))  # delete node
-                counter += 1                        # increase counter
-                if counter >= interactions:
-                    break
+                counter += 1                                          # increase counter
 
 
 def attack_node_random(file_input, rho, interactions):
@@ -68,7 +66,7 @@ def attack_node_random(file_input, rho, interactions):
                 random_node]) + "\n")
             ptn.delete_vertices(ptn.vs.find(name=random_node))  # delete node
             counter += 1                                        # increase counter
-            if counter >= interactions:
+            if counter > interactions:
                 break
 
 
@@ -90,7 +88,7 @@ def attack_link_targeted(file_input, rho, interactions):
 
     counter = 0
     with open(file_output, "w") as data_out:
-        while True:
+        while counter <= interactions:
             max_weight = max(ptn.es['weight'])
             targeted_list = ptn.es(weight=max_weight)['edge_id']  # get edge with max multiplicity
             for targeted_link in targeted_list:  # loop at nodes if more than one has same degree
@@ -112,8 +110,6 @@ def attack_link_targeted(file_input, rho, interactions):
                 counter += 1  # increase counter
                 if counter >= interactions:
                     break
-            if counter >= interactions:
-                break
 
 
 def attack_link_random(file_input, rho, interactions):
@@ -143,7 +139,7 @@ def attack_link_random(file_input, rho, interactions):
                 random_link['trip']]) + "\n")
             ptn.delete_edges(random_link)   # delete edge
             counter += 1                    # increase counter
-            if counter >= interactions:
+            if counter > interactions:
                 break
 
 
@@ -164,26 +160,29 @@ def attack_scenarios():
     to be analysed and the number of interactions the delete process will be removing items.
     """
     radius = [0, 20, 65, 150, 200]
-    interactions = 200
+    interactions = 10
+
     for rho in tqdm(radius):
         graph = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % rho
-        # attack_node_targeted(graph, rho, interactions)
-        # attack_node_random(graph, rho, interactions)
+        attack_node_targeted(graph, rho, interactions)
+        attack_node_random(graph, rho, interactions)
         attack_link_targeted(graph, rho, interactions)
-        # attack_link_random(graph, rho, interactions)
+        attack_link_random(graph, rho, interactions)
     cut_articulation_points()
 
 
 attack_scenarios()
 
+
 end = time()
 elapsed = ((end - start) / 60) / 60
-print("Run time: " + elapsed)
+print("Run time: " + str(elapsed))
 
 
 # interactions = 100
-# rho = 0
+# rho = 20
 # graph = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % rho
+
 # ptn = Graph.Read_GraphML(graph)
 # print(ptn.edge_connectivity(checks=False))
 
