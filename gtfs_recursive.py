@@ -70,7 +70,7 @@ def get_neighbors(radius, stops_list):
                 stop2 = stops_list[row2][0]  # Get values from second row.
                 lat2 = stops_list[row2][1]
                 lon2 = stops_list[row2][2]
-                distance = distance_on_sphere(lat1, lon1, lat2, lon2) # Calculate the distance between stops.
+                distance = distance_on_sphere(lat1, lon1, lat2, lon2)  # Calculate the distance between stops.
                 # If distance <= rho, update dictionary for respective keys (stop2 is neighbor of stop1, reciprocal).
                 if distance <= radius:
                     neighbors[stop1].append(stop2)
@@ -211,7 +211,7 @@ def main():
             histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
             degree_seq = list(ptn.degree(mode=ALL, loops=True))
             file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/hist%s.txt" % str(rho)
-            file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/deg%s.txt" % str(rho)
+            file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/degrees/deg%s.txt" % str(rho)
             with open(file4, "w") as data4, open(file5, "w") as data5:
                 data4.write('\n'.join('{},{},{}'.format(x4[0], x4[1], x4[2]) for x4 in histogram))
                 data5.write('\n'.join('{}'.format(x5) for x5 in degree_seq))
@@ -263,4 +263,4 @@ main()
 
 end = time()
 elapsed = ((end - start) / 60) / 60
-print("Run time: " + elapsed)
+print("Run time: " + str(elapsed))

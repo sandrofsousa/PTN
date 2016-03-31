@@ -2,8 +2,8 @@ __author__ = 'sandrofsousa'
 
 from igraph import *
 from random import choice
-from tqdm import tqdm
 from time import time
+from tqdm import tqdm
 
 start = time()
 
@@ -26,7 +26,7 @@ def attack_node_targeted(file_input, rho, interactions):
                     ptn.vcount(),
                     ptn.ecount(),
                     ptn.maxdegree(vertices=None, mode=ALL, loops=True),
-                    # ptn.diameter(directed=True, unconn=True),
+                    ptn.diameter(directed=True, unconn=True),
                     ptn.average_path_length(directed=True, unconn=True),
                     len(ptn.clusters(mode=WEAK)),
                     len(ptn.clusters(mode=STRONG)),
@@ -36,6 +36,8 @@ def attack_node_targeted(file_input, rho, interactions):
                     targeted_node]) + "\n")
                 ptn.delete_vertices(ptn.vs.find(name=targeted_node))  # delete node
                 counter += 1                                          # increase counter
+                if counter > interactions:
+                    break
 
 
 def attack_node_random(file_input, rho, interactions):
@@ -56,7 +58,7 @@ def attack_node_random(file_input, rho, interactions):
                 ptn.vcount(),
                 ptn.ecount(),
                 ptn.maxdegree(vertices=None, mode=ALL, loops=True),
-                # ptn.diameter(directed=True, unconn=True),
+                ptn.diameter(directed=True, unconn=True),
                 ptn.average_path_length(directed=True, unconn=True),
                 len(ptn.clusters(mode=WEAK)),
                 len(ptn.clusters(mode=STRONG)),
@@ -97,7 +99,7 @@ def attack_link_targeted(file_input, rho, interactions):
                     ptn.vcount(),
                     ptn.ecount(),
                     ptn.maxdegree(vertices=None, mode=ALL, loops=True),
-                    # ptn.diameter(directed=True, unconn=True),
+                    ptn.diameter(directed=True, unconn=True),
                     ptn.average_path_length(directed=True, unconn=True),
                     len(ptn.clusters(mode=WEAK)),
                     len(ptn.clusters(mode=STRONG)),
@@ -129,7 +131,7 @@ def attack_link_random(file_input, rho, interactions):
                 ptn.vcount(),
                 ptn.ecount(),
                 ptn.maxdegree(vertices=None, mode=ALL, loops=True),
-                # ptn.diameter(directed=True, unconn=True),
+                ptn.diameter(directed=True, unconn=True),
                 ptn.average_path_length(directed=True, unconn=True),
                 len(ptn.clusters(mode=WEAK)),
                 len(ptn.clusters(mode=STRONG)),
@@ -160,7 +162,7 @@ def attack_scenarios():
     to be analysed and the number of interactions the delete process will be removing items.
     """
     radius = [0, 20, 65, 150, 200]
-    interactions = 10
+    interactions = 200
 
     for rho in tqdm(radius):
         graph = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % rho

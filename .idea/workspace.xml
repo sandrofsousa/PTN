@@ -7,6 +7,8 @@
     <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/attacks.py" afterPath="$PROJECT_DIR$/attacks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gtfs_recursive.py" afterPath="$PROJECT_DIR$/gtfs_recursive.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ptn_analytics.py" afterPath="$PROJECT_DIR$/ptn_analytics.py" />
     </list>
     <ignored path="PTN.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,44 +32,18 @@
       <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="261" column="6" selection-start-line="261" selection-start-column="6" selection-end-line="261" selection-end-column="6" />
+            <state relative-caret-position="272">
+              <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
               <folding>
+                <element signature="e#29#51#0" expanded="true" />
                 <element signature="e#241#1084#0" expanded="false" />
-                <element signature="e#241#423#1" expanded="false" />
-                <element signature="e#590#1065#0" expanded="false" />
-                <element signature="e#845#1044#0" expanded="false" />
                 <element signature="e#1139#1853#0" expanded="false" />
-                <element signature="e#1139#1346#1" expanded="false" />
-                <element signature="e#1899#3428#0" expanded="false" />
-                <element signature="e#1899#2190#1" expanded="false" />
-                <element signature="e#2323#2377#0" expanded="false" />
-                <element signature="e#2442#3428#0" expanded="false" />
-                <element signature="e#2567#3403#0" expanded="false" />
-                <element signature="e#2839#3403#0" expanded="false" />
-                <element signature="e#3271#3352#0" expanded="false" />
-                <element signature="e#3491#4125#0" expanded="false" />
-                <element signature="e#3491#3694#1" expanded="false" />
-                <element signature="e#3823#4107#0" expanded="false" />
-                <element signature="e#3858#4072#0" expanded="false" />
-                <element signature="e#4165#5108#0" expanded="false" />
-                <element signature="e#4165#4320#1" expanded="false" />
-                <element signature="e#4509#5089#0" expanded="false" />
-                <element signature="e#5152#5927#0" expanded="false" />
-                <element signature="e#5152#5275#1" expanded="false" />
-                <element signature="e#5467#5901#0" expanded="false" />
-                <element signature="e#5663#5901#0" expanded="false" />
-                <element signature="e#5968#6677#0" expanded="false" />
-                <element signature="e#5968#6168#1" expanded="false" />
-                <element signature="e#6296#6656#0" expanded="false" />
-                <element signature="e#6696#11907#0" expanded="false" />
-                <element signature="e#6696#6995#1" expanded="false" />
-                <element signature="e#7216#11907#0" expanded="false" />
-                <element signature="e#7254#11907#0" expanded="false" />
-                <element signature="e#8873#10512#0" expanded="false" />
-                <element signature="e#11126#11285#0" expanded="false" />
-                <element signature="e#11932#13521#0" expanded="false" />
-                <element signature="e#11932#12069#1" expanded="false" />
+                <element signature="e#1899#3429#0" expanded="false" />
+                <element signature="e#3492#4126#0" expanded="false" />
+                <element signature="e#4166#5109#0" expanded="false" />
+                <element signature="e#5153#5928#0" expanded="false" />
+                <element signature="e#5969#6678#0" expanded="false" />
+                <element signature="e#6697#11906#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -76,12 +52,14 @@
       <file leaf-file-name="attacks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/attacks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="387">
+              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
               <folding>
                 <element signature="e#29#49#0" expanded="true" />
-                <element signature="e#7118#7593#0" expanded="false" />
-                <element signature="e#8398#8418#0" expanded="false" />
+                <element signature="e#2053#3583#0" expanded="false" />
+                <element signature="e#3647#5633#0" expanded="false" />
+                <element signature="e#5695#7141#0" expanded="false" />
+                <element signature="e#7179#7654#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -90,9 +68,15 @@
       <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="420">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#144#1194#0" expanded="false" />
+                <element signature="e#2243#3580#0" expanded="false" />
+                <element signature="e#3616#4461#0" expanded="false" />
+                <element signature="e#4495#4850#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +121,8 @@
         <option value="$PROJECT_DIR$/ptn_numpy_processing.py" />
         <option value="$PROJECT_DIR$/gtfs_processing.py" />
         <option value="$PROJECT_DIR$/Flat graph.py" />
-        <option value="$PROJECT_DIR$/ptn_analytics.py" />
         <option value="$PROJECT_DIR$/gtfs_recursive.py" />
+        <option value="$PROJECT_DIR$/ptn_analytics.py" />
         <option value="$PROJECT_DIR$/attacks.py" />
       </list>
     </option>
@@ -161,7 +145,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>Buildout</id>
+            <id>PyProtectedMemberInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -212,8 +196,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -224,7 +208,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="full.screen.before.presentation.mode" value="false" />
   </component>
@@ -473,9 +457,9 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.attacks" />
-        <item index="1" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Flat graph" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+        <item index="2" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Flat graph" />
         <item index="4" class="java.lang.String" itemvalue="Python.ptn_numpy_processing" />
       </list>
     </recent_temporary>
@@ -493,13 +477,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1411665936642</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Algorithm 2 implemented, need to check cases for stops outside the grouped list. Replace the zero values attributed before for the current stop id.">
-      <created>1448394825186</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1448394825186</updated>
     </task>
     <task id="LOCAL-00019" summary="Algorithm 2 implemented and tested. Need to check more values and validate. Implement algorithm 3 to finish.">
       <created>1448403660138</created>
@@ -837,7 +814,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459223298437</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Correct bug at node targeted that was not finding max degree with rho &gt; 0 due tu parameters missing in function maxdegree().">
+      <created>1459264372638</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1459264372640</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -847,18 +831,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.41581258" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.40995607" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32452276" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34801763" sideWeight="0.50970876" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.477306" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39824304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47723934" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38179147" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33089313" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17712471" sideWeight="0.54919237" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32503662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.5841874" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.5900439" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34699854" sideWeight="0.49029127" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -867,9 +853,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="100" y="123" width="1080" height="573" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39941263" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -887,7 +871,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
-    <MESSAGE value="Graph creation working properly, result saved in graphgml. Finishd TODOs to review next week." />
     <MESSAGE value="Few improvements and tests realized with igraph. Bug at finding vertex attributes." />
     <MESSAGE value="Loop at radius values finished and working. Next test graph-tool for metrics and define wich metrics will be used." />
     <MESSAGE value="Loop code with metrics finished. First run for full rho vector." />
@@ -912,7 +895,8 @@
     <MESSAGE value="Add functions to simulate the four attacks scenarios. Correct bug deleting more than one node/link per time when they have the same value." />
     <MESSAGE value="Add some cooments to function, correct node mode of attacks cenarios using a more reliable logic." />
     <MESSAGE value="Correct targeted attack function that was not perfrming as expected. Attacks cenarios ready to run." />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct targeted attack function that was not perfrming as expected. Attacks cenarios ready to run." />
+    <MESSAGE value="Correct bug at node targeted that was not finding max degree with rho &gt; 0 due tu parameters missing in function maxdegree()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct bug at node targeted that was not finding max degree with rho &gt; 0 due tu parameters missing in function maxdegree()." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1273,64 +1257,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="420">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#144#1194#0" expanded="false" />
+            <element signature="e#2243#3580#0" expanded="false" />
+            <element signature="e#3616#4461#0" expanded="false" />
+            <element signature="e#4495#4850#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="261" column="6" selection-start-line="261" selection-start-column="6" selection-end-line="261" selection-end-column="6" />
+        <state relative-caret-position="272">
+          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
           <folding>
+            <element signature="e#29#51#0" expanded="true" />
             <element signature="e#241#1084#0" expanded="false" />
-            <element signature="e#241#423#1" expanded="false" />
-            <element signature="e#590#1065#0" expanded="false" />
-            <element signature="e#845#1044#0" expanded="false" />
             <element signature="e#1139#1853#0" expanded="false" />
-            <element signature="e#1139#1346#1" expanded="false" />
-            <element signature="e#1899#3428#0" expanded="false" />
-            <element signature="e#1899#2190#1" expanded="false" />
-            <element signature="e#2323#2377#0" expanded="false" />
-            <element signature="e#2442#3428#0" expanded="false" />
-            <element signature="e#2567#3403#0" expanded="false" />
-            <element signature="e#2839#3403#0" expanded="false" />
-            <element signature="e#3271#3352#0" expanded="false" />
-            <element signature="e#3491#4125#0" expanded="false" />
-            <element signature="e#3491#3694#1" expanded="false" />
-            <element signature="e#3823#4107#0" expanded="false" />
-            <element signature="e#3858#4072#0" expanded="false" />
-            <element signature="e#4165#5108#0" expanded="false" />
-            <element signature="e#4165#4320#1" expanded="false" />
-            <element signature="e#4509#5089#0" expanded="false" />
-            <element signature="e#5152#5927#0" expanded="false" />
-            <element signature="e#5152#5275#1" expanded="false" />
-            <element signature="e#5467#5901#0" expanded="false" />
-            <element signature="e#5663#5901#0" expanded="false" />
-            <element signature="e#5968#6677#0" expanded="false" />
-            <element signature="e#5968#6168#1" expanded="false" />
-            <element signature="e#6296#6656#0" expanded="false" />
-            <element signature="e#6696#11907#0" expanded="false" />
-            <element signature="e#6696#6995#1" expanded="false" />
-            <element signature="e#7216#11907#0" expanded="false" />
-            <element signature="e#7254#11907#0" expanded="false" />
-            <element signature="e#8873#10512#0" expanded="false" />
-            <element signature="e#11126#11285#0" expanded="false" />
-            <element signature="e#11932#13521#0" expanded="false" />
-            <element signature="e#11932#12069#1" expanded="false" />
+            <element signature="e#1899#3429#0" expanded="false" />
+            <element signature="e#3492#4126#0" expanded="false" />
+            <element signature="e#4166#5109#0" expanded="false" />
+            <element signature="e#5153#5928#0" expanded="false" />
+            <element signature="e#5969#6678#0" expanded="false" />
+            <element signature="e#6697#11906#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/attacks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="387">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
           <folding>
             <element signature="e#29#49#0" expanded="true" />
-            <element signature="e#7118#7593#0" expanded="false" />
-            <element signature="e#8398#8418#0" expanded="false" />
+            <element signature="e#2053#3583#0" expanded="false" />
+            <element signature="e#3647#5633#0" expanded="false" />
+            <element signature="e#5695#7141#0" expanded="false" />
+            <element signature="e#7179#7654#0" expanded="false" />
           </folding>
         </state>
       </provider>
