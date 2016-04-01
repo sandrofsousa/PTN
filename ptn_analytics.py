@@ -152,29 +152,3 @@ def plot_hist_degree(df2):
 # plot_global_measures(data_frame1())
 # plot_node_measures(data_frame1())
 # plot_hist_degree(data_frame2())
-
-filenames1 = []
-concat_list1 = []
-# path that will be collected
-os.chdir(r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram")
-# Find any file that ends with ".txt"
-
-for files in os.listdir("."):
-    if files.endswith(".txt"):
-        filenames1.append(files)  # apeend files names to a list
-
-
-def readfile1(path):
-    with open(path) as data:
-        rho = int(path[path.rfind("hist")+4:len(path)-4])
-        searcher = reader(data, delimiter=',', quotechar='"')
-        for line in searcher:
-            bin_in = int(line[0])
-            freq = int(line[2])
-            concat_list1.append((bin_in, rho, freq))
-
-for fname in filenames1:
-    location = r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/" + fname
-    readfile(location)
-
-# df3 = pd.DataFrame(concat_list, columns=["bin","rho","freq"])

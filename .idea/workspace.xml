@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/attacks.py" afterPath="$PROJECT_DIR$/attacks.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gtfs_recursive.py" afterPath="$PROJECT_DIR$/gtfs_recursive.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ptn_analytics.py" afterPath="$PROJECT_DIR$/ptn_analytics.py" />
     </list>
     <ignored path="PTN.iws" />
@@ -49,13 +47,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attacks.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="attacks.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attacks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+            <state relative-caret-position="390">
+              <caret line="172" column="29" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
               <folding>
                 <element signature="e#29#49#0" expanded="true" />
+                <element signature="e#199#1991#0" expanded="false" />
                 <element signature="e#2053#3583#0" expanded="false" />
                 <element signature="e#3647#5633#0" expanded="false" />
                 <element signature="e#5695#7141#0" expanded="false" />
@@ -65,17 +64,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#144#1194#0" expanded="false" />
+                <element signature="e#1220#2205#0" expanded="false" />
                 <element signature="e#2243#3580#0" expanded="false" />
                 <element signature="e#3616#4461#0" expanded="false" />
-                <element signature="e#4495#4850#0" expanded="false" />
+                <element signature="e#4495#4986#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -122,8 +122,8 @@
         <option value="$PROJECT_DIR$/gtfs_processing.py" />
         <option value="$PROJECT_DIR$/Flat graph.py" />
         <option value="$PROJECT_DIR$/gtfs_recursive.py" />
-        <option value="$PROJECT_DIR$/ptn_analytics.py" />
         <option value="$PROJECT_DIR$/attacks.py" />
+        <option value="$PROJECT_DIR$/ptn_analytics.py" />
       </list>
     </option>
   </component>
@@ -478,13 +478,6 @@
       <option name="presentableId" value="Default" />
       <updated>1411665936642</updated>
     </task>
-    <task id="LOCAL-00019" summary="Algorithm 2 implemented and tested. Need to check more values and validate. Implement algorithm 3 to finish.">
-      <created>1448403660138</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1448403660138</updated>
-    </task>
     <task id="LOCAL-00020" summary="Function to replace old IDs from stop_times for new from grouped list finished. Must be tested and validated with the previous functions. Need to finish algorithm_3 to create new edge_list.">
       <created>1448468844363</created>
       <option name="number" value="00020" />
@@ -821,7 +814,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459264372640</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="backup codes.">
+      <created>1459446510534</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1459446510538</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -834,21 +834,21 @@
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.40995607" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32452276" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34801763" sideWeight="0.50970876" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39824304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47723934" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38179147" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33089313" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17712471" sideWeight="0.54919237" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3318649" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32503662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.5900439" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.41116005" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17712471" sideWeight="0.54919237" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.58883995" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34699854" sideWeight="0.49029127" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -871,7 +871,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
-    <MESSAGE value="Few improvements and tests realized with igraph. Bug at finding vertex attributes." />
     <MESSAGE value="Loop at radius values finished and working. Next test graph-tool for metrics and define wich metrics will be used." />
     <MESSAGE value="Loop code with metrics finished. First run for full rho vector." />
     <MESSAGE value="Added &quot;v&quot; string to new id names to improve robustness of the code on big graphs." />
@@ -896,7 +895,8 @@
     <MESSAGE value="Add some cooments to function, correct node mode of attacks cenarios using a more reliable logic." />
     <MESSAGE value="Correct targeted attack function that was not perfrming as expected. Attacks cenarios ready to run." />
     <MESSAGE value="Correct bug at node targeted that was not finding max degree with rho &gt; 0 due tu parameters missing in function maxdegree()." />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct bug at node targeted that was not finding max degree with rho &gt; 0 due tu parameters missing in function maxdegree()." />
+    <MESSAGE value="backup codes." />
+    <option name="LAST_COMMIT_MESSAGE" value="backup codes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1255,20 +1255,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#144#1194#0" expanded="false" />
-            <element signature="e#2243#3580#0" expanded="false" />
-            <element signature="e#3616#4461#0" expanded="false" />
-            <element signature="e#4495#4850#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1289,14 +1275,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/attacks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+        <state relative-caret-position="390">
+          <caret line="172" column="29" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
           <folding>
             <element signature="e#29#49#0" expanded="true" />
+            <element signature="e#199#1991#0" expanded="false" />
             <element signature="e#2053#3583#0" expanded="false" />
             <element signature="e#3647#5633#0" expanded="false" />
             <element signature="e#5695#7141#0" expanded="false" />
             <element signature="e#7179#7654#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#144#1194#0" expanded="false" />
+            <element signature="e#1220#2205#0" expanded="false" />
+            <element signature="e#2243#3580#0" expanded="false" />
+            <element signature="e#3616#4461#0" expanded="false" />
+            <element signature="e#4495#4986#0" expanded="false" />
           </folding>
         </state>
       </provider>
