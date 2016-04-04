@@ -160,6 +160,7 @@ def attack_scenarios():
     """
     Function to run all the attack scenarios for different values of rho processed before. It controls the networks
     to be analysed and the number of interactions the delete process will be removing items.
+    Run time: 41.11158872803052 hs
     """
     radius = [0, 20, 65, 150, 200]
     interactions = 200
@@ -173,33 +174,8 @@ def attack_scenarios():
     cut_articulation_points()
 
 
-attack_scenarios()
-
+# attack_scenarios()
 
 end = time()
 elapsed = ((end - start) / 60) / 60
 print("Run time: " + str(elapsed))
-
-
-# interactions = 100
-# rho = 20
-# graph = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % rho
-
-# ptn = Graph.Read_GraphML(graph)
-# print(ptn.edge_connectivity(checks=False))
-
-# all_edges = ptn.es()
-# index_random = randrange(len(all_edges))
-# random_link = ptn.es[index_random]
-# print(all_edges)
-# print(index_random)
-# print(random_link)
-
-# targeted_link = ptn.es(max(ptn.count_multiple()))
-# print(targeted_link()['trip'])
-# print(targeted_link)
-
-# max_es = ptn.es(_source=cc, _target=cc)
-# print(max_es['trip'])
-# <igraph.Graph object at 0x10fef25e8>, 85928, {'trip': '9501-10-1'})
-# print(ptn.es()['trip'])

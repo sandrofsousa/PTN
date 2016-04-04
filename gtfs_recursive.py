@@ -259,7 +259,7 @@ def write_file():
         data5.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in edges))
 
 
-main()
+# main()
 
 end = time()
 elapsed = ((end - start) / 60) / 60

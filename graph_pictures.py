@@ -1,22 +1,40 @@
-import networkx as nx
-import matplotlib.pyplot as plt
+from igraph import *
 
-# # Regular Connected
-# G = nx.connected_watts_strogatz_graph(10, 4, 0, seed=None)
-# nx.draw_circular(G, node_color='lightgrey', node_size=2000, dpi=221, font_size=20, with_labels=True)
-# plt.show()
 
-# # Random graph
-# G = nx.erdos_renyi_graph(10, 0.7, seed=None)
-# nx.draw_circular(G, node_color='lightgrey', node_size=2000, dpi=221, font_size=20, with_labels=True)
-# plt.show()
+# # # Samll World - Watts Strogatz
+# g1 = Graph.Watts_Strogatz(dim=1, size=10, nei=2, p=0, loops=False, multiple=False)
+# layout = g1.layout_circle()
+# plot(g1,
+#      "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/graph_regular_connected.pdf",
+#      layout=layout,
+#      vertex_color="rgb(210, 210, 210)",
+#      vertex_size=28,
+#      vertex_label=g.vs.indices,
+#      vertex_label_size=12,
+#      bbox=(330, 330))
 
-# Small World
-# G = nx.watts_strogatz_graph(10, 4, 0.2)
-# nx.draw_circular(G, node_color='lightgrey', node_size=2000, dpi=221, font_size=20, with_labels=True)
-# plt.show()
 
-# # Scale free
-# G = nx.barabasi_albert_graph(10, 1, 0.4)
-# nx.draw_circular(G, node_color='lightgrey', node_size=2000, dpi=221, font_size=20, with_labels=True)
-# plt.show()
+# # # Random - Erdos Renyi
+# g2 = Graph.Erdos_Renyi(n=10, p=0, directed=False, loops=False)
+# layout = g2.layout_circle()
+# plot(g2,
+#      "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/graph_random.pdf",
+#      layout=layout,
+#      vertex_color="rgb(210, 210, 210)",
+#      vertex_size=28,
+#      vertex_label=g.vs.indices,
+#      vertex_label_size=12,
+#      bbox=(330, 330))
+
+
+# # # Scale Free - Barabasi
+# g2 = Graph.Erdos_Renyi(n=10, p=0, directed=False, loops=False)
+# layout = g2.layout_circle()
+# plot(g2,
+#      "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/graph_random.pdf",
+#      layout=layout,
+#      vertex_color="rgb(210, 210, 210)",
+#      vertex_size=28,
+#      vertex_label=g.vs.indices,
+#      vertex_label_size=12,
+#      bbox=(330, 330))
