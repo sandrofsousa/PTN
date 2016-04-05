@@ -62,7 +62,7 @@ def plot_global_measures(df1):
     sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
     plt.figure(facecolor="white", figsize=(10, 10), dpi=300)
 
-    # geting separated data from pandas framworks
+    # getting separated data from pandas frameworks
     plt.subplot(331)
     plt.plot(df1.iloc[:, 0:1])
     plt.title('Nós totais (a)')
@@ -103,7 +103,7 @@ def plot_global_measures(df1):
     plt.xlabel('rho')
 
     plt.tight_layout(pad=0.4, w_pad=0.7, h_pad=1.7)
-    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/global_measures.png"
+    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_global_measures.pdf"
     plt.savefig(figure)
 
 
@@ -131,7 +131,7 @@ def plot_node_measures(df1):
     plt.legend(loc=2)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
-    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/node_measures.png"
+    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_node_measures.pdf"
     plt.savefig(figure)
 
 
@@ -142,7 +142,7 @@ def plot_hist_degree(df2):
     grid.set(xscale="log", yscale="log", )
     grid.fig.tight_layout(w_pad=0.5, h_pad=0.5)
 
-    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/hist_grid.png"
+    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_hist_grid.pdf"
     plt.savefig(figure, dpi=300)
 
 

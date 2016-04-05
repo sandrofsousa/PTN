@@ -147,13 +147,14 @@ def attack_link_random(file_input, rho, interactions):
 
 def cut_articulation_points():
     file_output = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/attacks/cuts.txt"
-    radius = list(range(0, 200, 5))
+    radius = list(range(0, 205, 5))
     with open(file_output, "w") as result:
         for rho in radius:
             graph = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % rho
             ptn = Graph.Read_GraphML(graph)
             articulation_points = ptn.cut_vertices()
-            result.write(str(articulation_points) + "\n")
+            listing = list(ptn.vs[v]["name"] for v in articulation_points)
+            result.write(str(rho) + "," + str(listing) + "\n")
 
 
 def attack_scenarios():
@@ -174,6 +175,7 @@ def attack_scenarios():
     cut_articulation_points()
 
 
+cut_articulation_points()
 # attack_scenarios()
 
 end = time()

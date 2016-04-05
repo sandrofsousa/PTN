@@ -8,7 +8,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/attacks.py" afterPath="$PROJECT_DIR$/attacks.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graph_pictures.py" afterPath="$PROJECT_DIR$/graph_pictures.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gtfs_recursive.py" afterPath="$PROJECT_DIR$/gtfs_recursive.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ptn_analytics.py" afterPath="$PROJECT_DIR$/ptn_analytics.py" />
     </list>
     <ignored path="PTN.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +32,8 @@
       <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="261" column="8" selection-start-line="261" selection-start-column="8" selection-end-line="261" selection-end-column="8" />
+            <state relative-caret-position="217">
+              <caret line="229" column="17" selection-start-line="229" selection-start-column="17" selection-end-line="229" selection-end-column="17" />
               <folding>
                 <element signature="e#29#51#0" expanded="true" />
                 <element signature="e#241#1084#0" expanded="false" />
@@ -50,28 +50,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
+      <file leaf-file-name="attacks.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/attacks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="50" />
+            <state relative-caret-position="356">
+              <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#144#1194#0" expanded="false" />
-                <element signature="e#1220#2205#0" expanded="false" />
-                <element signature="e#2243#3580#0" expanded="false" />
-                <element signature="e#4495#4986#0" expanded="false" />
+                <element signature="e#199#1991#0" expanded="false" />
+                <element signature="e#2053#3583#0" expanded="false" />
+                <element signature="e#3647#5633#0" expanded="false" />
+                <element signature="e#5695#7141#0" expanded="false" />
+                <element signature="e#7765#8465#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph_pictures.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/graph_pictures.py">
+      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="90">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#144#1194#0" expanded="false" />
+                <element signature="e#1220#2205#0" expanded="false" />
+                <element signature="e#2243#3587#0" expanded="false" />
+                <element signature="e#3623#4473#0" expanded="false" />
+                <element signature="e#4507#4867#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,10 +123,10 @@
         <option value="$PROJECT_DIR$/ptn_numpy_processing.py" />
         <option value="$PROJECT_DIR$/gtfs_processing.py" />
         <option value="$PROJECT_DIR$/Flat graph.py" />
-        <option value="$PROJECT_DIR$/ptn_analytics.py" />
-        <option value="$PROJECT_DIR$/attacks.py" />
         <option value="$PROJECT_DIR$/gtfs_recursive.py" />
         <option value="$PROJECT_DIR$/graph_pictures.py" />
+        <option value="$PROJECT_DIR$/ptn_analytics.py" />
+        <option value="$PROJECT_DIR$/attacks.py" />
       </list>
     </option>
   </component>
@@ -221,7 +228,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Flat graph">
+  <component name="RunManager" selected="Python.attacks">
     <configuration default="false" name="Flat graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -452,9 +459,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Flat graph" />
-        <item index="1" class="java.lang.String" itemvalue="Python.attacks" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+        <item index="0" class="java.lang.String" itemvalue="Python.attacks" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Flat graph" />
         <item index="3" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
         <item index="4" class="java.lang.String" itemvalue="Python.ptn_numpy_processing" />
       </list>
@@ -473,13 +480,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1411665936642</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Function update_stop_times created to read stop_times file and replace the current stop on route sequence with new id when it exist from grouped list. Code working and validated. GTFS file updated to check the problem of coordinates too close for a sequence of stops.">
-      <created>1449597299943</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1449597299944</updated>
     </task>
     <task id="LOCAL-00022" summary="Function update_stop_times tested. Problems at algorithm 2 with stops that has a new ID in the same line, the assumption of these scenario never happening is incorrect, beside the script is using a time crescent flow, some stops times are not being updated with the correct value. Rethink the script, check the scenarios and update script.">
       <created>1449685625553</created>
@@ -817,7 +817,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459536090952</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Add new functions to generate random graph for exemples.">
+      <created>1459784328972</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1459784328972</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -834,7 +841,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34801763" sideWeight="0.50970876" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39824304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47723934" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2701909" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38179147" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3318649" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32503662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -867,7 +874,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
-    <MESSAGE value="Loop code with metrics finished. First run for full rho vector." />
     <MESSAGE value="Added &quot;v&quot; string to new id names to improve robustness of the code on big graphs." />
     <MESSAGE value="Added new metrics to help understand data." />
     <MESSAGE value="Added a time sec code to compute run time" />
@@ -892,7 +898,8 @@
     <MESSAGE value="Correct bug at node targeted that was not finding max degree with rho &gt; 0 due tu parameters missing in function maxdegree()." />
     <MESSAGE value="backup codes." />
     <MESSAGE value="Add plots functions to process hist data." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add plots functions to process hist data." />
+    <MESSAGE value="Add new functions to generate random graph for exemples." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new functions to generate random graph for exemples." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -906,7 +913,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="204" />
+      <option name="time" value="205" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1244,40 +1251,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attacks.py">
+    <entry file="file://$PROJECT_DIR$/graph_pictures.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="180" column="34" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
-          <folding>
-            <element signature="e#29#49#0" expanded="false" />
-            <element signature="e#199#1991#0" expanded="false" />
-            <element signature="e#2053#3583#0" expanded="false" />
-            <element signature="e#3647#5633#0" expanded="false" />
-            <element signature="e#5695#7141#0" expanded="false" />
-            <element signature="e#7179#7654#0" expanded="false" />
-            <element signature="e#7685#8385#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="50" />
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#144#1194#0" expanded="false" />
             <element signature="e#1220#2205#0" expanded="false" />
-            <element signature="e#2243#3580#0" expanded="false" />
-            <element signature="e#4495#4986#0" expanded="false" />
+            <element signature="e#2243#3587#0" expanded="false" />
+            <element signature="e#3623#4473#0" expanded="false" />
+            <element signature="e#4507#4867#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="261" column="8" selection-start-line="261" selection-start-column="8" selection-end-line="261" selection-end-column="8" />
+        <state relative-caret-position="217">
+          <caret line="229" column="17" selection-start-line="229" selection-start-column="17" selection-end-line="229" selection-end-column="17" />
           <folding>
             <element signature="e#29#51#0" expanded="true" />
             <element signature="e#241#1084#0" expanded="false" />
@@ -1293,11 +1293,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph_pictures.py">
+    <entry file="file://$PROJECT_DIR$/attacks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="356">
+          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+          <folding>
+            <element signature="e#199#1991#0" expanded="false" />
+            <element signature="e#2053#3583#0" expanded="false" />
+            <element signature="e#3647#5633#0" expanded="false" />
+            <element signature="e#5695#7141#0" expanded="false" />
+            <element signature="e#7765#8465#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
