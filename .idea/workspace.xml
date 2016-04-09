@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/attacks.py" afterPath="$PROJECT_DIR$/attacks.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graph_pictures.py" afterPath="$PROJECT_DIR$/graph_pictures.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ptn_analytics.py" afterPath="$PROJECT_DIR$/ptn_analytics.py" />
     </list>
     <ignored path="PTN.iws" />
@@ -32,7 +32,7 @@
       <file leaf-file-name="gtfs_recursive.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
+            <state relative-caret-position="260">
               <caret line="229" column="17" selection-start-line="229" selection-start-column="17" selection-end-line="229" selection-end-column="17" />
               <folding>
                 <element signature="e#29#51#0" expanded="true" />
@@ -50,34 +50,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attacks.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/attacks.py">
+      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
               <folding>
-                <element signature="e#199#1991#0" expanded="false" />
-                <element signature="e#2053#3583#0" expanded="false" />
-                <element signature="e#3647#5633#0" expanded="false" />
-                <element signature="e#5695#7141#0" expanded="false" />
-                <element signature="e#7765#8465#0" expanded="false" />
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#332#1382#0" expanded="false" />
+                <element signature="e#1408#2393#0" expanded="false" />
+                <element signature="e#2431#3775#0" expanded="false" />
+                <element signature="e#3811#4661#0" expanded="false" />
+                <element signature="e#4695#5053#0" expanded="false" />
+                <element signature="e#5082#5217#0" expanded="false" />
+                <element signature="e#5250#6219#0" expanded="false" />
+                <element signature="e#6253#7227#0" expanded="false" />
+                <element signature="e#7261#8235#0" expanded="false" />
+                <element signature="e#8270#9249#0" expanded="false" />
+                <element signature="e#9284#10263#0" expanded="false" />
+                <element signature="e#12745#15486#0" expanded="false" />
+                <element signature="e#18245#21014#0" expanded="false" />
+                <element signature="e#27221#29218#0" expanded="false" />
+                <element signature="e#29255#31324#0" expanded="false" />
+                <marker date="1460068816000" expanded="false" signature="10792:12689" placeholder="..." />
+                <marker date="1460068816000" expanded="false" signature="15531:18191" placeholder="..." />
+                <marker date="1460068816000" expanded="false" signature="21058:23773" placeholder="..." />
+                <marker date="1460068816000" expanded="false" signature="23821:26606" placeholder="..." />
+                <marker date="1460068816000" expanded="false" signature="31384:34331" placeholder="..." />
+                <marker date="1460068816000" expanded="false" signature="34389:37364" placeholder="..." />
+                <marker date="1460068816000" expanded="false" signature="37418:40333" placeholder="..." />
+                <marker date="1460068816000" expanded="false" signature="40391:43376" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
+      <file leaf-file-name="attacks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/attacks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="290">
+              <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#144#1194#0" expanded="false" />
-                <element signature="e#1220#2205#0" expanded="false" />
-                <element signature="e#2243#3587#0" expanded="false" />
-                <element signature="e#3623#4473#0" expanded="false" />
-                <element signature="e#4507#4867#0" expanded="false" />
+                <element signature="e#199#1991#0" expanded="false" />
+                <element signature="e#2053#3583#0" expanded="false" />
+                <element signature="e#3647#5633#0" expanded="false" />
+                <element signature="e#5695#7141#0" expanded="false" />
+                <element signature="e#7179#7734#0" expanded="false" />
+                <element signature="e#7765#8465#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -125,8 +144,9 @@
         <option value="$PROJECT_DIR$/Flat graph.py" />
         <option value="$PROJECT_DIR$/gtfs_recursive.py" />
         <option value="$PROJECT_DIR$/graph_pictures.py" />
-        <option value="$PROJECT_DIR$/ptn_analytics.py" />
         <option value="$PROJECT_DIR$/attacks.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/ptn_analytics.py" />
       </list>
     </option>
   </component>
@@ -179,27 +199,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PTN" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PTN" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PTN" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -210,8 +213,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="FullScreen" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.other" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="full.screen.before.presentation.mode" value="false" />
   </component>
@@ -228,7 +230,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.attacks">
+  <component name="RunManager" selected="Python.ptn_analytics">
     <configuration default="false" name="Flat graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -459,8 +461,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.attacks" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+        <item index="1" class="java.lang.String" itemvalue="Python.attacks" />
         <item index="2" class="java.lang.String" itemvalue="Python.Flat graph" />
         <item index="3" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
         <item index="4" class="java.lang.String" itemvalue="Python.ptn_numpy_processing" />
@@ -480,13 +482,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1411665936642</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Function update_stop_times tested. Problems at algorithm 2 with stops that has a new ID in the same line, the assumption of these scenario never happening is incorrect, beside the script is using a time crescent flow, some stops times are not being updated with the correct value. Rethink the script, check the scenarios and update script.">
-      <created>1449685625553</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1449685625553</updated>
     </task>
     <task id="LOCAL-00023" summary="Code for writing result on file added to main function. All results now saved on internal list. Code slow, check for improvement. TO-DO review algorithm 2, not work correctly.">
       <created>1449930408772</created>
@@ -824,7 +819,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459784328972</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Change articulation points function to write vertex name intead of id, adding rho to result list.">
+      <created>1459816030909</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1459816030909</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -834,29 +836,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18903892" sideWeight="0.39400208" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32452276" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34801763" sideWeight="0.50970876" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39824304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2701909" sideWeight="0.492233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38179147" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3318649" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27086383" sideWeight="0.48834953" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1938046" sideWeight="0.54498446" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32503662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.41116005" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17712471" sideWeight="0.54919237" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.58883995" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17652173" sideWeight="0.4550155" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34699854" sideWeight="0.49029127" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="100" y="123" width="1080" height="573" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39824304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -874,7 +876,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
-    <MESSAGE value="Added &quot;v&quot; string to new id names to improve robustness of the code on big graphs." />
     <MESSAGE value="Added new metrics to help understand data." />
     <MESSAGE value="Added a time sec code to compute run time" />
     <MESSAGE value="New code to criate a distance matrix using numpy. Working with warning for some arccos value." />
@@ -899,7 +900,8 @@
     <MESSAGE value="backup codes." />
     <MESSAGE value="Add plots functions to process hist data." />
     <MESSAGE value="Add new functions to generate random graph for exemples." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new functions to generate random graph for exemples." />
+    <MESSAGE value="Change articulation points function to write vertex name intead of id, adding rho to result list." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change articulation points function to write vertex name intead of id, adding rho to result list." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -913,18 +915,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="205" />
+      <option name="time" value="206" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/graph_pictures.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1149,16 +1144,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/randon walk/weighted_edges.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1233,7 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="477" column="0" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1255,28 +1239,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/site-packages/seaborn/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#144#1194#0" expanded="false" />
-            <element signature="e#1220#2205#0" expanded="false" />
-            <element signature="e#2243#3587#0" expanded="false" />
-            <element signature="e#3623#4473#0" expanded="false" />
-            <element signature="e#4507#4867#0" expanded="false" />
+            <element signature="e#0#20#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gtfs_recursive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
+        <state relative-caret-position="260">
           <caret line="229" column="17" selection-start-line="229" selection-start-column="17" selection-end-line="229" selection-end-column="17" />
           <folding>
             <element signature="e#29#51#0" expanded="true" />
@@ -1295,14 +1283,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/attacks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+        <state relative-caret-position="290">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
           <folding>
             <element signature="e#199#1991#0" expanded="false" />
             <element signature="e#2053#3583#0" expanded="false" />
             <element signature="e#3647#5633#0" expanded="false" />
             <element signature="e#5695#7141#0" expanded="false" />
+            <element signature="e#7179#7734#0" expanded="false" />
             <element signature="e#7765#8465#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#332#1382#0" expanded="false" />
+            <element signature="e#1408#2393#0" expanded="false" />
+            <element signature="e#2431#3775#0" expanded="false" />
+            <element signature="e#3811#4661#0" expanded="false" />
+            <element signature="e#4695#5053#0" expanded="false" />
+            <element signature="e#5082#5217#0" expanded="false" />
+            <element signature="e#5250#6219#0" expanded="false" />
+            <element signature="e#6253#7227#0" expanded="false" />
+            <element signature="e#7261#8235#0" expanded="false" />
+            <element signature="e#8270#9249#0" expanded="false" />
+            <element signature="e#9284#10263#0" expanded="false" />
+            <element signature="e#12745#15486#0" expanded="false" />
+            <element signature="e#18245#21014#0" expanded="false" />
+            <element signature="e#27221#29218#0" expanded="false" />
+            <element signature="e#29255#31324#0" expanded="false" />
+            <marker date="1460068816000" expanded="false" signature="10792:12689" placeholder="..." />
+            <marker date="1460068816000" expanded="false" signature="15531:18191" placeholder="..." />
+            <marker date="1460068816000" expanded="false" signature="21058:23773" placeholder="..." />
+            <marker date="1460068816000" expanded="false" signature="23821:26606" placeholder="..." />
+            <marker date="1460068816000" expanded="false" signature="31384:34331" placeholder="..." />
+            <marker date="1460068816000" expanded="false" signature="34389:37364" placeholder="..." />
+            <marker date="1460068816000" expanded="false" signature="37418:40333" placeholder="..." />
+            <marker date="1460068816000" expanded="false" signature="40391:43376" placeholder="..." />
           </folding>
         </state>
       </provider>

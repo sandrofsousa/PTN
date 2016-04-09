@@ -175,7 +175,6 @@ def attack_scenarios():
     cut_articulation_points()
 
 
-cut_articulation_points()
 # attack_scenarios()
 
 end = time()
