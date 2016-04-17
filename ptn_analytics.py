@@ -2,6 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from csv import reader
+from igraph import *
 import powerlaw
 import os
 
@@ -60,6 +61,36 @@ def data_frame2():
     return df2
 
 
+def data_frame3(df1):
+    filenames1 = []
+    concat_list1 = []
+    # path that will be collected
+    os.chdir(r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/paths")
+    # Find any file that ends with ".txt"
+    for files in os.listdir("."):
+        if files.endswith(".txt"):
+            filenames1.append(files)  # apeend files names to a list
+
+    def readfile1(path):
+        with open(path) as data:
+            rho = int(path[path.rfind("path") + 4:len(path) - 4])
+            dict_total = dict(df1["Nós totais"])
+            n_node = int(dict_total[rho])
+            searcher = reader(data, delimiter=',', quotechar='"')
+            for line in searcher:
+                path = float(line[0])
+                freq = int(line[2])
+                freq_norm = freq / n_node
+                concat_list1.append((rho, path, freq, freq_norm, n_node))
+
+    for fname in filenames1:
+        location = r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/paths/" + fname
+        readfile1(location)
+
+    df3 = pd.DataFrame(concat_list1, columns=["rho", "path", "freq", "freq_norm", "n_node"])
+    return df3
+
+
 def plot_global_measures(df1):
     # sns.set_style("darkgrid", {"axes.facecolor": ".91"})
     sns.set_style("darkgrid")
@@ -68,47 +99,125 @@ def plot_global_measures(df1):
 
     # getting separated data from pandas frameworks
     plt.subplot(331)
-    plt.plot(df1.iloc[:, 0:1])
-    plt.title('Nós totais (a)')
+    plt.plot(df1.iloc[:, 1:2])
+    plt.title('Qtd. links (a)')
 
     plt.subplot(332)
-    plt.plot(df1.iloc[:, 12:13])
-    plt.title('Tamanho médio caminho (b)')
+    plt.plot(df1.iloc[:, 0:1])
+    plt.title('Qtd. nós (b)')
 
     plt.subplot(333)
-    plt.plot(df1.iloc[:, 3:4])
-    plt.title('Diâmetro rede (c)')
+    plt.plot(df1.iloc[:, 15:16])
+    plt.title('Coef. assortatividade - grau (c)')
+    plt.ylim(0, 1)
 
     plt.subplot(334)
-    plt.plot(df1.iloc[:, 1:2])
-    plt.title('Links totais (d)')
+    plt.plot(df1.iloc[:, 13:14])
+    plt.title('Qtd. clusters - fraco (d)')
 
     plt.subplot(335)
-    plt.plot(df1.iloc[:, 13:14])
-    plt.title('Cluster - fraco (e)')
+    plt.plot(df1.iloc[:, 14:15])
+    plt.title('Qtd. clusters - forte (e)')
 
     plt.subplot(336)
-    plt.plot(df1.iloc[:, 14:15])
-    plt.title('Cluster - forte (f)')
+    plt.plot(df1.iloc[:, 16:17])
+    plt.title('Coef. clusterização (f)')
+    plt.ylim(0, 0.20)
 
     plt.subplot(337)
-    plt.plot(df1.iloc[:, 15:16])
-    plt.title('Assortatividade - grau (g)')
+    plt.plot(df1.iloc[:, 12:13])
+    plt.ylim(0, 60)
+    plt.title('Comprimento médio caminho (g)')
     plt.xlabel('rho')
 
     plt.subplot(338)
-    plt.plot(df1.iloc[:, 16:17])
-    plt.title('Coef. Clusterização (h)')
+    plt.plot(df1.iloc[:, 3:4])
+    plt.ylim(0, 180)
+    plt.title('Diâmetro rede (h)')
     plt.xlabel('rho')
 
     plt.subplot(339)
     plt.plot(df1.iloc[:, 17:18])
-    plt.title('Densidade (i)')
+    plt.title('Coef. densidade (i)')
     plt.xlabel('rho')
 
     plt.tight_layout(pad=0.4, w_pad=0.7, h_pad=1.7)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_global_measures.pdf"
     plt.savefig(figure)
+
+
+def plot_global_measures_sep(df1):
+
+    sns.set_style("darkgrid")
+    sns.set_context("talk", font_scale=0.9, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 4))
+    plt.subplot(131)
+    plt.plot(df1.iloc[:, 1:2])
+    plt.title('Qtd. links (a)')
+    plt.xlabel('rho')
+
+    plt.subplot(132)
+    plt.plot(df1.iloc[:, 0:1])
+    plt.title('Qtd. nós (b)')
+    plt.xlabel('rho')
+
+    plt.subplot(133)
+    plt.plot(df1.iloc[:, 15:16])
+    plt.title('Coef. assortatividade - grau (c)')
+    plt.ylim(0, 1)
+    plt.xlabel('rho')
+    plt.tight_layout(pad=0.4, w_pad=0.7, h_pad=1.7)
+    figure1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_global_degree.pdf"
+    plt.savefig(figure1)
+    ##########################
+
+
+    sns.set_style("darkgrid")
+    sns.set_context("talk", font_scale=0.9, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 4))
+    plt.subplot(131)
+    plt.plot(df1.iloc[:, 13:14])
+    plt.title('Qtd. clusters - fraco (a)')
+    plt.xlabel('rho')
+
+    plt.subplot(132)
+    plt.plot(df1.iloc[:, 14:15])
+    plt.title('Qtd. clusters - forte (b)')
+    plt.xlabel('rho')
+
+    plt.subplot(133)
+    plt.plot(df1.iloc[:, 16:17])
+    plt.title('Coef. clusterização (c)')
+    plt.ylim(0, 0.20)
+    plt.xlabel('rho')
+    plt.tight_layout(pad=0.4, w_pad=0.7, h_pad=1.7)
+    figure2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_global_cluster.pdf"
+    plt.savefig(figure2)
+    ##########################
+
+
+    sns.set_style("darkgrid")
+    sns.set_context("talk", font_scale=0.9, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 4))
+    plt.subplot(131)
+    plt.plot(df1.iloc[:, 12:13])
+    plt.ylim(0, 60)
+    plt.title('Comprimento médio caminho (a)')
+    plt.xlabel('rho')
+
+    plt.subplot(132)
+    plt.plot(df1.iloc[:, 3:4])
+    plt.ylim(0, 180)
+    plt.title('Diâmetro rede (b)')
+    plt.xlabel('rho')
+
+    plt.subplot(133)
+    plt.plot(df1.iloc[:, 17:18])
+    plt.title('Coef. densidade (c)')
+    plt.xlabel('rho')
+    plt.tight_layout(pad=0.4, w_pad=0.7, h_pad=1.7)
+    figure3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_global_path.pdf"
+    plt.savefig(figure3)
 
 
 def plot_node_measures(df1):
@@ -123,6 +232,7 @@ def plot_node_measures(df1):
     plt.title('Média (a)')
     plt.xlabel('rho')
     plt.ylabel('grau')
+    plt.ylim(0, 70)
     plt.legend(loc=2)
 
     plt.subplot(122)
@@ -132,6 +242,7 @@ def plot_node_measures(df1):
     plt.title('Mediana (b)')
     plt.xlabel('rho')
     plt.ylabel('grau')
+    plt.ylim(0, 70)
     plt.legend(loc=2)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
@@ -142,15 +253,23 @@ def plot_node_measures(df1):
 def plot_hist_degree(df2):
     sns.set_context("talk", font_scale=0.9)
     grid = sns.FacetGrid(df2, col="rho", col_wrap=6, size=2.5)
-    grid.map(plt.hist, "Grau")
+    grid.map(plt.hist, "grau")
     grid.set(xscale="log", yscale="log")
+    grid.set_axis_labels("Grau", "Frequência")
     grid.fig.tight_layout(w_pad=0.5, h_pad=0.5)
 
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_hist_grid.pdf"
     plt.savefig(figure, dpi=300)
 
 
-def plot_hist_path():
+def plot_hist_path(df3):
+
+    sns.set_context("talk", font_scale=0.9)
+    grid = sns.FacetGrid(df3, col="rho", col_wrap=6, size=2.5, xlim=(0, 200), ylim=(0, 400))
+    grid.map(plt.scatter, "path", "freq_norm", s=5, alpha=0.7)
+    grid.set_axis_labels("caminho médio", "frequência")
+    grid.fig.tight_layout(w_pad=0.5, h_pad=0.5)
+
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_hist_path_grid.pdf"
     plt.savefig(figure, dpi=300)
 
@@ -274,10 +393,12 @@ def plot_power_law200(df2):
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_power_law200.pdf"
     plt.savefig(figure, bbox_inches='tight', dpi=300)
 
+
 # plot_global_measures(data_frame1())
+# plot_global_measures_sep(data_frame1())
 # plot_node_measures(data_frame1())
 # plot_hist_degree(data_frame2())
-# plot_hist_path() #not done
+# plot_hist_path(data_frame3(data_frame1()))
 # plot_power_law0(data_frame2())
 # plot_power_law20(data_frame2())
 # plot_power_law65(data_frame2())
@@ -663,8 +784,8 @@ def plot_node_clusters(df_random, df_target):
     plt.savefig(figure)
 
 
-node_random = data_frame_node()[data_frame_node().attack_mode == "random"]
-node_target = data_frame_node()[data_frame_node().attack_mode == "target"]
+# node_random = data_frame_node()[data_frame_node().attack_mode == "random"]
+# node_target = data_frame_node()[data_frame_node().attack_mode == "target"]
 
 # plot_node_max_degree(node_random, node_target)
 # plot_node_links(node_random, node_target)
@@ -1029,8 +1150,8 @@ def plot_link_clusters(df_link_random, df_link_target):
     plt.savefig(figure)
 
 
-link_random = data_frame_link_random()
-link_target = data_frame_link_target()
+# link_random = data_frame_link_random()
+# link_target = data_frame_link_target()
 
 # plot_link_max_degree(link_random, link_target)
 # plot_link_diameter(link_random, link_target)
