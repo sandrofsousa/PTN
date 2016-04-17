@@ -7,7 +7,7 @@ import powerlaw
 import os
 
 ############################################################################
-# Statistical Analysis plots
+# Statistical global measures rho
 ############################################################################
 
 
@@ -469,6 +469,7 @@ def plot_node_max_degree(df_random, df_target):
     plt.plot(target_step_0, target_degree_0, label='alvo')
     plt.title('rho = 0')
     plt.ylabel('grau máximo')
+    plt.ylim(0, 140)
     plt.legend(loc=5)
 
     random_degree_20 = df_random.max_degree[df_random.rho == '20']
@@ -479,6 +480,7 @@ def plot_node_max_degree(df_random, df_target):
     plt.plot(random_step_20, random_degree_20, label='aleatório')
     plt.plot(target_step_20, target_degree_20, label='alvo')
     plt.title('rho = 20')
+    plt.ylim(0, 1000)
     plt.legend(loc=5)
 
     random_degree_65 = df_random.max_degree[df_random.rho == '65']
@@ -490,6 +492,7 @@ def plot_node_max_degree(df_random, df_target):
     plt.plot(target_step_65, target_degree_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
+    plt.ylim(0, 1200)
     plt.legend(loc=5)
 
     random_degree_150 = df_random.max_degree[df_random.rho == '150']
@@ -502,6 +505,7 @@ def plot_node_max_degree(df_random, df_target):
     plt.title('rho = 150')
     plt.ylabel('grau máximo')
     plt.xlabel('interações')
+    plt.ylim(0, 4000)
     plt.legend(loc=5)
 
     random_degree_200 = df_random.max_degree[df_random.rho == '200']
@@ -513,6 +517,7 @@ def plot_node_max_degree(df_random, df_target):
     plt.plot(target_step_200, target_degree_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
+    plt.ylim(0, 7000)
     plt.legend(loc=5)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=0.5)
@@ -534,8 +539,9 @@ def plot_node_links(df_random, df_target):
     plt.plot(random_step_0, random_link_0, label='aleatório')
     plt.plot(target_step_0, target_link_0, label='alvo')
     plt.title('rho = 0')
-    plt.ylabel('número de links')
-    plt.legend(loc=5)
+    plt.ylabel('quantidade de links')
+    plt.ylim(40000, 100000)
+    plt.legend(loc=3)
 
     random_link_20 = df_random.links[df_random.rho == '20']
     random_step_20 = df_random.step[df_random.rho == '20']
@@ -545,7 +551,8 @@ def plot_node_links(df_random, df_target):
     plt.plot(random_step_20, random_link_20, label='aleatório')
     plt.plot(target_step_20, target_link_20, label='alvo')
     plt.title('rho = 20')
-    plt.legend(loc=5)
+    plt.ylim(40000, 100000)
+    plt.legend(loc=3)
 
     random_link_65 = df_random.links[df_random.rho == '65']
     random_step_65 = df_random.step[df_random.rho == '65']
@@ -556,7 +563,8 @@ def plot_node_links(df_random, df_target):
     plt.plot(target_step_65, target_link_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
-    plt.legend(loc=5)
+    plt.ylim(40000, 100000)
+    plt.legend(loc=3)
 
     random_link_150 = df_random.links[df_random.rho == '150']
     random_step_150 = df_random.step[df_random.rho == '150']
@@ -567,8 +575,9 @@ def plot_node_links(df_random, df_target):
     plt.plot(target_step_150, target_link_150, label='alvo')
     plt.title('rho = 150')
     plt.xlabel('interações')
-    plt.ylabel('número de links')
-    plt.legend(loc=5)
+    plt.ylabel('quantidade de links')
+    plt.ylim(40000, 100000)
+    plt.legend(loc=3)
 
     random_link_200 = df_random.links[df_random.rho == '200']
     random_step_200 = df_random.step[df_random.rho == '200']
@@ -579,7 +588,8 @@ def plot_node_links(df_random, df_target):
     plt.plot(target_step_200, target_link_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
-    plt.legend(loc=5)
+    plt.ylim(40000, 100000)
+    plt.legend(loc=3)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_links.pdf"
@@ -601,7 +611,8 @@ def plot_node_diameter(df_random, df_target):
     plt.plot(target_step_0, target_diameter_0, label='alvo')
     plt.title('rho = 0')
     plt.ylabel('diâmetro da rede')
-    plt.legend(loc=2)
+    plt.ylim(50, 220)
+    plt.legend(loc=3)
 
     random_diameter_20 = df_random.diameter[df_random.rho == '20']
     random_step_20 = df_random.step[df_random.rho == '20']
@@ -611,7 +622,8 @@ def plot_node_diameter(df_random, df_target):
     plt.plot(random_step_20, random_diameter_20, label='aleatório')
     plt.plot(target_step_20, target_diameter_20, label='alvo')
     plt.title('rho = 20')
-    plt.legend(loc=2)
+    plt.ylim(50, 220)
+    plt.legend(loc=3)
 
     random_diameter_65 = df_random.diameter[df_random.rho == '65']
     random_step_65 = df_random.step[df_random.rho == '65']
@@ -622,7 +634,8 @@ def plot_node_diameter(df_random, df_target):
     plt.plot(target_step_65, target_diameter_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
-    plt.legend(loc=2)
+    plt.ylim(50, 220)
+    plt.legend(loc=3)
 
     random_diameter_150 = df_random.diameter[df_random.rho == '150']
     random_step_150 = df_random.step[df_random.rho == '150']
@@ -634,6 +647,7 @@ def plot_node_diameter(df_random, df_target):
     plt.title('rho = 150')
     plt.xlabel('interações')
     plt.ylabel('diâmetro da rede')
+    plt.ylim(50, 220)
     plt.legend(loc=2)
 
     random_diameter_200 = df_random.diameter[df_random.rho == '200']
@@ -645,7 +659,8 @@ def plot_node_diameter(df_random, df_target):
     plt.plot(target_step_200, target_diameter_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
-    plt.legend(loc=1)
+    plt.ylim(50, 220)
+    plt.legend(loc=2)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_diameter.pdf"
@@ -667,7 +682,8 @@ def plot_node_path(df_random, df_target):
     plt.plot(target_step_0, target_path_0, label='alvo')
     plt.title('rho = 0')
     plt.ylabel('caminho médio')
-    plt.legend(loc=2)
+    plt.ylim(0, 65)
+    plt.legend(loc=3)
 
     random_path_20 = df_random.path_length[df_random.rho == '20']
     random_step_20 = df_random.step[df_random.rho == '20']
@@ -677,7 +693,8 @@ def plot_node_path(df_random, df_target):
     plt.plot(random_step_20, random_path_20, label='aleatório')
     plt.plot(target_step_20, target_path_20, label='alvo')
     plt.title('rho = 20')
-    plt.legend(loc=2)
+    plt.ylim(0, 65)
+    plt.legend(loc=3)
 
     random_path_65 = df_random.path_length[df_random.rho == '65']
     random_step_65 = df_random.step[df_random.rho == '65']
@@ -688,7 +705,8 @@ def plot_node_path(df_random, df_target):
     plt.plot(target_step_65, target_path_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
-    plt.legend(loc=2)
+    plt.ylim(0, 65)
+    plt.legend(loc=3)
 
     random_path_150 = df_random.path_length[df_random.rho == '150']
     random_step_150 = df_random.step[df_random.rho == '150']
@@ -700,7 +718,8 @@ def plot_node_path(df_random, df_target):
     plt.title('rho = 150')
     plt.xlabel('interações')
     plt.ylabel('caminho médio')
-    plt.legend(loc=2)
+    plt.ylim(0, 65)
+    plt.legend(loc=3)
 
     random_path_200 = df_random.path_length[df_random.rho == '200']
     random_step_200 = df_random.step[df_random.rho == '200']
@@ -711,7 +730,8 @@ def plot_node_path(df_random, df_target):
     plt.plot(target_step_200, target_path_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
-    plt.legend(loc=1)
+    plt.ylim(0, 65)
+    plt.legend(loc=3)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_path.pdf"
@@ -733,6 +753,7 @@ def plot_node_clusters(df_random, df_target):
     plt.plot(target_step_0, target_cluster_0, label='alvo')
     plt.title('rho = 0')
     plt.ylabel('componentes')
+    plt.ylim(0, 250)
     plt.legend(loc=2)
 
     random_step_20 = df_random.step[df_random.rho == '20']
@@ -743,6 +764,7 @@ def plot_node_clusters(df_random, df_target):
     plt.plot(random_step_20, random_cluster_20, label='aleatório')
     plt.plot(target_step_20, target_cluster_20, label='alvo')
     plt.title('rho = 20')
+    plt.ylim(0, 250)
     plt.legend(loc=2)
 
     random_step_65 = df_random.step[df_random.rho == '65']
@@ -754,6 +776,7 @@ def plot_node_clusters(df_random, df_target):
     plt.plot(target_step_65, target_cluster_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
+    plt.ylim(0, 250)
     plt.legend(loc=2)
 
     random_step_150 = df_random.step[df_random.rho == '150']
@@ -766,6 +789,7 @@ def plot_node_clusters(df_random, df_target):
     plt.title('rho = 150')
     plt.xlabel('interações')
     plt.ylabel('componentes')
+    plt.ylim(0, 250)
     plt.legend(loc=2)
 
     random_step_200 = df_random.step[df_random.rho == '200']
@@ -777,6 +801,7 @@ def plot_node_clusters(df_random, df_target):
     plt.plot(target_step_200, target_cluster_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
+    plt.ylim(0, 250)
     plt.legend(loc=2)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
@@ -784,13 +809,13 @@ def plot_node_clusters(df_random, df_target):
     plt.savefig(figure)
 
 
-# node_random = data_frame_node()[data_frame_node().attack_mode == "random"]
-# node_target = data_frame_node()[data_frame_node().attack_mode == "target"]
+node_random = data_frame_node()[data_frame_node().attack_mode == "random"]
+node_target = data_frame_node()[data_frame_node().attack_mode == "target"]
 
 # plot_node_max_degree(node_random, node_target)
 # plot_node_links(node_random, node_target)
 # plot_node_diameter(node_random, node_target)
-# plot_node_path(node_random, node_target)
+plot_node_path(node_random, node_target)
 # plot_node_clusters(node_random, node_target)
 
 
@@ -901,7 +926,8 @@ def plot_link_max_degree(df_link_random, df_link_target):
     plt.plot(target_step_0, target_degree_0, label='alvo')
     plt.title('rho = 0')
     plt.ylabel('grau máximo')
-    plt.legend(loc=5)
+    plt.ylim(0, 140)
+    plt.legend(loc=3)
 
     random_degree_20 = df_link_random.max_degree[df_link_random.rho == '20']
     random_step_20 = df_link_random.step[df_link_random.rho == '20']
@@ -911,7 +937,8 @@ def plot_link_max_degree(df_link_random, df_link_target):
     plt.plot(random_step_20, random_degree_20, label='aleatório')
     plt.plot(target_step_20, target_degree_20, label='alvo')
     plt.title('rho = 20')
-    plt.legend(loc=5)
+    plt.ylim(0, 1000)
+    plt.legend(loc=3)
 
     random_degree_65 = df_link_random.max_degree[df_link_random.rho == '65']
     random_step_65 = df_link_random.step[df_link_random.rho == '65']
@@ -922,7 +949,8 @@ def plot_link_max_degree(df_link_random, df_link_target):
     plt.plot(target_step_65, target_degree_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
-    plt.legend(loc=5)
+    plt.ylim(0, 1200)
+    plt.legend(loc=3)
 
     random_degree_150 = df_link_random.max_degree[df_link_random.rho == '150']
     random_step_150 = df_link_random.step[df_link_random.rho == '150']
@@ -934,7 +962,8 @@ def plot_link_max_degree(df_link_random, df_link_target):
     plt.title('rho = 150')
     plt.ylabel('grau máximo')
     plt.xlabel('interações')
-    plt.legend(loc=5)
+    plt.ylim(0, 4000)
+    plt.legend(loc=3)
 
     random_degree_200 = df_link_random.max_degree[df_link_random.rho == '200']
     random_step_200 = df_link_random.step[df_link_random.rho == '200']
@@ -945,7 +974,8 @@ def plot_link_max_degree(df_link_random, df_link_target):
     plt.plot(target_step_200, target_degree_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
-    plt.legend(loc=5)
+    plt.ylim(0, 7000)
+    plt.legend(loc=3)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_link_max_degree.pdf"
@@ -967,7 +997,8 @@ def plot_link_diameter(df_link_random, df_link_target):
     plt.plot(target_step_0, target_diameter_0, label='alvo')
     plt.title('rho = 0')
     plt.ylabel('diâmetro da rede')
-    plt.legend(loc=2)
+    plt.ylim(0, 180)
+    plt.legend(loc=3)
 
     random_diameter_20 = df_link_random.diameter[df_link_random.rho == '20']
     random_step_20 = df_link_random.step[df_link_random.rho == '20']
@@ -977,7 +1008,8 @@ def plot_link_diameter(df_link_random, df_link_target):
     plt.plot(random_step_20, random_diameter_20, label='aleatório')
     plt.plot(target_step_20, target_diameter_20, label='alvo')
     plt.title('rho = 20')
-    plt.legend(loc=2)
+    plt.ylim(0, 180)
+    plt.legend(loc=3)
 
     random_diameter_65 = df_link_random.diameter[df_link_random.rho == '65']
     random_step_65 = df_link_random.step[df_link_random.rho == '65']
@@ -988,7 +1020,8 @@ def plot_link_diameter(df_link_random, df_link_target):
     plt.plot(target_step_65, target_diameter_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
-    plt.legend(loc=2)
+    plt.ylim(120, 180)
+    plt.legend(loc=6)
 
     random_diameter_150 = df_link_random.diameter[df_link_random.rho == '150']
     random_step_150 = df_link_random.step[df_link_random.rho == '150']
@@ -1000,7 +1033,8 @@ def plot_link_diameter(df_link_random, df_link_target):
     plt.title('rho = 150')
     plt.xlabel('interações')
     plt.ylabel('diâmetro da rede')
-    plt.legend(loc=2)
+    plt.ylim(0, 180)
+    plt.legend(loc=3)
 
     random_diameter_200 = df_link_random.diameter[df_link_random.rho == '200']
     random_step_200 = df_link_random.step[df_link_random.rho == '200']
@@ -1011,7 +1045,8 @@ def plot_link_diameter(df_link_random, df_link_target):
     plt.plot(target_step_200, target_diameter_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
-    plt.legend(loc=1)
+    plt.ylim(0, 180)
+    plt.legend(loc=3)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_link_diameter.pdf"
@@ -1099,7 +1134,8 @@ def plot_link_clusters(df_link_random, df_link_target):
     plt.plot(target_step_0, target_cluster_0, label='alvo')
     plt.title('rho = 0')
     plt.ylabel('componentes')
-    plt.legend(loc=2)
+    plt.ylim(0, 16)
+    plt.legend(loc=6)
 
     random_step_20 = df_link_random.step[df_link_random.rho == '20']
     target_step_20 = df_link_target.step[df_link_target.rho == '20']
@@ -1109,7 +1145,8 @@ def plot_link_clusters(df_link_random, df_link_target):
     plt.plot(random_step_20, random_cluster_20, label='aleatório')
     plt.plot(target_step_20, target_cluster_20, label='alvo')
     plt.title('rho = 20')
-    plt.legend(loc=2)
+    plt.ylim(0, 16)
+    plt.legend(loc=6)
 
     random_step_65 = df_link_random.step[df_link_random.rho == '65']
     target_step_65 = df_link_target.step[df_link_target.rho == '65']
@@ -1120,7 +1157,8 @@ def plot_link_clusters(df_link_random, df_link_target):
     plt.plot(target_step_65, target_cluster_65, label='alvo')
     plt.title('rho = 65')
     plt.xlabel('interações')
-    plt.legend(loc=2)
+    plt.ylim(0, 16)
+    plt.legend(loc=6)
 
     random_step_150 = df_link_random.step[df_link_random.rho == '150']
     target_step_150 = df_link_target.step[df_link_target.rho == '150']
@@ -1132,7 +1170,8 @@ def plot_link_clusters(df_link_random, df_link_target):
     plt.title('rho = 150')
     plt.xlabel('interações')
     plt.ylabel('componentes')
-    plt.legend(loc=2)
+    plt.ylim(0, 16)
+    plt.legend(loc=6)
 
     random_step_200 = df_link_random.step[df_link_random.rho == '200']
     target_step_200 = df_link_target.step[df_link_target.rho == '200']
@@ -1143,15 +1182,16 @@ def plot_link_clusters(df_link_random, df_link_target):
     plt.plot(target_step_200, target_cluster_200, label='alvo')
     plt.title('rho = 200')
     plt.xlabel('interações')
-    plt.legend(loc=2)
+    plt.ylim(0, 16)
+    plt.legend(loc=6)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_link_clusters.pdf"
     plt.savefig(figure)
 
 
-# link_random = data_frame_link_random()
-# link_target = data_frame_link_target()
+link_random = data_frame_link_random()
+link_target = data_frame_link_target()
 
 # plot_link_max_degree(link_random, link_target)
 # plot_link_diameter(link_random, link_target)
