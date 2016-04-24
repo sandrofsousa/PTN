@@ -83,3 +83,46 @@ from igraph import *
 #      vertex_label=g4.vs.indices,
 #      vertex_label_size=12,
 #      bbox=(330, 330))
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import math
+import os
+from csv import reader
+from igraph import *
+
+graph_65 = Graph.Read_GraphML("/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net65.graphml")
+degree_sum = sum(graph_65.degree())
+degree_count = len(graph_65.degree())
+
+# def calc_probability_degree():
+#     for node in graph_65.vs:
+#         node["prob"] = node.degree()/degree_sum
+
+# calc_probability_degree()
+nodes_prob = []
+
+for node in graph_65.vs:
+    for i in range(node.degree()):
+        nodes_prob.append(node["name"])
+
+from random import choice
+
+small = nodes_prob[:20]
+# small = [0,1,2,3,4,5,6,7,8,9]
+rand = str(choice(small))
+print(small)
+# print(rand)
+# del small[rand]
+if rand in small:
+    small.remove(rand for rand in small)
+
+print(small)
+
+
+# len(nodes_prob), degree_sum
+# from collections import Counter
+# counter_dict = dict(Counter(nodes_prob))
+# counter_dict['v6182']

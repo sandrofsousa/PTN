@@ -205,7 +205,7 @@ def main():
                 len(ptn.clusters(mode=STRONG)),                       # Number of clusters STRONG
                 ptn.assortativity_degree(directed=True),              # Assortativity
                 ptn.transitivity_undirected(),                        # Clustering coefficient
-                ptn.density()]) + "\n")                               # Density
+                ptn.density()]) + "\n")                               # Network Density
 
             # Write histograms and degrees to file for further analysis.
             histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
