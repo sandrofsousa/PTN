@@ -46,7 +46,7 @@ def attack_node_targeted_prob(file_input, rho, interactions):
     (max degree on network) and calculate global measures to find the impact of it. Graph file, rho value and
     number of interactions are passed as input argument, result on a file as output.
     """
-    file_output = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/attacks/node_target_prob%s.txt" % rho
+    file_output = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/attacks/node_probab%s.txt" % rho
     ptn = Graph.Read_GraphML(file_input)
 
     nodes_probability = []                          # probability based on node repetition on list
@@ -162,7 +162,7 @@ def attack_link_targeted_prob(file_input, rho, interactions):
     Function to perform deterministic targeted attacks on network based on a link importance. Removes the target
     and calculate measures to find the impact of it. Graph file as first argument and result file as second
     """
-    file_output = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/attacks/link_target_prob%s.txt" % rho
+    file_output = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/attacks/link_probab%s.txt" % rho
     ptn = Graph.Read_GraphML(file_input)
 
     for idx, edge in enumerate(ptn.es):             # add weights to edges based on their multiplicity on network
