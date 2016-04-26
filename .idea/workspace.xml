@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3674d892-ddfc-46af-a3c3-9865cd03b1b8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/attacks.py" afterPath="$PROJECT_DIR$/attacks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ptn_analytics.py" afterPath="$PROJECT_DIR$/ptn_analytics.py" />
     </list>
     <ignored path="PTN.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ptn_analytics.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
+            <state relative-caret-position="199">
+              <caret line="1049" column="0" selection-start-line="1049" selection-start-column="0" selection-end-line="1049" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#358#1408#0" expanded="false" />
@@ -59,48 +59,51 @@
                 <element signature="e#2448#3566#0" expanded="false" />
                 <element signature="e#3604#5054#0" expanded="false" />
                 <element signature="e#5097#7313#0" expanded="false" />
-                <element signature="e#7354#8007#0" expanded="false" />
-                <element signature="e#8043#8943#0" expanded="false" />
-                <element signature="e#8977#9382#0" expanded="false" />
-                <element signature="e#9415#9855#0" expanded="false" />
-                <element signature="e#9890#11422#0" expanded="false" />
-                <element signature="e#11453#12538#0" expanded="false" />
-                <element signature="e#12570#13663#0" expanded="false" />
-                <element signature="e#13695#14788#0" expanded="false" />
-                <element signature="e#14821#15922#0" expanded="false" />
-                <element signature="e#15954#17055#0" expanded="false" />
-                <element signature="e#19616#21508#0" expanded="false" />
-                <element signature="e#30502#33395#0" expanded="false" />
-                <element signature="e#33449#36417#0" expanded="false" />
-                <element signature="e#36447#37472#0" expanded="false" />
-                <element signature="e#38110#40107#0" expanded="false" />
-                <element signature="e#40144#42213#0" expanded="false" />
-                <element signature="e#42279#45413#0" expanded="false" />
-                <element signature="e#45477#48637#0" expanded="false" />
-                <element signature="e#48697#51817#0" expanded="false" />
-                <element signature="e#51881#55044#0" expanded="false" />
-                <element signature="e#55573#57718#0" expanded="false" />
-                <element signature="e#57777#58707#0" expanded="false" />
-                <marker date="1461541624000" expanded="false" signature="17085:19001" placeholder="..." />
-                <marker date="1461541624000" expanded="false" signature="21558:24498" placeholder="..." />
-                <marker date="1461541624000" expanded="false" signature="24543:27435" placeholder="..." />
-                <marker date="1461541624000" expanded="false" signature="27483:30452" placeholder="..." />
+                <element signature="e#7354#8075#0" expanded="false" />
+                <element signature="e#8111#9011#0" expanded="false" />
+                <element signature="e#9045#9450#0" expanded="false" />
+                <element signature="e#9483#9923#0" expanded="false" />
+                <element signature="e#9958#11500#0" expanded="false" />
+                <element signature="e#11531#12616#0" expanded="false" />
+                <element signature="e#12648#13741#0" expanded="false" />
+                <element signature="e#13773#14866#0" expanded="false" />
+                <element signature="e#14899#16000#0" expanded="false" />
+                <element signature="e#16032#17133#0" expanded="false" />
+                <element signature="e#19694#21586#0" expanded="false" />
+                <element signature="e#21648#25586#0" expanded="false" />
+                <element signature="e#25653#29599#0" expanded="false" />
+                <element signature="e#29664#33734#0" expanded="false" />
+                <element signature="e#33795#37770#0" expanded="false" />
+                <element signature="e#37834#41921#0" expanded="false" />
+                <element signature="e#41951#43047#0" expanded="false" />
+                <element signature="e#43827#45824#0" expanded="false" />
+                <element signature="e#45861#47930#0" expanded="false" />
+                <element signature="e#47967#50036#0" expanded="false" />
+                <element signature="e#50118#54455#0" expanded="false" />
+                <element signature="e#54535#58908#0" expanded="false" />
+                <element signature="e#58983#63295#0" expanded="false" />
+                <element signature="e#63375#67761#0" expanded="false" />
+                <element signature="e#68388#70534#0" expanded="false" />
+                <element signature="e#70600#72746#0" expanded="false" />
+                <element signature="e#72832#74338#0" expanded="false" />
+                <marker date="1461684776000" expanded="false" signature="17163:19079" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attacks.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="attacks.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attacks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="156" column="25" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
+            <state relative-caret-position="108">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="e#29#49#0" expanded="true" />
                 <element signature="e#199#2005#0" expanded="false" />
                 <element signature="e#2074#4216#0" expanded="false" />
                 <element signature="e#4278#5808#0" expanded="false" />
                 <element signature="e#5872#7873#0" expanded="false" />
+                <element signature="e#7942#10271#0" expanded="false" />
                 <element signature="e#10333#11779#0" expanded="false" />
                 <element signature="e#11817#12372#0" expanded="false" />
                 <element signature="e#12403#13238#0" expanded="false" />
@@ -152,8 +155,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/gtfs_recursive.py" />
         <option value="$PROJECT_DIR$/graph_pictures.py" />
-        <option value="$PROJECT_DIR$/ptn_analytics.py" />
         <option value="$PROJECT_DIR$/attacks.py" />
+        <option value="$PROJECT_DIR$/ptn_analytics.py" />
       </list>
     </option>
   </component>
@@ -304,23 +307,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PTN" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gtfs_recursive.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ptn_analytics" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PTN" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ptn_analytics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -476,20 +462,36 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="ptn_analytics" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PTN" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ptn_analytics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Flat graph" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ptn_numpy_processing" />
-      <item index="2" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
-      <item index="3" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+      <item index="0" class="java.lang.String" itemvalue="Python.ptn_analytics" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Flat graph" />
+      <item index="2" class="java.lang.String" itemvalue="Python.ptn_numpy_processing" />
+      <item index="3" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
       <item index="4" class="java.lang.String" itemvalue="Python.attacks" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ptn_analytics" />
-        <item index="1" class="java.lang.String" itemvalue="Python.attacks" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Flat graph" />
-        <item index="3" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ptn_numpy_processing" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.attacks" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Flat graph" />
+        <item index="2" class="java.lang.String" itemvalue="Python.gtfs_recursive" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ptn_numpy_processing" />
       </list>
     </recent_temporary>
   </component>
@@ -506,13 +508,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1411665936642</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Few adjusts, algorithm names changed to a correct description of it's function.">
-      <created>1450896252108</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1450896252108</updated>
     </task>
     <task id="LOCAL-00028" summary="Few adjusts, algorithm names changed to a correct description of it's function.">
       <created>1450897839982</created>
@@ -850,7 +845,14 @@
       <option name="project" value="LOCAL" />
       <updated>1461541665825</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Change file names for probabilistic scenarios due to error creating data frames.">
+      <created>1461597902405</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1461597902405</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -900,7 +902,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
-    <MESSAGE value="Recursive function working. Need more validation and analisys if clusters are being formed correctly." />
     <MESSAGE value="Recursive function working and validated. Need to check files for final validation." />
     <MESSAGE value="Recursive function working and tested. A validation with all files is required. New coments implemented and corrected." />
     <MESSAGE value="Few function references corrected for main processing." />
@@ -925,7 +926,8 @@
     <MESSAGE value="add few corerctions in plot labels." />
     <MESSAGE value="Correct some scales on graph for attacks." />
     <MESSAGE value="Correct power law plots and add path plot with 5 rho values only." />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct power law plots and add path plot with 5 rho values only." />
+    <MESSAGE value="Change file names for probabilistic scenarios due to error creating data frames." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change file names for probabilistic scenarios due to error creating data frames." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1304,10 +1306,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/attacks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#29#49#0" expanded="true" />
+            <element signature="e#199#2005#0" expanded="false" />
+            <element signature="e#2074#4216#0" expanded="false" />
+            <element signature="e#4278#5808#0" expanded="false" />
+            <element signature="e#5872#7873#0" expanded="false" />
+            <element signature="e#7942#10271#0" expanded="false" />
+            <element signature="e#10333#11779#0" expanded="false" />
+            <element signature="e#11817#12372#0" expanded="false" />
+            <element signature="e#12403#13238#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ptn_analytics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
+        <state relative-caret-position="199">
+          <caret line="1049" column="0" selection-start-line="1049" selection-start-column="0" selection-end-line="1049" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#358#1408#0" expanded="false" />
@@ -1315,49 +1335,34 @@
             <element signature="e#2448#3566#0" expanded="false" />
             <element signature="e#3604#5054#0" expanded="false" />
             <element signature="e#5097#7313#0" expanded="false" />
-            <element signature="e#7354#8007#0" expanded="false" />
-            <element signature="e#8043#8943#0" expanded="false" />
-            <element signature="e#8977#9382#0" expanded="false" />
-            <element signature="e#9415#9855#0" expanded="false" />
-            <element signature="e#9890#11422#0" expanded="false" />
-            <element signature="e#11453#12538#0" expanded="false" />
-            <element signature="e#12570#13663#0" expanded="false" />
-            <element signature="e#13695#14788#0" expanded="false" />
-            <element signature="e#14821#15922#0" expanded="false" />
-            <element signature="e#15954#17055#0" expanded="false" />
-            <element signature="e#19616#21508#0" expanded="false" />
-            <element signature="e#30502#33395#0" expanded="false" />
-            <element signature="e#33449#36417#0" expanded="false" />
-            <element signature="e#36447#37472#0" expanded="false" />
-            <element signature="e#38110#40107#0" expanded="false" />
-            <element signature="e#40144#42213#0" expanded="false" />
-            <element signature="e#42279#45413#0" expanded="false" />
-            <element signature="e#45477#48637#0" expanded="false" />
-            <element signature="e#48697#51817#0" expanded="false" />
-            <element signature="e#51881#55044#0" expanded="false" />
-            <element signature="e#55573#57718#0" expanded="false" />
-            <element signature="e#57777#58707#0" expanded="false" />
-            <marker date="1461541624000" expanded="false" signature="17085:19001" placeholder="..." />
-            <marker date="1461541624000" expanded="false" signature="21558:24498" placeholder="..." />
-            <marker date="1461541624000" expanded="false" signature="24543:27435" placeholder="..." />
-            <marker date="1461541624000" expanded="false" signature="27483:30452" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attacks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="156" column="25" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
-          <folding>
-            <element signature="e#29#49#0" expanded="true" />
-            <element signature="e#199#2005#0" expanded="false" />
-            <element signature="e#2074#4216#0" expanded="false" />
-            <element signature="e#4278#5808#0" expanded="false" />
-            <element signature="e#5872#7873#0" expanded="false" />
-            <element signature="e#10333#11779#0" expanded="false" />
-            <element signature="e#11817#12372#0" expanded="false" />
-            <element signature="e#12403#13238#0" expanded="false" />
+            <element signature="e#7354#8075#0" expanded="false" />
+            <element signature="e#8111#9011#0" expanded="false" />
+            <element signature="e#9045#9450#0" expanded="false" />
+            <element signature="e#9483#9923#0" expanded="false" />
+            <element signature="e#9958#11500#0" expanded="false" />
+            <element signature="e#11531#12616#0" expanded="false" />
+            <element signature="e#12648#13741#0" expanded="false" />
+            <element signature="e#13773#14866#0" expanded="false" />
+            <element signature="e#14899#16000#0" expanded="false" />
+            <element signature="e#16032#17133#0" expanded="false" />
+            <element signature="e#19694#21586#0" expanded="false" />
+            <element signature="e#21648#25586#0" expanded="false" />
+            <element signature="e#25653#29599#0" expanded="false" />
+            <element signature="e#29664#33734#0" expanded="false" />
+            <element signature="e#33795#37770#0" expanded="false" />
+            <element signature="e#37834#41921#0" expanded="false" />
+            <element signature="e#41951#43047#0" expanded="false" />
+            <element signature="e#43827#45824#0" expanded="false" />
+            <element signature="e#45861#47930#0" expanded="false" />
+            <element signature="e#47967#50036#0" expanded="false" />
+            <element signature="e#50118#54455#0" expanded="false" />
+            <element signature="e#54535#58908#0" expanded="false" />
+            <element signature="e#58983#63295#0" expanded="false" />
+            <element signature="e#63375#67761#0" expanded="false" />
+            <element signature="e#68388#70534#0" expanded="false" />
+            <element signature="e#70600#72746#0" expanded="false" />
+            <element signature="e#72832#74338#0" expanded="false" />
+            <marker date="1461684776000" expanded="false" signature="17163:19079" placeholder="..." />
           </folding>
         </state>
       </provider>

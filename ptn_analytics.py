@@ -227,14 +227,15 @@ def plot_global_efficiency(df1):
     plt.figure(facecolor="white", figsize=(8, 5))
 
     efficiency = (df1.index + 1) * df1['Tamanho médio do caminho']
-    peak = efficiency.max() - 20
+    # peak = efficiency.max() - 20
 
     plt.subplot(111)
-    plt.plot(df1.index, efficiency)
-    plt.fill_between(df1.index, 0, 4000, where=efficiency > peak, facecolor='r', alpha=0.3)
-    plt.annotate('pico: 3876,12', xy=(185, 3876), xytext=(135, 3150))
+    plt.plot(df1.index, efficiency, label="coef. de eficiência")
+    # plt.fill_between(df1.index, 0, 4000, where=efficiency > peak, facecolor='r', alpha=0.2)
+    plt.annotate('pico: 3876,12\nrho: 185', xy=(185, 3876.12), xytext=(151, 2800))
     plt.xlabel('rho')
     plt.ylabel('eficiência')
+    plt.legend(loc=4)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_global_efficiency.pdf"
     plt.savefig(figure, bbox_inches='tight', dpi=300)
 
@@ -321,15 +322,14 @@ def plot_hist_path_5(df3):
         plt.fill_between(path_150, freq_150, color='c', alpha=1)
         plt.plot(path_200, freq_200, 'm', label='rho 200', alpha=1)
         plt.fill_between(path_200, freq_200, color='m', alpha=1)
-        plt.xlabel('caminho médio')
+        plt.xlabel('comprimento caminho médio')
         plt.ylabel('frequência')
         plt.legend()
 
-    plt.tight_layout()
     # plt.xlabel('caminho médio')
     # plt.ylabel('frequência')
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_hist_path_5.pdf"
-    plt.savefig(figure, dpi=300)
+    plt.savefig(figure, bbox_inches='tight', dpi=300)
 
 
 def plot_power_law0():
@@ -561,7 +561,7 @@ def data_frame_node():
     # Find any file that ends with ".txt"
     for files in os.listdir("."):
         if files.startswith("node"):
-            filenames.append(files)  # apeend files names to a list
+            filenames.append(files)  # append files names to a list
 
     def readfile(path):
         with open(path) as data:
@@ -596,355 +596,429 @@ def data_frame_node():
     return df3
 
 
-def plot_node_max_degree(df_random, df_target):
+def plot_node_links(df_random, df_target, df_probab):
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
-
-    random_degree_0 = df_random.max_degree[df_random.rho == '0']
-    random_step_0 = df_random.step[df_random.rho == '0']
-    target_degree_0 = df_target.max_degree[df_target.rho == '0']
-    target_step_0 = df_random.step[df_random.rho == '0']
-    plt.subplot(231)
-    plt.plot(random_step_0, random_degree_0, label='aleatório')
-    plt.plot(target_step_0, target_degree_0, label='alvo determinístico')
-    plt.title('rho = 0')
-    plt.ylabel('grau máximo')
-    plt.ylim(0, 140)
-    plt.legend(loc=5)
-
-    random_degree_20 = df_random.max_degree[df_random.rho == '20']
-    random_step_20 = df_random.step[df_random.rho == '20']
-    target_degree_20 = df_target.max_degree[df_target.rho == '20']
-    target_step_20 = df_random.step[df_random.rho == '20']
-    plt.subplot(232)
-    plt.plot(random_step_20, random_degree_20, label='aleatório')
-    plt.plot(target_step_20, target_degree_20, label='alvo determinístico')
-    plt.title('rho = 20')
-    plt.ylim(0, 1000)
-    plt.legend(loc=5)
-
-    random_degree_65 = df_random.max_degree[df_random.rho == '65']
-    random_step_65 = df_random.step[df_random.rho == '65']
-    target_degree_65 = df_target.max_degree[df_target.rho == '65']
-    target_step_65 = df_random.step[df_random.rho == '65']
-    plt.subplot(233)
-    plt.plot(random_step_65, random_degree_65, label='aleatório')
-    plt.plot(target_step_65, target_degree_65, label='alvo determinístico')
-    plt.title('rho = 65')
-    plt.xlabel('nós removidos')
-    plt.ylim(0, 1200)
-    plt.legend(loc=5)
-
-    random_degree_150 = df_random.max_degree[df_random.rho == '150']
-    random_step_150 = df_random.step[df_random.rho == '150']
-    target_degree_150 = df_target.max_degree[df_target.rho == '150']
-    target_step_150 = df_random.step[df_random.rho == '150']
-    plt.subplot(234)
-    plt.plot(random_step_150, random_degree_150, label='aleatório')
-    plt.plot(target_step_150, target_degree_150, label='alvo determinístico')
-    plt.title('rho = 150')
-    plt.ylabel('grau máximo')
-    plt.xlabel('nós removidos')
-    plt.ylim(0, 4000)
-    plt.legend(loc=5)
-
-    random_degree_200 = df_random.max_degree[df_random.rho == '200']
-    random_step_200 = df_random.step[df_random.rho == '200']
-    target_degree_200 = df_target.max_degree[df_target.rho == '200']
-    target_step_200 = df_random.step[df_random.rho == '200']
-    plt.subplot(235)
-    plt.plot(random_step_200, random_degree_200, label='aleatório')
-    plt.plot(target_step_200, target_degree_200, label='alvo determinístico')
-    plt.title('rho = 200')
-    plt.xlabel('nós removidos')
-    plt.ylim(0, 7000)
-    plt.legend(loc=5)
-
-    plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=0.5)
-    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_max_degree.pdf"
-    plt.savefig(figure)
-
-
-def plot_node_links(df_random, df_target):
-
-    sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_link_0 = df_random.links[df_random.rho == '0']
     random_step_0 = df_random.step[df_random.rho == '0']
     target_link_0 = df_target.links[df_target.rho == '0']
-    target_step_0 = df_random.step[df_random.rho == '0']
+    target_step_0 = df_target.step[df_target.rho == '0']
+    probab_link_0 = df_probab.links[df_probab.rho == '0']
+    probab_step_0 = df_probab.step[df_probab.rho == '0']
     plt.subplot(231)
     plt.plot(random_step_0, random_link_0, label='aleatório')
     plt.plot(target_step_0, target_link_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_link_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('quantidade de links')
     plt.ylim(40000, 100000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_link_20 = df_random.links[df_random.rho == '20']
     random_step_20 = df_random.step[df_random.rho == '20']
     target_link_20 = df_target.links[df_target.rho == '20']
-    target_step_20 = df_random.step[df_random.rho == '20']
+    target_step_20 = df_target.step[df_target.rho == '20']
+    probab_link_20 = df_probab.links[df_probab.rho == '20']
+    probab_step_20 = df_probab.step[df_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_link_20, label='aleatório')
     plt.plot(target_step_20, target_link_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_link_20, label='alvo probabilístico')
     plt.title('rho = 20')
     plt.ylim(40000, 100000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_link_65 = df_random.links[df_random.rho == '65']
     random_step_65 = df_random.step[df_random.rho == '65']
     target_link_65 = df_target.links[df_target.rho == '65']
-    target_step_65 = df_random.step[df_random.rho == '65']
+    target_step_65 = df_target.step[df_target.rho == '65']
+    probab_link_65 = df_probab.links[df_probab.rho == '65']
+    probab_step_65 = df_probab.step[df_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_link_65, label='aleatório')
     plt.plot(target_step_65, target_link_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_link_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(40000, 100000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_link_150 = df_random.links[df_random.rho == '150']
     random_step_150 = df_random.step[df_random.rho == '150']
     target_link_150 = df_target.links[df_target.rho == '150']
-    target_step_150 = df_random.step[df_random.rho == '150']
+    target_step_150 = df_target.step[df_target.rho == '150']
+    probab_link_150 = df_probab.links[df_probab.rho == '150']
+    probab_step_150 = df_probab.step[df_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_link_150, label='aleatório')
     plt.plot(target_step_150, target_link_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_link_150, label='alvo probabilístico')
     plt.title('rho = 150')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylabel('quantidade de links')
     plt.ylim(40000, 100000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_link_200 = df_random.links[df_random.rho == '200']
     random_step_200 = df_random.step[df_random.rho == '200']
     target_link_200 = df_target.links[df_target.rho == '200']
-    target_step_200 = df_random.step[df_random.rho == '200']
+    target_step_200 = df_target.step[df_target.rho == '200']
+    probab_link_200 = df_probab.links[df_probab.rho == '200']
+    probab_step_200 = df_probab.step[df_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_link_200, label='aleatório')
     plt.plot(target_step_200, target_link_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_link_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(40000, 100000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_links.pdf"
     plt.savefig(figure)
 
 
-def plot_node_diameter(df_random, df_target):
+def plot_node_max_degree(df_random, df_target, df_probab):
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
+
+    random_degree_0 = df_random.max_degree[df_random.rho == '0']
+    random_step_0 = df_random.step[df_random.rho == '0']
+    target_degree_0 = df_target.max_degree[df_target.rho == '0']
+    target_step_0 = df_target.step[df_target.rho == '0']
+    probab_degree_0 = df_probab.max_degree[df_probab.rho == '0']
+    probab_step_0 = df_probab.step[df_probab.rho == '0']
+    plt.subplot(231)
+    plt.plot(random_step_0, random_degree_0, label='aleatório')
+    plt.plot(target_step_0, target_degree_0, label='alvo deter.')
+    plt.plot(probab_step_0, probab_degree_0, label='alvo prob.')
+    plt.title('rho = 0')
+    plt.ylabel('grau máximo')
+    plt.ylim(0, 140)
+    plt.legend(loc=5, fontsize=11)
+
+    random_degree_20 = df_random.max_degree[df_random.rho == '20']
+    random_step_20 = df_random.step[df_random.rho == '20']
+    target_degree_20 = df_target.max_degree[df_target.rho == '20']
+    target_step_20 = df_target.step[df_target.rho == '20']
+    probab_degree_20 = df_probab.max_degree[df_probab.rho == '20']
+    probab_step_20 = df_probab.step[df_probab.rho == '20']
+    plt.subplot(232)
+    plt.plot(random_step_20, random_degree_20, label='aleatório')
+    plt.plot(target_step_20, target_degree_20, label='alvo deter.')
+    plt.plot(probab_step_20, probab_degree_20, label='alvo prob.')
+    plt.title('rho = 20')
+    plt.ylim(0, 1000)
+    plt.legend(loc=5, fontsize=11)
+
+    random_degree_65 = df_random.max_degree[df_random.rho == '65']
+    random_step_65 = df_random.step[df_random.rho == '65']
+    target_degree_65 = df_target.max_degree[df_target.rho == '65']
+    target_step_65 = df_target.step[df_target.rho == '65']
+    probab_degree_65 = df_probab.max_degree[df_probab.rho == '65']
+    probab_step_65 = df_probab.step[df_probab.rho == '65']
+    plt.subplot(233)
+    plt.plot(random_step_65, random_degree_65, label='aleatório')
+    plt.plot(target_step_65, target_degree_65, label='alvo deter.')
+    plt.plot(probab_step_65, probab_degree_65, label='alvo prob.')
+    plt.title('rho = 65')
+    plt.xlabel('nº nós removidos')
+    plt.ylim(0, 1200)
+    plt.legend(loc=5, fontsize=11)
+
+    random_degree_150 = df_random.max_degree[df_random.rho == '150']
+    random_step_150 = df_random.step[df_random.rho == '150']
+    target_degree_150 = df_target.max_degree[df_target.rho == '150']
+    target_step_150 = df_target.step[df_target.rho == '150']
+    probab_degree_150 = df_probab.max_degree[df_probab.rho == '150']
+    probab_step_150 = df_probab.step[df_probab.rho == '150']
+    plt.subplot(234)
+    plt.plot(random_step_150, random_degree_150, label='aleatório')
+    plt.plot(target_step_150, target_degree_150, label='alvo deter.')
+    plt.plot(probab_step_150, probab_degree_150, label='alvo prob.')
+    plt.title('rho = 150')
+    plt.ylabel('grau máximo')
+    plt.xlabel('nº nós removidos')
+    plt.ylim(0, 4000)
+    plt.legend(loc=5, fontsize=11)
+
+    random_degree_200 = df_random.max_degree[df_random.rho == '200']
+    random_step_200 = df_random.step[df_random.rho == '200']
+    target_degree_200 = df_target.max_degree[df_target.rho == '200']
+    target_step_200 = df_target.step[df_target.rho == '200']
+    probab_degree_200 = df_probab.max_degree[df_probab.rho == '200']
+    probab_step_200 = df_probab.step[df_probab.rho == '200']
+    plt.subplot(235)
+    plt.plot(random_step_200, random_degree_200, label='aleatório')
+    plt.plot(target_step_200, target_degree_200, label='alvo deter.')
+    plt.plot(probab_step_200, probab_degree_200, label='alvo prob.')
+    plt.title('rho = 200')
+    plt.xlabel('nº nós removidos')
+    plt.ylim(0, 7000)
+    plt.legend(loc=5, fontsize=11)
+
+    plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=0.5)
+    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_max_degree.pdf"
+    plt.savefig(figure)
+
+
+def plot_node_diameter(df_random, df_target, df_probab):
+
+    sns.set_style("darkgrid")
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_diameter_0 = df_random.diameter[df_random.rho == '0']
     random_step_0 = df_random.step[df_random.rho == '0']
     target_diameter_0 = df_target.diameter[df_target.rho == '0']
-    target_step_0 = df_random.step[df_random.rho == '0']
+    target_step_0 = df_target.step[df_target.rho == '0']
+    probab_diameter_0 = df_probab.diameter[df_probab.rho == '0']
+    probab_step_0 = df_probab.step[df_probab.rho == '0']
     plt.subplot(231)
     plt.plot(random_step_0, random_diameter_0, label='aleatório')
     plt.plot(target_step_0, target_diameter_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_diameter_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('diâmetro da rede')
     plt.ylim(50, 220)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_diameter_20 = df_random.diameter[df_random.rho == '20']
     random_step_20 = df_random.step[df_random.rho == '20']
     target_diameter_20 = df_target.diameter[df_target.rho == '20']
-    target_step_20 = df_random.step[df_random.rho == '20']
+    target_step_20 = df_target.step[df_target.rho == '20']
+    probab_diameter_20 = df_probab.diameter[df_probab.rho == '20']
+    probab_step_20 = df_probab.step[df_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_diameter_20, label='aleatório')
     plt.plot(target_step_20, target_diameter_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_diameter_20, label='alvo probabilístico')
     plt.title('rho = 20')
     plt.ylim(50, 220)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_diameter_65 = df_random.diameter[df_random.rho == '65']
     random_step_65 = df_random.step[df_random.rho == '65']
     target_diameter_65 = df_target.diameter[df_target.rho == '65']
-    target_step_65 = df_random.step[df_random.rho == '65']
+    target_step_65 = df_target.step[df_target.rho == '65']
+    probab_diameter_65 = df_probab.diameter[df_probab.rho == '65']
+    probab_step_65 = df_probab.step[df_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_diameter_65, label='aleatório')
     plt.plot(target_step_65, target_diameter_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_diameter_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(50, 220)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_diameter_150 = df_random.diameter[df_random.rho == '150']
     random_step_150 = df_random.step[df_random.rho == '150']
     target_diameter_150 = df_target.diameter[df_target.rho == '150']
-    target_step_150 = df_random.step[df_random.rho == '150']
+    target_step_150 = df_target.step[df_target.rho == '150']
+    probab_diameter_150 = df_probab.diameter[df_probab.rho == '150']
+    probab_step_150 = df_probab.step[df_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_diameter_150, label='aleatório')
     plt.plot(target_step_150, target_diameter_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_diameter_150, label='alvo probabilístico')
     plt.title('rho = 150')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylabel('diâmetro da rede')
     plt.ylim(50, 220)
-    plt.legend(loc=2)
+    plt.legend(loc=2, fontsize=11)
 
     random_diameter_200 = df_random.diameter[df_random.rho == '200']
     random_step_200 = df_random.step[df_random.rho == '200']
     target_diameter_200 = df_target.diameter[df_target.rho == '200']
-    target_step_200 = df_random.step[df_random.rho == '200']
+    target_step_200 = df_target.step[df_target.rho == '200']
+    probab_diameter_200 = df_probab.diameter[df_probab.rho == '200']
+    probab_step_200 = df_probab.step[df_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_diameter_200, label='aleatório')
     plt.plot(target_step_200, target_diameter_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_diameter_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(50, 220)
-    plt.legend(loc=2)
+    plt.legend(loc=1, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_diameter.pdf"
     plt.savefig(figure)
 
 
-def plot_node_path(df_random, df_target):
+def plot_node_path(df_random, df_target, df_probab):
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_path_0 = df_random.path_length[df_random.rho == '0']
     random_step_0 = df_random.step[df_random.rho == '0']
     target_path_0 = df_target.path_length[df_target.rho == '0']
-    target_step_0 = df_random.step[df_random.rho == '0']
+    target_step_0 = df_target.step[df_target.rho == '0']
+    probab_path_0 = df_probab.path_length[df_probab.rho == '0']
+    probab_step_0 = df_probab.step[df_probab.rho == '0']
     plt.subplot(231)
     plt.plot(random_step_0, random_path_0, label='aleatório')
     plt.plot(target_step_0, target_path_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_path_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('caminho médio')
     plt.ylim(0, 65)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_path_20 = df_random.path_length[df_random.rho == '20']
     random_step_20 = df_random.step[df_random.rho == '20']
     target_path_20 = df_target.path_length[df_target.rho == '20']
-    target_step_20 = df_random.step[df_random.rho == '20']
+    target_step_20 = df_target.step[df_target.rho == '20']
+    probab_path_20 = df_probab.path_length[df_probab.rho == '20']
+    probab_step_20 = df_probab.step[df_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_path_20, label='aleatório')
     plt.plot(target_step_20, target_path_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_path_20, label='alvo probabilístico')
     plt.title('rho = 20')
     plt.ylim(0, 65)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_path_65 = df_random.path_length[df_random.rho == '65']
     random_step_65 = df_random.step[df_random.rho == '65']
     target_path_65 = df_target.path_length[df_target.rho == '65']
-    target_step_65 = df_random.step[df_random.rho == '65']
+    target_step_65 = df_target.step[df_target.rho == '65']
+    probab_path_65 = df_probab.path_length[df_probab.rho == '65']
+    probab_step_65 = df_probab.step[df_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_path_65, label='aleatório')
     plt.plot(target_step_65, target_path_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_path_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(0, 65)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_path_150 = df_random.path_length[df_random.rho == '150']
     random_step_150 = df_random.step[df_random.rho == '150']
     target_path_150 = df_target.path_length[df_target.rho == '150']
-    target_step_150 = df_random.step[df_random.rho == '150']
+    target_step_150 = df_target.step[df_target.rho == '150']
+    probab_path_150 = df_probab.path_length[df_probab.rho == '150']
+    probab_step_150 = df_probab.step[df_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_path_150, label='aleatório')
     plt.plot(target_step_150, target_path_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_path_150, label='alvo probabilístico')
     plt.title('rho = 150')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylabel('caminho médio')
     plt.ylim(0, 65)
-    plt.legend(loc=3)
+    plt.legend(loc=2, fontsize=11)
 
     random_path_200 = df_random.path_length[df_random.rho == '200']
     random_step_200 = df_random.step[df_random.rho == '200']
     target_path_200 = df_target.path_length[df_target.rho == '200']
-    target_step_200 = df_random.step[df_random.rho == '200']
+    target_step_200 = df_target.step[df_target.rho == '200']
+    probab_path_200 = df_probab.path_length[df_probab.rho == '200']
+    probab_step_200 = df_probab.step[df_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_path_200, label='aleatório')
     plt.plot(target_step_200, target_path_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_path_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(0, 65)
-    plt.legend(loc=3)
+    plt.legend(loc=2, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_path.pdf"
     plt.savefig(figure)
 
 
-def plot_node_clusters(df_random, df_target):
-
+def plot_node_clusters(df_random, df_target, df_probab):
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_step_0 = df_random.step[df_random.rho == '0']
-    target_step_0 = df_random.step[df_random.rho == '0']
+    target_step_0 = df_target.step[df_target.rho == '0']
     random_cluster_0 = df_random.cluster_weak[df_random.rho == '0']
     target_cluster_0 = df_target.cluster_weak[df_target.rho == '0']
+    probab_cluster_0 = df_probab.cluster_weak[df_probab.rho == '0']
+    probab_step_0 = df_probab.step[df_probab.rho == '200']
     plt.subplot(231)
     plt.plot(random_step_0, random_cluster_0, label='aleatório')
     plt.plot(target_step_0, target_cluster_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_cluster_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('componentes')
     plt.ylim(0, 250)
-    plt.legend(loc=2)
+    plt.legend(loc=2, fontsize=11)
 
     random_step_20 = df_random.step[df_random.rho == '20']
-    target_step_20 = df_random.step[df_random.rho == '20']
+    target_step_20 = df_target.step[df_target.rho == '20']
     random_cluster_20 = df_random.cluster_weak[df_random.rho == '20']
     target_cluster_20 = df_target.cluster_weak[df_target.rho == '20']
+    probab_cluster_20 = df_probab.cluster_weak[df_probab.rho == '20']
+    probab_step_20 = df_probab.step[df_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_cluster_20, label='aleatório')
     plt.plot(target_step_20, target_cluster_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_cluster_20, label='alvo probabilístico')
     plt.title('rho = 20')
     plt.ylim(0, 250)
-    plt.legend(loc=2)
+    plt.legend(loc=2, fontsize=11)
 
     random_step_65 = df_random.step[df_random.rho == '65']
-    target_step_65 = df_random.step[df_random.rho == '65']
+    target_step_65 = df_target.step[df_target.rho == '65']
     random_cluster_65 = df_random.cluster_weak[df_random.rho == '65']
     target_cluster_65 = df_target.cluster_weak[df_target.rho == '65']
+    probab_cluster_65 = df_probab.cluster_weak[df_probab.rho == '65']
+    probab_step_65 = df_probab.step[df_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_cluster_65, label='aleatório')
     plt.plot(target_step_65, target_cluster_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_cluster_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(0, 250)
-    plt.legend(loc=2)
+    plt.legend(loc=2, fontsize=11)
 
     random_step_150 = df_random.step[df_random.rho == '150']
-    target_step_150 = df_random.step[df_random.rho == '150']
+    target_step_150 = df_target.step[df_target.rho == '150']
     random_cluster_150 = df_random.cluster_weak[df_random.rho == '150']
     target_cluster_150 = df_target.cluster_weak[df_target.rho == '150']
+    probab_cluster_150 = df_probab.cluster_weak[df_probab.rho == '150']
+    probab_step_150 = df_probab.step[df_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_cluster_150, label='aleatório')
     plt.plot(target_step_150, target_cluster_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_cluster_150, label='alvo probabilístico')
     plt.title('rho = 150')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylabel('componentes')
     plt.ylim(0, 250)
-    plt.legend(loc=2)
+    plt.legend(loc=2, fontsize=11)
 
     random_step_200 = df_random.step[df_random.rho == '200']
-    target_step_200 = df_random.step[df_random.rho == '200']
+    target_step_200 = df_target.step[df_target.rho == '200']
     random_cluster_200 = df_random.cluster_weak[df_random.rho == '200']
     target_cluster_200 = df_target.cluster_weak[df_target.rho == '200']
+    probab_cluster_200 = df_probab.cluster_weak[df_probab.rho == '200']
+    probab_step_200 = df_probab.step[df_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_cluster_200, label='aleatório')
     plt.plot(target_step_200, target_cluster_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_cluster_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº nós removidos')
     plt.ylim(0, 250)
-    plt.legend(loc=2)
+    plt.legend(loc=2, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_clusters.pdf"
@@ -954,8 +1028,8 @@ def plot_node_clusters(df_random, df_target):
 def plot_node_cuts():
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.9, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(6, 3))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(8, 5), dpi=300)
 
     cuts_x = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105,
               110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200]
@@ -963,25 +1037,27 @@ def plot_node_cuts():
               15.84, 15.70, 15.62, 15.23, 14.98, 14.83, 14.59, 14.44, 14.26, 14.12, 13.97, 13.69, 13.27,
               13.03, 12.82, 12.62, 12.04, 12.00, 11.64, 11.34, 10.97, 10.79, 10.27, 9.72, 9.31, 8.91, 8.37, 8.17]
 
+    plt.subplot(111)
     plt.plot(cuts_x, cuts_y, label='% nós à remover')
+    plt.annotate('pico: 17,57\nrho: 35', xy=(35, 17.57), xytext=(23, 12))
     plt.xlabel('rho')
     plt.ylabel('porcentagem de nós [%]')
     plt.ylim(0, 20)
     plt.legend(loc=3)
 
-    plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_node_cuts.pdf"
-    plt.savefig(figure)
+    plt.savefig(figure, bbox_inches='tight')
 
 
 # node_random = data_frame_node()[data_frame_node().attack_mode == "random"]
 # node_target = data_frame_node()[data_frame_node().attack_mode == "target"]
+# node_probab = data_frame_node()[data_frame_node().attack_mode == "probab"]
 
-# plot_node_max_degree(node_random, node_target)
-# plot_node_links(node_random, node_target)
-# plot_node_diameter(node_random, node_target)
-# plot_node_path(node_random, node_target)
-# plot_node_clusters(node_random, node_target)
+# plot_node_links(node_random, node_target, node_probab)
+# plot_node_max_degree(node_random, node_target, node_probab)
+# plot_node_diameter(node_random, node_target, node_probab)
+# plot_node_path(node_random, node_target, node_probab)
+# plot_node_clusters(node_random, node_target, node_probab)
 # plot_node_cuts()
 
 
@@ -1077,284 +1153,387 @@ def data_frame_link_target():
     return df5
 
 
-def plot_link_max_degree(df_link_random, df_link_target):
+def data_frame_link_probab():
+    filenames_probab = []
+    concat_list_probab = []
+    # path that will be collected
+    os.chdir(r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/attacks")
+    # Find any file that ends with ".txt"
+    for files in os.listdir("."):
+        if files.startswith("link_probab"):
+            filenames_probab.append(files)  # apeend files names to a list
+
+    def readfile_probab(path):
+        with open(path) as data:
+            rho = path[path.rfind("link_probab") + 11:len(path) - 4]
+            attack_mode = path[path.rfind("link_probab") + 5:path.rfind("link_probab") + 11]
+            searcher = reader(data, delimiter=',', quotechar='"')  # read file
+            for line in searcher:
+                step = int(line[0])
+                nodes = int(line[1])
+                links = int(line[2])
+                max_degree = int(line[3])
+                diameter = int(line[4])
+                path_length = float(line[5])
+                cluster_weak = int(line[6])
+                cluster_strong = int(line[7])
+                assortativity = float(line[8])
+                cluster_coef = float(line[9])
+                density = float(line[10])
+                link_weight = int(line[11])
+                link_name = str(line[12])
+                concat_list_probab.append(
+                    (attack_mode, rho, step, nodes, links, max_degree, diameter, path_length, cluster_weak,
+                     cluster_strong, assortativity, cluster_coef, density, link_weight, link_name))
+
+    for fname in filenames_probab:
+        location = r"/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/attacks/" + fname
+        readfile_probab(location)
+
+    df6 = pd.DataFrame(concat_list_probab,
+                                  columns=["attack_mode", "rho", "step", "nodes", "links", "max_degree", "diameter",
+                                           "path_length", "cluster_weak", "cluster_strong", "assortativity",
+                                           "cluster_coef", "density", "link_weight", "link_name"])
+    return df6
+
+
+def plot_link_max_degree(df_link_random, df_link_target, df_link_probab):
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_degree_0 = df_link_random.max_degree[df_link_random.rho == '0']
     random_step_0 = df_link_random.step[df_link_random.rho == '0']
     target_degree_0 = df_link_target.max_degree[df_link_target.rho == '0']
     target_step_0 = df_link_target.step[df_link_target.rho == '0']
+    probab_degree_0 = df_link_probab.max_degree[df_link_probab.rho == '0']
+    probab_step_0 = df_link_probab.step[df_link_probab.rho == '0']
     plt.subplot(231)
     plt.plot(random_step_0, random_degree_0, label='aleatório')
     plt.plot(target_step_0, target_degree_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_degree_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('grau máximo')
     plt.ylim(0, 140)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_degree_20 = df_link_random.max_degree[df_link_random.rho == '20']
     random_step_20 = df_link_random.step[df_link_random.rho == '20']
     target_degree_20 = df_link_target.max_degree[df_link_target.rho == '20']
     target_step_20 = df_link_target.step[df_link_target.rho == '20']
+    probab_degree_20 = df_link_probab.max_degree[df_link_probab.rho == '20']
+    probab_step_20 = df_link_probab.step[df_link_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_degree_20, label='aleatório')
     plt.plot(target_step_20, target_degree_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_degree_20, label='alvo probabilístico')
     plt.title('rho = 20')
     plt.ylim(0, 1000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_degree_65 = df_link_random.max_degree[df_link_random.rho == '65']
     random_step_65 = df_link_random.step[df_link_random.rho == '65']
     target_degree_65 = df_link_target.max_degree[df_link_target.rho == '65']
     target_step_65 = df_link_target.step[df_link_target.rho == '65']
+    probab_degree_65 = df_link_probab.max_degree[df_link_probab.rho == '65']
+    probab_step_65 = df_link_probab.step[df_link_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_degree_65, label='aleatório')
     plt.plot(target_step_65, target_degree_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_degree_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylim(0, 1200)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_degree_150 = df_link_random.max_degree[df_link_random.rho == '150']
     random_step_150 = df_link_random.step[df_link_random.rho == '150']
     target_degree_150 = df_link_target.max_degree[df_link_target.rho == '150']
     target_step_150 = df_link_target.step[df_link_target.rho == '150']
+    probab_degree_150 = df_link_probab.max_degree[df_link_probab.rho == '150']
+    probab_step_150 = df_link_probab.step[df_link_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_degree_150, label='aleatório')
     plt.plot(target_step_150, target_degree_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_degree_150, label='alvo probabilístico')
     plt.title('rho = 150')
     plt.ylabel('grau máximo')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylim(0, 4000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_degree_200 = df_link_random.max_degree[df_link_random.rho == '200']
     random_step_200 = df_link_random.step[df_link_random.rho == '200']
     target_degree_200 = df_link_target.max_degree[df_link_target.rho == '200']
     target_step_200 = df_link_target.step[df_link_target.rho == '200']
+    probab_degree_200 = df_link_probab.max_degree[df_link_probab.rho == '200']
+    probab_step_200 = df_link_probab.step[df_link_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_degree_200, label='aleatório')
     plt.plot(target_step_200, target_degree_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_degree_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylim(0, 7000)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_link_max_degree.pdf"
     plt.savefig(figure)
 
 
-def plot_link_diameter(df_link_random, df_link_target):
+def plot_link_diameter(df_link_random, df_link_target, df_link_probab):
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_diameter_0 = df_link_random.diameter[df_link_random.rho == '0']
     random_step_0 = df_link_random.step[df_link_random.rho == '0']
     target_diameter_0 = df_link_target.diameter[df_link_target.rho == '0']
     target_step_0 = df_link_target.step[df_link_target.rho == '0']
+    probab_diameter_0 = df_link_probab.diameter[df_link_probab.rho == '0']
+    probab_step_0 = df_link_probab.step[df_link_probab.rho == '0']
     plt.subplot(231)
     plt.plot(random_step_0, random_diameter_0, label='aleatório')
     plt.plot(target_step_0, target_diameter_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_diameter_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('diâmetro da rede')
     plt.ylim(0, 180)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_diameter_20 = df_link_random.diameter[df_link_random.rho == '20']
     random_step_20 = df_link_random.step[df_link_random.rho == '20']
     target_diameter_20 = df_link_target.diameter[df_link_target.rho == '20']
     target_step_20 = df_link_target.step[df_link_target.rho == '20']
+    probab_diameter_20 = df_link_probab.diameter[df_link_probab.rho == '20']
+    probab_step_20 = df_link_probab.step[df_link_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_diameter_20, label='aleatório')
     plt.plot(target_step_20, target_diameter_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_diameter_20, label='alvo probabilístico')
     plt.title('rho = 20')
     plt.ylim(0, 180)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_diameter_65 = df_link_random.diameter[df_link_random.rho == '65']
     random_step_65 = df_link_random.step[df_link_random.rho == '65']
     target_diameter_65 = df_link_target.diameter[df_link_target.rho == '65']
     target_step_65 = df_link_target.step[df_link_target.rho == '65']
+    probab_diameter_65 = df_link_probab.diameter[df_link_probab.rho == '65']
+    probab_step_65 = df_link_probab.step[df_link_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_diameter_65, label='aleatório')
     plt.plot(target_step_65, target_diameter_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_diameter_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylim(120, 180)
-    plt.legend(loc=6)
+    plt.legend(loc=6, fontsize=11)
 
     random_diameter_150 = df_link_random.diameter[df_link_random.rho == '150']
     random_step_150 = df_link_random.step[df_link_random.rho == '150']
     target_diameter_150 = df_link_target.diameter[df_link_target.rho == '150']
     target_step_150 = df_link_target.step[df_link_target.rho == '150']
+    probab_diameter_150 = df_link_probab.diameter[df_link_probab.rho == '150']
+    probab_step_150 = df_link_probab.step[df_link_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_diameter_150, label='aleatório')
     plt.plot(target_step_150, target_diameter_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_diameter_150, label='alvo probabilístico')
     plt.title('rho = 150')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylabel('diâmetro da rede')
     plt.ylim(0, 180)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     random_diameter_200 = df_link_random.diameter[df_link_random.rho == '200']
     random_step_200 = df_link_random.step[df_link_random.rho == '200']
     target_diameter_200 = df_link_target.diameter[df_link_target.rho == '200']
     target_step_200 = df_link_target.step[df_link_target.rho == '200']
+    probab_diameter_200 = df_link_probab.diameter[df_link_probab.rho == '200']
+    probab_step_200 = df_link_probab.step[df_link_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_diameter_200, label='aleatório')
     plt.plot(target_step_200, target_diameter_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_diameter_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylim(0, 180)
-    plt.legend(loc=3)
+    plt.legend(loc=3, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_link_diameter.pdf"
     plt.savefig(figure)
 
 
-def plot_link_path(df_link_random, df_link_target):
-
+def plot_link_path(df_link_random, df_link_target, df_link_probab):
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_path_0 = df_link_random.path_length[df_link_random.rho == '0']
     random_step_0 = df_link_random.step[df_link_random.rho == '0']
     target_path_0 = df_link_target.path_length[df_link_target.rho == '0']
     target_step_0 = df_link_target.step[df_link_target.rho == '0']
+    probab_path_0 = df_link_probab.path_length[df_link_probab.rho == '0']
+    probab_step_0 = df_link_probab.step[df_link_probab.rho == '0']
     plt.subplot(231)
     plt.plot(random_step_0, random_path_0, label='aleatório')
     plt.plot(target_step_0, target_path_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_path_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('caminho médio')
-    plt.ylim(54.90, 55.2)
-    plt.legend(loc=1)
+    plt.ylim(54.90, 55.1)
+    plt.legend(loc=2, fontsize=11)
 
     random_path_20 = df_link_random.path_length[df_link_random.rho == '20']
     random_step_20 = df_link_random.step[df_link_random.rho == '20']
     target_path_20 = df_link_target.path_length[df_link_target.rho == '20']
     target_step_20 = df_link_target.step[df_link_target.rho == '20']
+    probab_path_20 = df_link_probab.path_length[df_link_probab.rho == '20']
+    probab_step_20 = df_link_probab.step[df_link_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_path_20, label='aleatório')
     plt.plot(target_step_20, target_path_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_path_20, label='alvo probabilístico')
     plt.title('rho = 20')
-    plt.ylim(50.90, 51.2)
-    plt.legend(loc=1)
+    plt.ylim(50.90, 51.1)
+    plt.legend(loc=2, fontsize=11)
 
     random_path_65 = df_link_random.path_length[df_link_random.rho == '65']
     random_step_65 = df_link_random.step[df_link_random.rho == '65']
     target_path_65 = df_link_target.path_length[df_link_target.rho == '65']
     target_step_65 = df_link_target.step[df_link_target.rho == '65']
+    probab_path_65 = df_link_probab.path_length[df_link_probab.rho == '65']
+    probab_step_65 = df_link_probab.step[df_link_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_path_65, label='aleatório')
     plt.plot(target_step_65, target_path_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_path_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
-    plt.ylim(33, 36)
-    plt.legend(loc=1)
+    plt.xlabel('nº links removidos')
+    plt.ylim(33.5, 35.5)
+    plt.legend(loc=2, fontsize=11)
 
     random_path_150 = df_link_random.path_length[df_link_random.rho == '150']
     random_step_150 = df_link_random.step[df_link_random.rho == '150']
     target_path_150 = df_link_target.path_length[df_link_target.rho == '150']
     target_step_150 = df_link_target.step[df_link_target.rho == '150']
+    probab_path_150 = df_link_probab.path_length[df_link_probab.rho == '150']
+    probab_step_150 = df_link_probab.step[df_link_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_path_150, label='aleatório')
     plt.plot(target_step_150, target_path_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_path_150, label='alvo probabilístico')
     plt.title('rho = 150')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylabel('caminho médio')
     plt.ylim(24.40, 24.60)
-    plt.legend(loc=1)
+    plt.legend(loc=2, fontsize=11)
 
     random_path_200 = df_link_random.path_length[df_link_random.rho == '200']
     random_step_200 = df_link_random.step[df_link_random.rho == '200']
     target_path_200 = df_link_target.path_length[df_link_target.rho == '200']
     target_step_200 = df_link_target.step[df_link_target.rho == '200']
+    probab_path_200 = df_link_probab.path_length[df_link_probab.rho == '200']
+    probab_step_200 = df_link_probab.step[df_link_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_path_200, label='aleatório')
     plt.plot(target_step_200, target_path_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_path_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
-    plt.ylim(18.90, 19.20)
-    plt.legend(loc=1)
+    plt.xlabel('nº links removidos')
+    plt.ylim(18.90, 19.10)
+    plt.legend(loc=2, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_link_path.pdf"
     plt.savefig(figure)
 
 
-def plot_link_clusters(df_link_random, df_link_target):
+def plot_link_clusters(df_link_random, df_link_target, df_link_probab):
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(10, 6))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 7), dpi=300)
 
     random_step_0 = df_link_random.step[df_link_random.rho == '0']
     target_step_0 = df_link_target.step[df_link_target.rho == '0']
     random_cluster_0 = df_link_random.cluster_weak[df_link_random.rho == '0']
     target_cluster_0 = df_link_target.cluster_weak[df_link_target.rho == '0']
+    probab_cluster_0 = df_link_probab.cluster_weak[df_link_probab.rho == '0']
+    probab_step_0 = df_link_probab.step[df_link_probab.rho == '0']
     plt.subplot(231)
     plt.plot(random_step_0, random_cluster_0, label='aleatório')
     plt.plot(target_step_0, target_cluster_0, label='alvo determinístico')
+    plt.plot(probab_step_0, probab_cluster_0, label='alvo probabilístico')
     plt.title('rho = 0')
     plt.ylabel('componentes')
-    plt.ylim(0, 16)
-    plt.legend(loc=4)
+    plt.ylim(0, 18)
+    plt.legend(loc=3, fontsize=11)
 
     random_step_20 = df_link_random.step[df_link_random.rho == '20']
     target_step_20 = df_link_target.step[df_link_target.rho == '20']
     random_cluster_20 = df_link_random.cluster_weak[df_link_random.rho == '20']
     target_cluster_20 = df_link_target.cluster_weak[df_link_target.rho == '20']
+    probab_cluster_20 = df_link_probab.cluster_weak[df_link_probab.rho == '20']
+    probab_step_20 = df_link_probab.step[df_link_probab.rho == '20']
     plt.subplot(232)
     plt.plot(random_step_20, random_cluster_20, label='aleatório')
     plt.plot(target_step_20, target_cluster_20, label='alvo determinístico')
+    plt.plot(probab_step_20, probab_cluster_20, label='alvo probabilístico')
     plt.title('rho = 20')
-    plt.ylim(0, 16)
-    plt.legend(loc=1)
+    plt.ylim(0, 18)
+    plt.legend(loc=2, fontsize=11)
 
     random_step_65 = df_link_random.step[df_link_random.rho == '65']
     target_step_65 = df_link_target.step[df_link_target.rho == '65']
     random_cluster_65 = df_link_random.cluster_weak[df_link_random.rho == '65']
     target_cluster_65 = df_link_target.cluster_weak[df_link_target.rho == '65']
+    probab_cluster_65 = df_link_probab.cluster_weak[df_link_probab.rho == '65']
+    probab_step_65 = df_link_probab.step[df_link_probab.rho == '65']
     plt.subplot(233)
     plt.plot(random_step_65, random_cluster_65, label='aleatório')
     plt.plot(target_step_65, target_cluster_65, label='alvo determinístico')
+    plt.plot(probab_step_65, probab_cluster_65, label='alvo probabilístico')
     plt.title('rho = 65')
-    plt.xlabel('nós removidos')
-    plt.ylim(0, 16)
-    plt.legend(loc=1)
+    plt.xlabel('nº links removidos')
+    plt.ylim(0, 18)
+    plt.legend(loc=2, fontsize=11)
 
     random_step_150 = df_link_random.step[df_link_random.rho == '150']
     target_step_150 = df_link_target.step[df_link_target.rho == '150']
     random_cluster_150 = df_link_random.cluster_weak[df_link_random.rho == '150']
     target_cluster_150 = df_link_target.cluster_weak[df_link_target.rho == '150']
+    probab_cluster_150 = df_link_probab.cluster_weak[df_link_probab.rho == '150']
+    probab_step_150 = df_link_probab.step[df_link_probab.rho == '150']
     plt.subplot(234)
     plt.plot(random_step_150, random_cluster_150, label='aleatório')
     plt.plot(target_step_150, target_cluster_150, label='alvo determinístico')
+    plt.plot(probab_step_150, probab_cluster_150, label='alvo probabilístico')
     plt.title('rho = 150')
-    plt.xlabel('nós removidos')
+    plt.xlabel('nº links removidos')
     plt.ylabel('componentes')
-    plt.ylim(0, 16)
-    plt.legend(loc=1)
+    plt.ylim(0, 18)
+    plt.legend(loc=2, fontsize=11)
 
     random_step_200 = df_link_random.step[df_link_random.rho == '200']
     target_step_200 = df_link_target.step[df_link_target.rho == '200']
     random_cluster_200 = df_link_random.cluster_weak[df_link_random.rho == '200']
     target_cluster_200 = df_link_target.cluster_weak[df_link_target.rho == '200']
+    probab_cluster_200 = df_link_probab.cluster_weak[df_link_probab.rho == '200']
+    probab_step_200 = df_link_probab.step[df_link_probab.rho == '200']
     plt.subplot(235)
     plt.plot(random_step_200, random_cluster_200, label='aleatório')
     plt.plot(target_step_200, target_cluster_200, label='alvo determinístico')
+    plt.plot(probab_step_200, probab_cluster_200, label='alvo probabilístico')
     plt.title('rho = 200')
-    plt.xlabel('nós removidos')
-    plt.ylim(0, 16)
-    plt.legend(loc=1)
+    plt.xlabel('nº links removidos')
+    plt.ylim(0, 18)
+    plt.legend(loc=2, fontsize=11)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_link_clusters.pdf"
@@ -1363,21 +1542,23 @@ def plot_link_clusters(df_link_random, df_link_target):
 
 # link_random = data_frame_link_random()
 # link_target = data_frame_link_target()
+# link_probab = data_frame_link_probab()
 
-# plot_link_max_degree(link_random, link_target)
-# plot_link_diameter(link_random, link_target)
-# plot_link_path(link_random, link_target)
-# plot_link_clusters(link_random, link_target)
+# plot_link_max_degree(link_random, link_target, link_probab)
+# plot_link_diameter(link_random, link_target, link_probab)
+# plot_link_path(link_random, link_target, link_probab)
+# plot_link_clusters(link_random, link_target, link_probab)
 
 
 ############################################################################
 # Comparison NODE vs LINK scenarios plots
 ############################################################################
 
-def plot_node_versus_link(df_target, df_link_target):
+def plot_versus_deterministic(df_target, df_link_target):
+
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(11, 3))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 3.5), dpi=300)
 
     node_target_step_65 = df_target.step[df_target.rho == '65']
     node_target_cluster_65 = df_target.cluster_weak[df_target.rho == '65']
@@ -1386,8 +1567,8 @@ def plot_node_versus_link(df_target, df_link_target):
     plt.subplot(131)
     plt.plot(node_target_step_65, node_target_cluster_65, label='nós')
     plt.plot(target_step_65, target_cluster_65, label='links')
-    plt.title('estratégia alvo determinístico rho 65 (a)')
-    plt.xlabel('nós removidos')
+    plt.title('alvo determinístico rho 65 (a)')
+    plt.xlabel('nº elementos removidos')
     plt.ylabel('componentes')
     plt.ylim(0, 60)
     plt.legend(loc=4)
@@ -1399,8 +1580,8 @@ def plot_node_versus_link(df_target, df_link_target):
     plt.subplot(132)
     plt.plot(node_target_step_65, node_target_path_65, label='nós')
     plt.plot(target_step_65, target_path_65, label='links')
-    plt.title('estratégia alvo determinístico rho 65 (b)')
-    plt.xlabel('nós removidos')
+    plt.title('alvo determinístico rho 65 (b)')
+    plt.xlabel('nº elementos removidos')
     plt.ylabel('caminho médio')
     plt.ylim(0, 70)
     plt.legend(loc=4)
@@ -1412,42 +1593,103 @@ def plot_node_versus_link(df_target, df_link_target):
     plt.subplot(133)
     plt.plot(node_target_step_65, node_target_diameter_65, label='nós')
     plt.plot(target_step_65, target_diameter_65, label='links')
-    plt.title('estratégia alvo determinístico rho 65 (c)')
-    plt.xlabel('nós removidos')
+    plt.title('alvo determinístico rho 65 (c)')
+    plt.xlabel('nº elementos removidos')
     plt.ylabel('diâmetro da rede')
-    plt.ylim(0, 200)
+    plt.ylim(0, 220)
     plt.legend(loc=4)
 
-    plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
-    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_versus_global.pdf"
-    plt.savefig(figure)
+    plt.tight_layout(pad=0.4)
+    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_versus_determ.pdf"
+    plt.savefig(figure, box_inches='tight')
 
 
-def plot_node_max_link(df_target, df_link_target):
+def plot_versus_probabilistic(df_probab, df_link_probab):
 
     sns.set_style("darkgrid")
-    sns.set_context("talk", font_scale=0.8, rc={"lines.linewidth": 1.5})
-    plt.figure(facecolor="white", figsize=(5, 3))
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 3.5), dpi=300)
+
+    node_target_step_65 = df_probab.step[df_probab.rho == '65']
+    node_target_cluster_65 = df_probab.cluster_weak[df_probab.rho == '65']
+    target_step_65 = df_link_probab.step[df_link_probab.rho == '65']
+    target_cluster_65 = df_link_probab.cluster_weak[df_link_probab.rho == '65']
+    plt.subplot(131)
+    plt.plot(node_target_step_65, node_target_cluster_65, label='nós')
+    plt.plot(target_step_65, target_cluster_65, label='links')
+    plt.title('alvo probabilístico rho 65 (a)')
+    plt.xlabel('nº elementos removidos')
+    plt.ylabel('componentes')
+    plt.ylim(0, 60)
+    plt.legend(loc=1)
+
+    node_target_path_65 = df_probab.path_length[df_probab.rho == '65']
+    node_target_step_65 = df_probab.step[df_probab.rho == '65']
+    target_path_65 = df_link_probab.path_length[df_link_probab.rho == '65']
+    target_step_65 = df_link_probab.step[df_link_probab.rho == '65']
+    plt.subplot(132)
+    plt.plot(node_target_step_65, node_target_path_65, label='nós')
+    plt.plot(target_step_65, target_path_65, label='links')
+    plt.title('alvo probabilístico rho 65 (b)')
+    plt.xlabel('nº elementos removidos')
+    plt.ylabel('caminho médio')
+    plt.ylim(0, 70)
+    plt.legend(loc=1)
+
+    node_target_diameter_65 = df_probab.diameter[df_probab.rho == '65']
+    node_target_step_65 = df_probab.step[df_probab.rho == '65']
+    target_diameter_65 = df_link_probab.diameter[df_link_probab.rho == '65']
+    target_step_65 = df_link_probab.step[df_link_probab.rho == '65']
+    plt.subplot(133)
+    plt.plot(node_target_step_65, node_target_diameter_65, label='nós')
+    plt.plot(target_step_65, target_diameter_65, label='links')
+    plt.title('alvo probabilístico rho 65 (c)')
+    plt.xlabel('nº elementos removidos')
+    plt.ylabel('diâmetro da rede')
+    plt.ylim(0, 220)
+    plt.legend(loc=1)
+
+    plt.tight_layout(pad=0.4)
+    figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_versus_probab.pdf"
+    plt.savefig(figure, box_inches='tight')
+
+
+def plot_node_max_link(df_target, df_link_target, df_probab, df_link_probab):
+
+    sns.set_style("darkgrid")
+    sns.set_context("talk", font_scale=1, rc={"lines.linewidth": 1.5})
+    plt.figure(facecolor="white", figsize=(12, 4), dpi=300)
 
     node_target_degree_65 = df_target.max_degree[df_target.rho == '65']
     node_target_step_65 = df_target.step[df_target.rho == '65']
     target_degree_65 = df_link_target.max_degree[df_link_target.rho == '65']
     target_step_65 = df_link_target.step[df_link_target.rho == '65']
-    plt.subplot(111)
+    plt.subplot(121)
     plt.plot(node_target_step_65, node_target_degree_65, label='nós')
     plt.plot(target_step_65, target_degree_65, label='links')
-    plt.title('estratégia alvo determinístico rho 65')
-    plt.xlabel('nós removidos')
+    plt.title('alvo determinístico rho 65')
+    plt.xlabel('nº elementos removidos')
     plt.ylabel('grau máximo')
-
-    # plt.ylim(0, 1200)
     plt.legend(loc=1)
+
+    node_probab_degree_65 = df_probab.max_degree[df_probab.rho == '65']
+    node_probab_step_65 = df_probab.step[df_probab.rho == '65']
+    probab_degree_65 = df_link_probab.max_degree[df_link_probab.rho == '65']
+    probab_step_65 = df_link_probab.step[df_link_probab.rho == '65']
+    plt.subplot(122)
+    plt.plot(node_probab_step_65, node_probab_degree_65, label='nós')
+    plt.plot(probab_step_65, probab_degree_65, label='links')
+    plt.title('alvo probabilístico rho 65')
+    plt.xlabel('nº elementos removidos')
+    plt.ylabel('grau máximo')
+    plt.legend(loc=4)
+    plt.ylim(0, 1200)
 
     plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.5)
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_versus_max.pdf"
     plt.savefig(figure)
 
-# plot_node_versus_link(node_target, link_target)
-# plot_node_max_link(node_target, link_target)
+# plot_versus_deterministic(node_target, link_target)
+# plot_versus_probabilistic(node_probab, link_probab)
 
-
+# plot_node_max_link(node_target, link_target, node_probab, link_probab)
