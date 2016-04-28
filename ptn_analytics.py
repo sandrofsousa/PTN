@@ -1689,6 +1689,7 @@ def plot_node_max_link(df_target, df_link_target, df_probab, df_link_probab):
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/attack_versus_max.pdf"
     plt.savefig(figure)
 
+
 # plot_versus_deterministic(node_target, link_target)
 # plot_versus_probabilistic(node_probab, link_probab)
 
