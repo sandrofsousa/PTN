@@ -12,9 +12,8 @@ These findings support two main characteristics observed in the literature such 
 of robustness under random failure but are vulnerable to targeted attacks on important nodes or links.
 
 ## This code is part of a research in the field of Complex Networks applied to the study of Public transport network
-## of São Paulo / Brasil. This is not a finished project, the code is partial and being developed.
+## of São Paulo / Brasil. Please read the License file for permissions of use.
 
 ### For any question, please contact:
 
 sandrofsousa@gmail.com
-@sandrofsousa

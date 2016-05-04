@@ -263,10 +263,10 @@ def attack_scenarios():
     for rho in tqdm(radius):
         graph = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % rho
         # attack_node_targeted(graph, rho, interactions)
-        attack_node_targeted_prob(graph, rho, interactions)
+        # attack_node_targeted_prob(graph, rho, interactions)
         # attack_node_random(graph, rho, interactions)
         # attack_link_targeted(graph, rho, interactions)
-        attack_link_targeted_prob(graph, rho, interactions)
+        # attack_link_targeted_prob(graph, rho, interactions)
         # attack_link_random(graph, rho, interactions)
     # cut_articulation_points()
 

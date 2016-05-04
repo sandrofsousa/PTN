@@ -1,6 +1,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import numpy as np
 from csv import reader
 from igraph import *
 import powerlaw
@@ -312,22 +313,15 @@ def plot_hist_path_5(df3):
     freq_200 = df3.freq_norm[df3.rho == 200]
 
     with sns.color_palette("muted"):
-        plt.plot(path_0, freq_0, 'b', label='rho 0', alpha=.3)
-        plt.fill_between(path_0, freq_0, color='b', alpha=.3)
-        plt.plot(path_20, freq_20, 'g', label='rho 20', alpha=.7)
-        plt.fill_between(path_20, freq_20, color='g', alpha=.5)
-        plt.plot(path_65, freq_65, 'r', label='rho 65', alpha=.7)
-        plt.fill_between(path_65, freq_65, color='r', alpha=.7)
-        plt.plot(path_150, freq_150, 'c', label='rho 150', alpha=1)
-        plt.fill_between(path_150, freq_150, color='c', alpha=1)
-        plt.plot(path_200, freq_200, 'm', label='rho 200', alpha=1)
-        plt.fill_between(path_200, freq_200, color='m', alpha=1)
+        plt.fill_between(path_0, freq_0, label='rho 0', color='.1', alpha=1)
+        plt.fill_between(path_20, freq_20, label='rho 20', color='.25', alpha=.9)
+        plt.fill_between(path_65, freq_65, label='rho 65', color='.45', alpha=.9)
+        plt.fill_between(path_150, freq_150, label='rho 150', color='.65', alpha=1)
+        plt.fill_between(path_200, freq_200, label='rho 200', color='.8', alpha=1)
         plt.xlabel('comprimento caminho médio')
         plt.ylabel('frequência')
         plt.legend()
 
-    # plt.xlabel('caminho médio')
-    # plt.ylabel('frequência')
     figure = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/Latex/fig/plot_hist_path_5.pdf"
     plt.savefig(figure, bbox_inches='tight', dpi=300)
 
@@ -1692,5 +1686,50 @@ def plot_node_max_link(df_target, df_link_target, df_probab, df_link_probab):
 
 # plot_versus_deterministic(node_target, link_target)
 # plot_versus_probabilistic(node_probab, link_probab)
-
 # plot_node_max_link(node_target, link_target, node_probab, link_probab)
+
+
+def draw_graph():
+
+    # Create the graph
+    graph_65 = Graph.Read_GraphML(
+        "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net200.graphml")
+
+
+    visual_style = {}
+
+    # Scale vertices based on degree
+    outdegree = graph_65.outdegree()
+    visual_style["vertex_size"] = [x / max(outdegree) for x in outdegree]
+
+    # Set bbox and margin
+    visual_style["bbox"] = (800, 800)
+    visual_style["margin"] = 100
+    visual_style["dpi"] = 300
+
+    # Define colors used for outdegree visualization
+    colours = ['#fecc5c', '#a31a1c']
+
+    # Order vertices in bins based on outdegree
+    bins = np.linspace(0, max(outdegree), len(colours))
+    digitized_degrees = np.digitize(outdegree, bins)
+
+    # Set colors according to bins
+    graph_65.vs["color"] = [colours[x - 1] for x in digitized_degrees]
+
+    # Also color the edges
+    # for ind, color in enumerate(graph_65.vs["color"]):
+    #     edges = graph_65.es.select(_source=ind)
+    #     edges["color"] = [color]
+
+    # Don't curve the edges
+    visual_style["edge_curved"] = False
+
+    # Choose the layout
+    N = len(graph_65.vs())
+    visual_style["layout"] = graph_65.layout_fruchterman_reingold(maxiter=1000, area=N ** 3, repulserad=N ** 3)
+
+    # Plot the graph
+    plot(graph_65, **visual_style)
+
+draw_graph()
