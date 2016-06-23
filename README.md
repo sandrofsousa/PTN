@@ -11,8 +11,7 @@ phenomenon, as well as the average length of paths indicates the small-world pro
 These findings support two main characteristics observed in the literature such networks: They have a high rate
 of robustness under random failure but are vulnerable to targeted attacks on important nodes or links.
 
-## This code is part of a research in the field of Complex Networks applied to the study of Public transport network
-## of São Paulo / Brasil. Please read the License file for permissions of use.
+## This code is part of a research in the field of Complex Networks applied to the study of Public transport network of São Paulo / Brasil. Please read the License file for permissions of use.
 
 ### For any question, please contact:
 
