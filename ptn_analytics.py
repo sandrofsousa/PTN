@@ -313,11 +313,11 @@ def plot_hist_path_5(df3):
     freq_200 = df3.freq_norm[df3.rho == 200]
 
     with sns.color_palette("muted"):
-        plt.fill_between(path_0, freq_0, label='rho 0', color='.1', alpha=1)
-        plt.fill_between(path_20, freq_20, label='rho 20', color='.25', alpha=.9)
-        plt.fill_between(path_65, freq_65, label='rho 65', color='.45', alpha=.9)
-        plt.fill_between(path_150, freq_150, label='rho 150', color='.65', alpha=1)
-        plt.fill_between(path_200, freq_200, label='rho 200', color='.8', alpha=1)
+        plt.fill_between(path_0, freq_0, label='rho 0', color='#045a8d', alpha=1)
+        plt.fill_between(path_20, freq_20, label='rho 20', color='#2b8cbe', alpha=.9)
+        plt.fill_between(path_65, freq_65, label='rho 65', color='#74a9cf', alpha=.9)
+        plt.fill_between(path_150, freq_150, label='rho 150', color='#a6bddb', alpha=1)
+        plt.fill_between(path_200, freq_200, label='rho 200', color='#d0d1e6', alpha=1)
         plt.xlabel('comprimento caminho médio')
         plt.ylabel('frequência')
         plt.legend()
@@ -534,7 +534,7 @@ def get_max_degree_nodes():
 # plot_node_measures(data_frame1())
 # plot_hist_degree(data_frame2())
 # plot_hist_path(data_frame3(data_frame1()))
-# plot_hist_path_5(data_frame3(data_frame1()))
+plot_hist_path_5(data_frame3(data_frame1()))
 # plot_power_law0()
 # plot_power_law20()
 # plot_power_law65()
@@ -1732,4 +1732,4 @@ def draw_graph():
     # Plot the graph
     plot(graph_65, **visual_style)
 
-draw_graph()
+# draw_graph()
