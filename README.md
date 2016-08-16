@@ -1,17 +1,29 @@
-# Empirical Analysis and Modeling of Urban Public Transport Network of São Paulo
+#Study of properties and robustness of the public transport network of São Paulo
 
-Every complex system has an inherent network that represent the structural relationship between its elements,
-and a convenient way to interpret this interaction is through the graph theory.
-In this work, the urban public transport network of São Paulo is reinterpreted as a complex network,
-abstracting its operational details and focusing on connectivity.
-Using the resulted graph, a characterisation of the statistical properties of the network is performed.
-Further, we propose a model that permit to simulate the network vulnerabilities, with the purpose to get a
-topology and structure that increases the robustness. The node degree distribution shows evidence of scale-free
-phenomenon, as well as the average length of paths indicates the small-world property.
-These findings support two main characteristics observed in the literature such networks: They have a high rate
-of robustness under random failure but are vulnerable to targeted attacks on important nodes or links.
 
-## This code is part of a research in the field of Complex Networks applied to the study of Public transport network of São Paulo / Brasil. Please read the License file for permissions of use.
+Complex systems are characteristic by having an internal network representing
+the structural relationship between its elements and a natural way to interpret
+this interaction is through a graph. In this work, the urban public transport
+system of São Paulo is reinterpreted as a coupled (bus and subway) complex
+network, bypassing operational details and focusing on connectivity. Using the
+empirically generated graph, a statistical characterisation is made by network
+metrics where different radius values are used to group nearby stops and
+stations that were disconnected before. That can be interpreted as a public
+policy tool, representing the user's willingness to get around the nearest
+point to access transportation. This process has shown that increasing this
+willingness generates great reduction in the distance and in the number of
+jumps between buses, trains and subways lines to achieve all the network 
+destinations. An exploratory model is used to test the robustness of the
+network by randomly, deterministically and preferentially targeting the stops
+and service lines. According to the grouping radius, aka willingness, different
+fragmentation values were obtained under attack simulations. These findings
+support two main characteristics observed in such networks literature: they
+have a high degree of robustness to random failures, but are vulnerable to
+targeted attacks.
+
+##This code is part of a Master's research in the field of Complex Networks \
+applied to the study of the Public transport network of São Paulo / Brasil. \
+Please read the License file for permissions of use.
 
 ### For any question, please contact:
 

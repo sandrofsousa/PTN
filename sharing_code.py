@@ -10,7 +10,9 @@ from tqdm import tqdm
 start = time()
 
 """
-Suggested folder structure for code execution:
+#  ----------------- CODE FOR GROUPING PROCESS AND GRAPH GENERATION -----------------
+
+Suggested folder structure for code execution, some changes could be required:
 
 \
 /gtfs/      - GTFS files to be analysed     (required)
@@ -247,6 +249,8 @@ end = time()
 elapsed = ((end - start) / 60) / 60
 print("Run time: " + str(elapsed))
 
+"""
+#  ----------------- CODE FOR ATTACK SIMULATIONS -----------------
 
 # __author__ = 'sandrofsousa'
 
@@ -254,6 +258,7 @@ print("Run time: " + str(elapsed))
 # from random import choice
 # from time import time
 # from tqdm import tqdm
+"""
 
 start = time()
 

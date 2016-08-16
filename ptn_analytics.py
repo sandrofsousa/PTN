@@ -313,11 +313,11 @@ def plot_hist_path_5(df3):
     freq_200 = df3.freq_norm[df3.rho == 200]
 
     with sns.color_palette("muted"):
-        plt.fill_between(path_0, freq_0, label='rho 0', color='#045a8d', alpha=1)
-        plt.fill_between(path_20, freq_20, label='rho 20', color='#2b8cbe', alpha=.9)
-        plt.fill_between(path_65, freq_65, label='rho 65', color='#74a9cf', alpha=.9)
-        plt.fill_between(path_150, freq_150, label='rho 150', color='#a6bddb', alpha=1)
-        plt.fill_between(path_200, freq_200, label='rho 200', color='#d0d1e6', alpha=1)
+        plt.fill_between(path_0, freq_0, label='rho = 0', color='#045a8d', alpha=1)
+        plt.fill_between(path_20, freq_20, label='rho = 20', color='#2b8cbe', alpha=.9)
+        plt.fill_between(path_65, freq_65, label='rho = 65', color='#74a9cf', alpha=.9)
+        plt.fill_between(path_150, freq_150, label='rho = 150', color='#a6bddb', alpha=1)
+        plt.fill_between(path_200, freq_200, label='rho = 200', color='#d0d1e6', alpha=1)
         plt.xlabel('comprimento caminho médio')
         plt.ylabel('frequência')
         plt.legend()
@@ -342,9 +342,9 @@ def plot_power_law0():
 
     fit = powerlaw.Fit(result_0)
     fit.distribution_compare('power_law', 'lognormal')
-    fig = fit.plot_pdf(linewidth=3, label='Dado empírico')
+    fig = fit.plot_pdf(ls='none', marker='o', ms='6', label='Dado empírico')
     fit.power_law.plot_pdf(ax=fig, color='r', linestyle='--', label='Power law fit')
-    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle='--', label='Lognormal fit')
+    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle=':', label='Lognormal fit')
 
     fig.set_ylabel(u"p(k)")
     fig.set_xlabel("grau (k)")
@@ -372,9 +372,9 @@ def plot_power_law20():
 
     fit = powerlaw.Fit(result_20)
     fit.distribution_compare('power_law', 'lognormal')
-    fig = fit.plot_pdf(linewidth=3, label='Dado empírico')
+    fig = fit.plot_pdf(ls='none', marker='o', ms='6', label='Dado empírico')
     fit.power_law.plot_pdf(ax=fig, color='r', linestyle='--', label='Power law fit')
-    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle='--', label='Lognormal fit')
+    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle=':', label='Lognormal fit')
 
     fig.set_ylabel(u"p(k)")
     fig.set_xlabel("grau (k)")
@@ -402,9 +402,9 @@ def plot_power_law65():
 
     fit = powerlaw.Fit(result_65)
     fit.distribution_compare('power_law', 'lognormal')
-    fig = fit.plot_pdf(linewidth=3, label='Dado empírico')
+    fig = fit.plot_pdf(ls='none', marker='o', ms='6', label='Dado empírico')
     fit.power_law.plot_pdf(ax=fig, color='r', linestyle='--', label='Power law fit')
-    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle='--', label='Lognormal fit')
+    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle=':', label='Lognormal fit')
 
     fig.set_ylabel(u"p(k)")
     fig.set_xlabel("grau (k)")
@@ -432,9 +432,9 @@ def plot_power_law150():
 
     fit = powerlaw.Fit(result_150)
     fit.distribution_compare('power_law', 'lognormal')
-    fig = fit.plot_pdf(linewidth=3, label='Dado empírico')
+    fig = fit.plot_pdf(ls='none', marker='o', ms='6', label='Dado empírico')
     fit.power_law.plot_pdf(ax=fig, color='r', linestyle='--', label='Power law fit')
-    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle='--', label='Lognormal fit')
+    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle=':', label='Lognormal fit')
 
     fig.set_ylabel(u"p(k)")
     fig.set_xlabel("grau (k)")
@@ -461,9 +461,9 @@ def plot_power_law200():
 
     fit = powerlaw.Fit(result_200)
     fit.distribution_compare('power_law', 'lognormal')
-    fig = fit.plot_pdf(linewidth=3, label='Dado empírico')
+    fig = fit.plot_pdf(ls='none', marker='o', ms='6', label='Dado empírico')
     fit.power_law.plot_pdf(ax=fig, color='r', linestyle='--', label='Power law fit')
-    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle='--', label='Lognormal fit')
+    fit.lognormal.plot_pdf(ax=fig, color='g', linestyle=':', label='Lognormal fit')
 
     fig.set_ylabel(u"p(k)")
     fig.set_xlabel("grau (k)")
@@ -534,7 +534,7 @@ def get_max_degree_nodes():
 # plot_node_measures(data_frame1())
 # plot_hist_degree(data_frame2())
 # plot_hist_path(data_frame3(data_frame1()))
-plot_hist_path_5(data_frame3(data_frame1()))
+# plot_hist_path_5(data_frame3(data_frame1()))
 # plot_power_law0()
 # plot_power_law20()
 # plot_power_law65()
