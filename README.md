@@ -1,6 +1,5 @@
 #Study of properties and robustness of the public transport network of São Paulo
 
-
 Complex systems are characteristic by having an internal network representing
 the structural relationship between its elements and a natural way to interpret
 this interaction is through a graph. In this work, the urban public transport
@@ -21,12 +20,16 @@ support two main characteristics observed in such networks literature: they
 have a high degree of robustness to random failures, but are vulnerable to
 targeted attacks.
 
-###This code is part of a Master's research in the field of Complex Networks
-applied to the study of the Public transport network of São Paulo/Brasil.
+**This code is part of a Master's research in the field of Complex Systems and
+Complex Networks with application to the study of Public transportation network
+of São Paulo/Brasil.**
 
 Please read the License file for terms of use.
 
-### For any question, please contact:
+**For any question, please contact:**
 
 sandrofsousa@gmail.com
+
 @sandrofsousa
+
+https://www.researchgate.net/profile/Sandro_Sousa3
