@@ -20,16 +20,16 @@ support two main characteristics observed in such networks literature: they
 have a high degree of robustness to random failures, but are vulnerable to
 targeted attacks.
 
+
 **This code is part of a Master's research in the field of Complex Systems and
 Complex Networks with application to the study of Public transportation network
 of São Paulo/Brasil.**
 
-Please read the License file for terms of use.
 
-**For any question, please contact:**
+Please read the License file for terms of use.  
 
-sandrofsousa@gmail.com
 
-@sandrofsousa
-
+**For any question, please contact:**  
+sandrofsousa@gmail.com  
+[@sandrofsousa](https://twitter.com/sandrofsousa)  
 https://www.researchgate.net/profile/Sandro_Sousa3
