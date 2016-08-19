@@ -1,0 +1,4 @@
+# notebook
+*.ipynb
+__pycache__
+.idea
