@@ -15,7 +15,7 @@ def get_stops_coordinates():
     Function to read GTFS file as input and get latitude and longitude from stops using a simple parsing,
     output a list with all stops and its respective coordinates.
     """
-    file = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stops.txt"
+    file = "gtfs/stops.txt"
     geodata = []
     with open(file, "r", newline='') as data:
         searcher = reader(data, delimiter=',', quotechar='"')  # Parse data using csv based on ',' position
@@ -121,7 +121,7 @@ def update_stop_times(grouped_dict):
     """
     Read stop_times file and replace the current stop_id on route sequence with new id from grouped dictionary.
     """
-    stop_times = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/gtfs/stop_times.txt"
+    stop_times = "gtfs/stop_times.txt"
     new_stop_times = []
     with open(stop_times, "r", newline='') as times:
         searcher = reader(times, delimiter=',', quotechar='"')  # Parse data using csv based on ',' position.
@@ -157,19 +157,19 @@ def main():
     """
     geodata = get_stops_coordinates()
     radius = list(range(0, 205, 5))
-    result = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/radius_0to200.txt"
+    result = "result/radius_0to200.txt"
     with open(result, "w") as target:
         for rho in tqdm(radius):
 
             neighbors = get_neighbors(rho, geodata)
             # Save neighbors dict to file for further verification. File's name with text variable for current rho.
-            file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/neighbors/neighbor%s.txt" % str(rho)
+            file1 = "result/neighbor%s.txt" % str(rho)
             with open(file1, "w") as data1:
                 data1.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in neighbors.items()))
 
             grouped = group_stops(neighbors)
             # Save grouped dictionary to file for further verification. File's name with text variable for current rho.
-            file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/groups/grouped%s.txt" % str(rho)
+            file2 = "result/grouped%s.txt" % str(rho)
             with open(file2, "w") as data2:
                 data2.write('\n'.join('{},{}'.format(x2[0], x2[1]) for x2 in grouped.items()))
 
@@ -177,7 +177,7 @@ def main():
 
             edges = create_edge_list(times)
             # Save edge lists to file for further verification. File's name with text variable for current rho.
-            file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/edges%s.txt" % str(rho)
+            file3 = "result/edges%s.txt" % str(rho)
             with open(file3, "w") as data3:
                 data3.write('\n'.join('{},{},{}'.format(x3[0], x3[1], x3[2]) for x3 in edges))
 
@@ -210,20 +210,20 @@ def main():
             # Write histograms and degrees to file for further analysis.
             histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
             degree_seq = list(ptn.degree(mode=ALL, loops=True))
-            file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/histogram/hist%s.txt" % str(rho)
-            file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/degrees/deg%s.txt" % str(rho)
+            file4 = "result/histogram%s.txt" % str(rho)
+            file5 = "result/degree%s.txt" % str(rho)
             with open(file4, "w") as data4, open(file5, "w") as data5:
                 data4.write('\n'.join('{},{},{}'.format(x4[0], x4[1], x4[2]) for x4 in histogram))
                 data5.write('\n'.join('{}'.format(x5) for x5 in degree_seq))
 
             #  Write path length histogram do file for further analysis.
             path_hist = list(ptn.path_length_hist(directed=True).bins())
-            file6 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/paths/path%s.txt" % str(rho)
+            file6 = "result/path%s.txt" % str(rho)
             with open(file6, "w") as data6:
                 data6.write('\n'.join('{},{},{}'.format(x6[0], x6[1], x6[2]) for x6 in path_hist))
 
             # Write graphml file for network recreation.
-            file7 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/edges/net%s.graphml" % str(rho)
+            file7 = "result/net%s.graphml" % str(rho)
             ptn.write_graphml(file7)
 
 
@@ -233,27 +233,27 @@ def write_file():
     run time 6.991623584429423 min
     """
     rho = 0
-    file1 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/geodata%s.txt" % str(rho)
+    file1 = "result/geodata%s.txt" % str(rho)
     geodata = get_stops_coordinates()
     with open(file1, "w", newline='') as data1:
         data1.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in geodata))
 
-    file2 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/neighbors%s.txt" % str(rho)
+    file2 = "result/neighbors%s.txt" % str(rho)
     neighbors = get_neighbors(rho, geodata)
     with open(file2, "w", newline='') as data2:
         data2.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in neighbors.items()))
 
-    file3 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/grouped%s.txt" % str(rho)
+    file3 = "result/grouped%s.txt" % str(rho)
     grouped = group_stops(neighbors)
     with open(file3, "w", newline='') as data3:
         data3.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in grouped.items()))
 
-    file4 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/times%s.txt" % str(rho)
+    file4 = "result/times%s.txt" % str(rho)
     times = update_stop_times(grouped)
     with open(file4, "w", newline='') as data4:
         data4.write('\n'.join('{},{}'.format(x1[0], x1[1]) for x1 in times))
 
-    file5 = "/Users/sandrofsousa/Google Drive/Mestrado USP/Dissertação/PTN Data/validate/edges%s.txt" % str(rho)
+    file5 = "result/edges%s.txt" % str(rho)
     edges = create_edge_list(times)
     with open(file5, "w", newline='') as data5:
         data5.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in edges))
