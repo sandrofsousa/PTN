@@ -37,6 +37,7 @@ https://www.researchgate.net/profile/Sandro_Sousa3
 
 **Instructions:**
 
+* Python 3.5 required, not tested on 2.7
 * Place your GTFS data in the corresponding folder named _gtfs_  
 * Add a folder named _result_ to store data from simulations  
 * Check file path and adjust it according to your needs  
