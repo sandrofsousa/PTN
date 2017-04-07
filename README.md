@@ -1,4 +1,4 @@
-#Study of properties and robustness of the public transport network of São Paulo
+# Study of properties and robustness of the public transport network of São Paulo
 
 Complex systems are characteristic by having an internal network representing
 the structural relationship between its elements and a natural way to interpret
@@ -20,29 +20,25 @@ support two main characteristics observed in such networks literature: they
 have a high degree of robustness to random failures, but are vulnerable to
 targeted attacks.
 
-
 **This code is part of a Master's research in the field of Complex Systems and
 Complex Networks with application to the study of Public transportation network
 of São Paulo/Brasil.**
 
+Full Theses text at [ReasearchGate](https://www.researchgate.net/publication/304946197_Estudo_das_propriedades_e_robustez_da_rede_de_transporte_publico_de_Sao_Paulo)
 
-Please read the License file for terms of use.  
+Please read the License file for terms of use of this code.  
 
-
-**For any question, please contact:**  
+### For any question, please contact:
 sandrofsousa@gmail.com  
 [@sandrofsousa](https://twitter.com/sandrofsousa)  
 https://www.researchgate.net/profile/Sandro_Sousa3
 
 
-**Instructions:**
-
-* Python 3.5 required, not tested on 2.7
-* Place your GTFS data in the corresponding folder named _gtfs_  
-* Add a folder named _result_ to store data from simulations  
+### Instructions:
+* `Python 3.5` required, not tested on 2.7
+* Place your `GTFS` data in the corresponding folder named _gtfs_  
+* Add a folder named `result` to store data from simulations  
 * Check file path and adjust it according to your needs  
 
 For more Information about GTFS format, please check:  
 https://developers.google.com/transit/gtfs/
-
-
