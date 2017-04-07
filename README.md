@@ -1,5 +1,7 @@
 # Study of properties and robustness of the public transport network of São Paulo
 
+[![DOI](https://zenodo.org/badge/24470228.svg)](https://zenodo.org/badge/latestdoi/24470228)
+
 Complex systems are characteristic by having an internal network representing
 the structural relationship between its elements and a natural way to interpret
 this interaction is through a graph. In this work, the urban public transport
