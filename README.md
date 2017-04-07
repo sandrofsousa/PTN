@@ -24,7 +24,7 @@ targeted attacks.
 Complex Networks with application to the study of Public transportation network
 of São Paulo/Brasil.**
 
-Full Theses text at [ReasearchGate](https://www.researchgate.net/publication/304946197_Estudo_das_propriedades_e_robustez_da_rede_de_transporte_publico_de_Sao_Paulo)
+Thesis full text available at [ReasearchGate](https://www.researchgate.net/publication/304946197_Estudo_das_propriedades_e_robustez_da_rede_de_transporte_publico_de_Sao_Paulo)
 
 Please read the License file for terms of use of this code.  
 
