@@ -186,30 +186,31 @@ def main():
             ptn["name"] = "PTN Sao Paulo, rho: %s" % str(rho)
 
             # Perform respective graph calculation and save to file
+            loops = False
             target.write(str([
-                rho,                                                  # Rho value
-                ptn.vcount(),                                         # Total nodes
-                ptn.ecount(),                                         # Total links
-                ptn.maxdegree(vertices=None, mode=ALL, loops=True),   # Max degree
-                ptn.diameter(directed=True, unconn=True),             # Network diameter
-                sts.mean(ptn.degree(mode=ALL, loops=True)),           # Mean degree ALL
-                sts.mean(ptn.degree(mode=IN, loops=True)),            # Mean degree IN
-                sts.mean(ptn.degree(mode=OUT, loops=True)),           # Mean degree OUT
-                sts.median(ptn.degree(mode=ALL, loops=True)),         # Median degree ALL
-                sts.median(ptn.degree(mode=IN, loops=True)),          # Median degree IN
-                sts.median(ptn.degree(mode=OUT, loops=True)),         # Median degree OUT
-                sts.pvariance(ptn.degree(mode=ALL, loops=True)),      # Variance deviation ALL
-                sts.pstdev(ptn.degree(mode=ALL, loops=True)),         # Standard deviation ALL
-                ptn.average_path_length(directed=True, unconn=True),  # Avg path length
-                len(ptn.clusters(mode=WEAK)),                         # Number of clusters WEAK
-                len(ptn.clusters(mode=STRONG)),                       # Number of clusters STRONG
-                ptn.assortativity_degree(directed=True),              # Assortativity
-                ptn.transitivity_undirected(),                        # Clustering coefficient
-                ptn.density()]) + "\n")                               # Network Density
+                rho,                                                   # Rho value
+                ptn.vcount(),                                          # Total nodes
+                ptn.ecount(),                                          # Total links
+                ptn.maxdegree(vertices=None, mode=ALL, loops=loops),   # Max degree
+                ptn.diameter(directed=True, unconn=True),              # Network diameter
+                sts.mean(ptn.degree(mode=ALL, loops=loops)),           # Mean degree ALL
+                sts.mean(ptn.degree(mode=IN, loops=loops)),            # Mean degree IN
+                sts.mean(ptn.degree(mode=OUT, loops=loops)),           # Mean degree OUT
+                sts.median(ptn.degree(mode=ALL, loops=loops)),         # Median degree ALL
+                sts.median(ptn.degree(mode=IN, loops=loops)),          # Median degree IN
+                sts.median(ptn.degree(mode=OUT, loops=loops)),         # Median degree OUT
+                sts.pvariance(ptn.degree(mode=ALL, loops=loops)),      # Variance deviation ALL
+                sts.pstdev(ptn.degree(mode=ALL, loops=loops)),         # Standard deviation ALL
+                ptn.average_path_length(directed=True, unconn=True),   # Avg path length
+                len(ptn.clusters(mode=WEAK)),                          # Number of clusters WEAK
+                len(ptn.clusters(mode=STRONG)),                        # Number of clusters STRONG
+                ptn.assortativity_degree(directed=True),               # Assortativity
+                ptn.transitivity_undirected(),                         # Clustering coefficient
+                ptn.density()]) + "\n")                                # Network Density
 
             # Write histograms and degrees to file for further analysis.
-            histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=True).bins())
-            degree_seq = list(ptn.degree(mode=ALL, loops=True))
+            histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=loops).bins())
+            degree_seq = list(ptn.degree(mode=ALL, loops=loops))
             file4 = "result/histogram%s.txt" % str(rho)
             file5 = "result/degree%s.txt" % str(rho)
             with open(file4, "w") as data4, open(file5, "w") as data5:
@@ -259,8 +260,8 @@ def write_file():
         data5.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in edges))
 
 
-# main()
+main()
 
 end = time()
-elapsed = ((end - start) / 60) / 60
-print("Run time: " + str(elapsed))
+elapsed = (end - start) / 60
+print("Run time: " + str(elapsed) + 'minutes')
