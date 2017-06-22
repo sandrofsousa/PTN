@@ -185,9 +185,12 @@ def main():
             ptn = Graph.TupleList(edges, directed=True, vertex_name_attr="name", edge_attrs="trip")
             ptn["name"] = "PTN Sao Paulo, rho: %s" % str(rho)
 
-            # Perform respective graph calculation and save to file
+            # This line will remove self loops, a True assign set for deletion
+            ptn.simplify(multiple=False, loops=True, combine_edges=None)
+
+            # Compute graph metrics and save results to file
             loops = False
-            target.write(str([
+            target.write(','.join(map(str, [
                 rho,                                                   # Rho value
                 ptn.vcount(),                                          # Total nodes
                 ptn.ecount(),                                          # Total links
@@ -206,7 +209,8 @@ def main():
                 len(ptn.clusters(mode=STRONG)),                        # Number of clusters STRONG
                 ptn.assortativity_degree(directed=True),               # Assortativity
                 ptn.transitivity_undirected(),                         # Clustering coefficient
-                ptn.density()]) + "\n")                                # Network Density
+                ptn.density(),                                         # Network Density
+                "\n"])))
 
             # Write histograms and degrees to file for further analysis.
             histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=loops).bins())
