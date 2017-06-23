@@ -3,11 +3,8 @@ __author__ = 'sandrofsousa'
 from csv import reader
 from math import sin, cos, sqrt, atan2, radians
 from igraph import *
-from time import time
 import statistics as sts
 from tqdm import tqdm
-
-start = time()
 
 
 def get_stops_coordinates():
@@ -209,8 +206,7 @@ def main():
                 len(ptn.clusters(mode=STRONG)),                        # Number of clusters STRONG
                 ptn.assortativity_degree(directed=True),               # Assortativity
                 ptn.transitivity_undirected(),                         # Clustering coefficient
-                ptn.density(),                                         # Network Density
-                "\n"])))
+                str(ptn.density()) + '\n'])))                          # Network Density
 
             # Write histograms and degrees to file for further analysis.
             histogram = list(ptn.degree_distribution(bin_width=1, mode="all", loops=loops).bins())
@@ -265,7 +261,3 @@ def write_file():
 
 
 main()
-
-end = time()
-elapsed = (end - start) / 60
-print("Run time: " + str(elapsed) + 'minutes')
