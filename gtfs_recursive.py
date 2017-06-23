@@ -259,5 +259,5 @@ def write_file():
     with open(file5, "w", newline='') as data5:
         data5.write('\n'.join('{},{},{}'.format(x1[0], x1[1], x1[2]) for x1 in edges))
 
-
+# call main function
 main()
