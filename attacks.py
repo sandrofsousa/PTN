@@ -3,7 +3,6 @@ __author__ = 'sandrofsousa'
 from igraph import *
 from random import choice
 from tqdm import tqdm
-
 loops = False
 
 
@@ -256,13 +255,13 @@ def cut_articulation_points():
             result.write(str(rho) + "," + str(listing) + "\n")
 
 
-def attack_scenarios(radius, interactions=1000):
+def attack_scenarios(rho_list, interactions=1000):
     """
     Function to run all attack scenarios for different values of rho processed before. It controls the networks
     to be analysed and the number of interactions the delete process will be removing nodes or links.
     """
 
-    for rho in tqdm(radius):
+    for rho in tqdm(rho_list):
         graph = "result/net%s.graphml" % rho
         attack_node_targeted(graph, rho, interactions)
         attack_node_targeted_prob(graph, rho, interactions)
@@ -271,7 +270,6 @@ def attack_scenarios(radius, interactions=1000):
         attack_link_targeted_prob(graph, rho, interactions)
         attack_link_random(graph, rho, interactions)
     cut_articulation_points()
-
 
 # call main function
 #attack_scenarios()
