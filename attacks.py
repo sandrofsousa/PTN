@@ -5,7 +5,6 @@ from random import choice
 from tqdm import tqdm
 
 loops = False
-#TODO analyse networks again and choose new targets
 
 
 def attack_node_targeted(file_input, rho, interactions):
@@ -257,14 +256,11 @@ def cut_articulation_points():
             result.write(str(rho) + "," + str(listing) + "\n")
 
 
-def attack_scenarios():
+def attack_scenarios(radius, interactions=1000):
     """
     Function to run all attack scenarios for different values of rho processed before. It controls the networks
     to be analysed and the number of interactions the delete process will be removing nodes or links.
-    Run time: 41.11158872803052 hs
     """
-    radius = [20]
-    interactions = 2
 
     for rho in tqdm(radius):
         graph = "result/net%s.graphml" % rho
@@ -278,6 +274,4 @@ def attack_scenarios():
 
 
 # call main function
-attack_scenarios()
-
-
+#attack_scenarios()
